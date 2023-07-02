@@ -1,0 +1,24 @@
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 0px; /* Added */
+    margin-top: 0px;
+    display:flex;
+    text-align: center;
+    color: black;
+    
+    
+}
+
+#notloggedin {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    margin-top: 200px;
+    display:flex;
+    
+
+}
+
+
+

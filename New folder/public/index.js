@@ -11,9 +11,7 @@ function Spa() {
             <Route path="/deposit/" component={Deposit} />
             <Route path="/withdraw/" component={Withdraw} />
             {/* <Route path="/transactions/" component={Transactions} /> */}
-           {/* <Route path="/balance/" component={Balance} /> 
-           
-           why does this path work*/}
+            <Route path="/balance/" component={Balance} />
             <Route path="/search/" component={Balance} />
             <Route path="/searchtest/" component={Balance} />
             <Route path="/alldata/" component={AllData} />
