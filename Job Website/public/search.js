@@ -4,8 +4,9 @@ function Balance(){
 
   return (
     <Card
-      bgcolor="info"
+      bgcolor="light"
       header="Balance"
+      txtcolor="black"
       status={status}
       body={show ?
         <BalanceForm setShow={setShow} setStatus={setStatus}/> :
@@ -17,9 +18,10 @@ function Balance(){
 
 function BalanceMsg(props){
   return(<>
+ 
     <h5>Success</h5>
     <button type="submit" 
-      className="btn btn-dark" 
+      className="btn btn-outline-dark" 
       onClick={() => {
         props.setShow(true);
         props.setStatus('');
@@ -39,10 +41,9 @@ function BalanceForm(props){
     .then(text => {
         try {
             const data = JSON.parse(text);
-            //props.setStatus('');
-            props.setStatus("Your new balance is " + (data.balance) +".");
+            props.setStatus(text);
             props.setShow(false);
-            //setBalance(user.balance);
+            setBalance(user.balance);
             console.log('JSON:', data);
         } catch(err) {
             props.setStatus(text)
@@ -61,9 +62,9 @@ function BalanceForm(props){
       onChange={e => setEmail(e.currentTarget.value)}/><br/>
 
     <button type="submit" 
-      className="btn btn-dark" 
+      className="btn btn-outline-dark" 
       onClick={handle}>
-        Check Balance
+        Search Jobs
     </button>
 
   </>);

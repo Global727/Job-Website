@@ -17,16 +17,16 @@ function NavBar(){
                 <a class="nav-link" href="#">FAQ</a>
             </li>
             <li>
-            <a class="nav-link" href="post.html">Login</a>
+            <a class="nav-link" href="#/createaccount/">Post</a>
         </li>    
         <li>
             <a class="nav-link" href="#/alldata/">All Jobs</a>
         </li> 
         <li>
-            <a class="nav-link" href="createaccount.js">All</a>
+            <a class="nav-link" href="#/search/">search</a>
         </li> 
         <li>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" href="">Post a Job</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" href="#/createaccount/">Post a Job</button>
         </li>
           
             <li>

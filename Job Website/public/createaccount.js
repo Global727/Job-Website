@@ -73,5 +73,5 @@ function CreateForm(props){
       className="btn btn-light" 
       onClick={handle}>Create Account</button>
 
-  </> );<button id="googlelogin">Login</button>
+  </> );
 }

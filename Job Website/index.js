@@ -3,6 +3,8 @@ var app     = express();
 var cors    = require('cors');
 var dal     = require('./dal.js');
 const e = require('express');
+const port = 3000;
+
 
 // used to serve static files from public directory
 app.use(express.static('public'));
@@ -98,6 +100,7 @@ app.get('/account/all', function (req, res) {
     });
 });
 
-var port = app.listen(process.env.PORT || 3000);;
+//Heroku var port = app.listen(process.env.PORT || 3000);
 app.listen(port);
-console.log('Running on port: ' + port);
+console.log(`Running on on port: ${port}`)
+//console.log('Running on port: ' + port);

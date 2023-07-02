@@ -4,7 +4,8 @@ let db            = null;
  
 // connect to mongo
 MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
-    console.log("Connected successfully to db server");
+    console.log("Connected successfully to Monogodb server")
+    console.log("Website URL: http://127.0.0.1:3000/#/ ");
 
     // connect to myproject database
     db = client.db('myproject');

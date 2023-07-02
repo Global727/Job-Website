@@ -4,7 +4,7 @@ function Balance(){
 
   return (
     <Card
-      bgcolor="info"
+      bgcolor="dark"
       header="Balance"
       status={status}
       body={show ?
@@ -39,10 +39,9 @@ function BalanceForm(props){
     .then(text => {
         try {
             const data = JSON.parse(text);
-            //props.setStatus('');
-            props.setStatus("Your new balance is " + (data.balance) +".");
+            props.setStatus(text);
             props.setShow(false);
-            //setBalance(user.balance);
+            setBalance(user.balance);
             console.log('JSON:', data);
         } catch(err) {
             props.setStatus(text)
