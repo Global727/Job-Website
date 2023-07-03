@@ -57,15 +57,28 @@ function BalanceForm(props){
   return (<>
 
     Email<br/>
-    <select type="select" 
+    <select
+      type="select" 
+      as="select"
       className="form-select" 
-      placeholder="Enter email" 
-      value="1"
-      value="2"
+      placeholder="Enter email">
+      <option value="1">a</option>
+      <option value="1">a</option>
+      <option value="1">a</option>
+      <option value="1">a</option>
+      <option value="1">a</option>
+      <option value="1">a</option>
+      <option value="1">a</option>
+      <option value="1">a</option>
+      <option value="1">a</option>
+      <option value="1">a</option>
+      <option value="1">a</option>
+
      
       
       value={email} 
-      onChange={e => setEmail(e.currentTarget.value)}/><br/>
+      onChange={e => setEmail(e.currentTarget.value)}</select><br/>
+
 
 
     <button type="submit" 
