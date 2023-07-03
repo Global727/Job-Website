@@ -13,20 +13,18 @@ function NavBar(){
               
             </ul>
            <ul class="navbar-nav me-righht mt-2 mt-lg-0"> 
+           
             <li>
-                <a class="nav-link" href="#">FAQ</a>
-            </li>
-            <li>
-            <a class="nav-link" href="#/createaccount/">Post</a>
+            <a class="nav-link" href="#/createlisting/">Post</a>
         </li>    
+        <li>
+            <a class="nav-link" href="#/search/">Search</a>
+        </li> 
         <li>
             <a class="nav-link" href="#/alldata/">All Jobs</a>
         </li> 
         <li>
-            <a class="nav-link" href="#/search/">search</a>
-        </li> 
-        <li>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" href="#/createaccount/">Post a Job</button>
+            <a class="nav-link btn btn-outline-success my-2 my-sm-0" href="#/createlisting/">Post a Job</a>
         </li>
           
             <li>

@@ -7,7 +7,7 @@ function Balance(){
 
   return (
     <Card
-      bgcolor="info"
+      bgcolor="light"
       header="Balance"
       status={status}
       body={show ?
@@ -27,7 +27,7 @@ function BalanceMsg(props){
         props.setShow(true);
         props.setStatus('');
       }}>
-        Check balance again search
+        Search Again
     </button>
   </>);
 }
@@ -43,7 +43,7 @@ function BalanceForm(props){
         try {
             const data = JSON.parse(text);
             //props.setStatus('');
-            props.setStatus("Your new balance is " + (data.balance) +".");
+            props.setStatus("Your Result is " + (data.balance) +".");
             props.setShow(false);
             //setBalance(user.balance);
             console.log('JSON:', data);
@@ -56,23 +56,33 @@ function BalanceForm(props){
 
   return (<>
 
-    Email<br/>
+    Enter Skills Below<br/>
     <select
       type="select" 
       as="select"
       className="form-select" 
-      placeholder="Enter email">
-      <option value="1">a</option>
-      <option value="1">a</option>
-      <option value="1">a</option>
-      <option value="1">a</option>
-      <option value="1">a</option>
-      <option value="1">a</option>
-      <option value="1">a</option>
-      <option value="1">a</option>
-      <option value="1">a</option>
-      <option value="1">a</option>
-      <option value="1">a</option>
+      placeholder="Enter Job Here">
+      <option selected>Choose Coding Language</option>
+        <option value="3">HMTL</option>
+        <option value="1">Javascript</option>
+        <option value="2">Java</option>
+        <option value="3">CSS</option>
+        <option value="3">SASS</option>
+        <option value="3">SCSS</option>
+        <option value="3">React.js</option>
+        <option value="3">React Native</option>
+        <option value="3">AngularJS</option>
+        <option value="3">Vue</option>
+        <option value="3">TypeScript</option>
+        <option value="3">PHP</option>
+        <option value="3">Python</option>
+        <option value="3">Django</option>
+        <option value="3">Flask</option>
+        <option value="3">Ruby</option>
+        <option value="3">Jekyll</option>
+        <option value="3">Swift</option>
+        <option value="3">Objective C</option>
+        <option value="3">Scala</option>
 
      
       
@@ -80,11 +90,18 @@ function BalanceForm(props){
       onChange={e => setEmail(e.currentTarget.value)}</select><br/>
 
 
+      <input type="input" 
+      className="form-control" 
+      placeholder="Enter language" 
+      value={email} 
+      onChange={e => setEmail(e.currentTarget.value)}/><br/>
+
+
 
     <button type="submit" 
       className="btn btn-dark" 
       onClick={handle}>
-        Check Balance s
+        Search Jobs
     </button>
 
   </>);

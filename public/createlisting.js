@@ -4,7 +4,7 @@ function CreateAccount(){
 
   return (
     <Card
-      bgcolor="primary"
+      bgcolor="light"
       header="Create Account"
       status={status}
       body={show ? 
@@ -17,14 +17,14 @@ function CreateAccount(){
 function CreateMsg(props){
   return(<>
    <div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">Logged In</h4>
-  <p>You can now navigate around and utlize the website</p>
+  <h4 class="alert-heading">Listing Created</h4>
+  <p>Thanks For Using Coding.Jobs</p>
   
   <p class="mb-10"> </p>
   <button type="submit" 
       className="btn btn-light" 
       onClick={() => props.setShow(true)}>
-        Sign Out
+        View Listing
     </button>
 </div>
   </>);
@@ -48,21 +48,21 @@ function CreateForm(props){
 
   return (<>
 
-    Name<br/>
+    Business Name<br/>
     <input type="input" 
       className="form-control" 
       placeholder="Enter name" 
       value={name} 
       onChange={e => setName(e.currentTarget.value)} /><br/>
 
-    Email address<br/>
+    Job Description<br/>
     <input type="input" 
       className="form-control" 
       placeholder="Enter email" 
       value={email} 
       onChange={e => setEmail(e.currentTarget.value)}/><br/>
 
-    Password<br/>
+    Languages<br/>
     <input type="password" 
       className="form-control" 
       placeholder="Enter password" 
@@ -71,7 +71,7 @@ function CreateForm(props){
 
     <button type="submit" 
       className="btn btn-light" 
-      onClick={handle}>Create Account</button>
+      onClick={handle}>Create Listing</button>
 
   </> );
 }
