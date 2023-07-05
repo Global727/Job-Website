@@ -12,10 +12,10 @@ MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
 });
 
 // create user account
-function create(name, email, password){
+function create(name, desc, lang){
     return new Promise((resolve, reject) => {    
         const collection = db.collection('users');
-        const doc = {name, email, password, balance: 0};
+        const doc = {name, desc, lang, balance: 0};
         collection.insertOne(doc, {w:1}, function(err, result) {
             err ? reject(err) : resolve(doc);
         });    
@@ -23,11 +23,11 @@ function create(name, email, password){
 }
 
 // find user account
-function find(email){
+function find(desc){
     return new Promise((resolve, reject) => {    
         const customers = db
             .collection('users')
-            .find({email: email})
+            .find({desc: desc})
             .toArray(function(err, docs) {
                 err ? reject(err) : resolve(docs);
         });    
@@ -35,23 +35,23 @@ function find(email){
 }
 
 // find user account
-function findOne(email){
+function findOne(desc){
     return new Promise((resolve, reject) => {    
         const customers = db
             .collection('users')
-            .findOne({email: email})
+            .findOne({desc: desc})
             .then((doc) => resolve(doc))
             .catch((err) => reject(err));    
     })
 }
 
 // update - deposit/withdraw amount
-function update(email, amount){
+function update(desc, amount){
     return new Promise((resolve, reject) => {    
         const customers = db
             .collection('users')            
             .findOneAndUpdate(
-                {email: email},
+                {desc: desc},
                 { $inc: { balance: amount}},
                 { returnOriginal: false },
                 function (err, documents) {

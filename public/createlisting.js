@@ -32,12 +32,12 @@ function CreateMsg(props){
 
 function CreateForm(props){
   const [name, setName]         = React.useState('');
-  const [email, setEmail]       = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [desc, setDesc]       = React.useState('');
+  const [lang, setLang] = React.useState('');
 
   function handle(){
-    console.log(name,email,password);
-    const url = `/account/create/${name}/${email}/${password}`;
+    console.log(name,desc,lang);
+    const url = `/account/create/${name}/${desc}/${lang}`;
     (async () => {
         var res  = await fetch(url);
         var data = await res.json();    
@@ -58,16 +58,16 @@ function CreateForm(props){
     Job Description<br/>
     <input type="input" 
       className="form-control" 
-      placeholder="Enter email" 
-      value={email} 
-      onChange={e => setEmail(e.currentTarget.value)}/><br/>
+      placeholder="Enter Description" 
+      value={desc} 
+      onChange={e => setDesc(e.currentTarget.value)}/><br/>
 
     Languages<br/>
     <input type="password" 
       className="form-control" 
-      placeholder="Enter password" 
-      value={password} 
-      onChange={e => setPassword(e.currentTarget.value)}/><br/>
+      placeholder="Enter Language" 
+      value={lang} 
+      onChange={e => setLang(e.currentTarget.value)}/><br/>
 
     <button type="submit" 
       className="btn btn-light" 

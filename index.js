@@ -11,10 +11,10 @@ app.use(express.static('public'));
 app.use(cors());
 
 // create user account
-app.get('/account/create/:name/:email/:password', function (req, res) {
+app.get('/account/create/:name/:desc/:lang', function (req, res) {
 
     // check if account exists
-    dal.find(req.params.email).
+    dal.find(req.params.desc).
         then((users) => {
 
             // if user exists, return error message
@@ -24,7 +24,7 @@ app.get('/account/create/:name/:email/:password', function (req, res) {
             }
             else{
                 // else create user
-                dal.create(req.params.name,req.params.email,req.params.password).
+                dal.create(req.params.name,req.params.desc,req.params.lang).
                     then((user) => {
                         console.log(user);
                         res.send(user);            
@@ -36,14 +36,14 @@ app.get('/account/create/:name/:email/:password', function (req, res) {
 
 
 // login user 
-app.get('/account/login/:email/:password', function (req, res) {
+app.get('/account/login/:desc/:lang', function (req, res) {
 
-    dal.find(req.params.email).
+    dal.find(req.params.desc).
         then((user) => {
 
             // if user exists, check password
             if(user.length > 0){
-                if (user[0].password === req.params.password){
+                if (user[0].lang === req.params.lang){
                     res.send(user[0]);
                 }
                 else{
@@ -58,9 +58,9 @@ app.get('/account/login/:email/:password', function (req, res) {
 });
 
 // find user account
-app.get('/account/find/:email', function (req, res) {
+app.get('/account/find/:desc', function (req, res) {
 
-    dal.find(req.params.email).
+    dal.find(req.params.desc).
         then((user) => {
             console.log(user);
             res.send(user);
@@ -68,9 +68,9 @@ app.get('/account/find/:email', function (req, res) {
 });
 
 // find one user by email - alternative to find
-app.get('/account/findOne/:email', function (req, res) {
+app.get('/account/findOne/:desc', function (req, res) {
 
-    dal.findOne(req.params.email).
+    dal.findOne(req.params.desc).
         then((user) => {
             console.log(user);
             res.send(user);
@@ -79,11 +79,11 @@ app.get('/account/findOne/:email', function (req, res) {
 
 
 // update - deposit/withdraw amount
-app.get('/account/update/:email/:amount', function (req, res) {
+app.get('/account/update/:desc/:amount', function (req, res) {
 
     var amount = Number(req.params.amount);
 
-    dal.update(req.params.email, amount).
+    dal.update(req.params.desc, amount).
         then((response) => {
             console.log(response);
             res.send(response);
