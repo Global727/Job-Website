@@ -23,11 +23,11 @@ function create(name, desc, lang){
 }
 
 // find user account
-function find(desc){
+function find(lang, lang2, lang3){
     return new Promise((resolve, reject) => {    
         const customers = db
             .collection('users')
-            .find({desc: desc})
+            .find({lang: lang, lang2: lang2, lang3: lang3})
             .toArray(function(err, docs) {
                 err ? reject(err) : resolve(docs);
         });    
@@ -35,11 +35,11 @@ function find(desc){
 }
 
 // find user account
-function findOne(desc){
+function findOne(lang){
     return new Promise((resolve, reject) => {    
         const customers = db
             .collection('users')
-            .findOne({desc: desc})
+            .findOne({lang: lang})
             .then((doc) => resolve(doc))
             .catch((err) => reject(err));    
     })

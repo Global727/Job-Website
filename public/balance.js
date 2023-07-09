@@ -33,17 +33,17 @@ function BalanceMsg(props){
 }
 
 function BalanceForm(props){
-  const [desc, setDesc]   = React.useState('');
+  const [lang, setLang]   = React.useState('');
   const [balance, setBalance] = React.useState('');  
 
   function handle(){
-    fetch(`/account/findOne/${desc}`)
+    fetch(`/account/findOne/${lang}`)
     .then(response => response.text())
     .then(text => {
         try {
             const data = JSON.parse(text);
             //props.setStatus('');
-            props.setStatus("Your Result is " + (data.balance) +".");
+            props.setStatus("Your Result is " + (data.name) +".");
             props.setShow(false);
             //setBalance(user.balance);
             console.log('JSON:', data);
@@ -57,11 +57,15 @@ function BalanceForm(props){
   return (<>
 
     Enter Skills Below<br/>
-    <select
-      type="select" 
-      as="select"
+    
+    <select 
+      //type="select" 
+      //as="select"
       className="form-select" 
-      placeholder="Enter Job Here">
+      placeholder="Enter Job Here"
+      value={lang} 
+      onChange={e => setLang(e.currentTarget.value)}> 
+      
       <option selected>Choose Coding Language</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
@@ -83,20 +87,13 @@ function BalanceForm(props){
         <option value="Swift">Swift</option>
         <option value="Objective C">Objective C</option>
         <option value="Scala">Scala</option>
+        <option value='a'>a</option>
 
      
       
-      value={desc} 
-      onChange={e => setDesc(e.currentTarget.value)}</select><br/>
-
-
-      <input type="input" 
-      className="form-control" 
-      placeholder="Enter language" 
-      value={desc} 
-      onChange={e => setDesc(e.currentTarget.value)}/><br/>
-
-
+     
+      
+      </select><br/>
 
     <button type="submit" 
       className="btn btn-dark" 

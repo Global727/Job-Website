@@ -63,7 +63,7 @@ function CreateForm(props){
       onChange={e => setDesc(e.currentTarget.value)}/><br/>
 
     Languages<br/>
-    <input type="password" 
+    <input type="input" 
       className="form-control" 
       placeholder="Enter Language" 
       value={lang} 
