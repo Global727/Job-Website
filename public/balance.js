@@ -59,8 +59,6 @@ function BalanceForm(props){
     Enter Skills Below<br/>
     
     <select 
-      //type="select" 
-      //as="select"
       className="form-select" 
       placeholder="Enter Job Here"
       value={lang} 
