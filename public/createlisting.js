@@ -35,6 +35,7 @@ function CreateForm(props){
   const [desc, setDesc]       = React.useState('');
   const [degree, setDegree]   = React.useState('');
   const [manage, setManage]   = React.useState('');
+ 
   const [lang1, setLang1]     = React.useState('');
   const [lang2, setLang2]     = React.useState('');
   const [lang3, setLang3]     = React.useState('');
@@ -47,8 +48,8 @@ function CreateForm(props){
   const [lang10, setLang10]   = React.useState('');
 
   function handle(){
-    console.log(name,desc,lang1);
-    const url = `/account/create/${name}/${desc}/${lang1}`;
+    console.log(name,desc,degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
+    const url = `/account/create/${name}/${desc}/${degree}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
     (async () => {
         var res  = await fetch(url);
         var data = await res.json();    
@@ -72,7 +73,7 @@ function CreateForm(props){
       placeholder="Enter Description" 
       value={desc} 
       onChange={e => setDesc(e.currentTarget.value)}/><br/>
-
+  
     Experience<br/>
 
     <input type="input" 
@@ -80,73 +81,413 @@ function CreateForm(props){
       placeholder="Degree Level?" 
       value={degree} 
       onChange={e => setDegree(e.currentTarget.value)}/><br/>
-        
+
     <input type="input" 
       className="form-control" 
-      placeholder="Management Experience?" 
+      placeholder="Degree Level?" 
       value={manage} 
       onChange={e => setManage(e.currentTarget.value)}/><br/>
 
+        <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang1} 
+      onChange={e => setLang1(e.currentTarget.value)}> 
+      
+      <option selected>Choose Coding Language</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+
+         <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang2} 
+      onChange={e => setLang2(e.currentTarget.value)}> 
+      
+      <option selected>Choose Additional Coding Language (Optional)</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+   
+
+
+      <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang3} 
+      onChange={e => setLang3(e.currentTarget.value)}> 
+      
+      <option selected>Choose Additional Coding Language (Optional)</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+   
+
+
+      <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang4} 
+      onChange={e => setLang4(e.currentTarget.value)}> 
+      
+      <option selected>Choose Additional Coding Language (Optional)</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+   
+
+
+      <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang5} 
+      onChange={e => setLang5(e.currentTarget.value)}> 
+      
+      <option selected>Choose Additional Coding Language (Optional)</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+   
+
+
+      <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang6} 
+      onChange={e => setLang6(e.currentTarget.value)}> 
+      
+      <option selected>Choose Additional Coding Language (Optional)</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+   
+
+
+      <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang7} 
+      onChange={e => setLang7(e.currentTarget.value)}> 
+      
+      <option selected>Choose Additional Coding Language (Optional)</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+   
+
+
+      <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang8} 
+      onChange={e => setLang8(e.currentTarget.value)}> 
+      
+      <option selected>Choose Additional Coding Language (Optional)</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+   
+
+
+      <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang9} 
+      onChange={e => setLang9(e.currentTarget.value)}> 
+      
+      <option selected>Choose Additional Coding Language (Optional)</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+   
+
+
+      <select 
+      className="form-select" 
+      placeholder="Enter Job Here"
+      value={lang10} 
+      onChange={e => setLang10(e.currentTarget.value)}> 
+      
+      <option selected>Choose Additional Coding Language (Optional)</option>
+        <option value="HTML">HMTL</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Java">Java</option>
+        <option value="CSS">CSS</option>
+        <option value="SASS">SASS</option>
+        <option value="SCSS">SCSS</option>
+        <option value="React.js">React.js</option>
+        <option value="React Native">React Native</option>
+        <option value="AngularJS">AngularJS</option>
+        <option value="Vue">Vue</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="Flask">Flask</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Jekyll">Jekyll</option>
+        <option value="Swift">Swift</option>
+        <option value="Objective C">Objective C</option>
+        <option value="Scala">Scala</option>
+        <option value='a'>a</option>
+
+      </select><br/>
+
+
+
+
+
+
+
+
+
+
+
+        
+ {/*
     <input type="input" 
       className="form-control" 
       placeholder="Enter Language" 
       value={lang1} 
       onChange={e => setLang1(e.currentTarget.value)}/><br/>
-
+  
+    
     <input type="input" 
       className="form-control" 
       placeholder="Enter Additional Language (Optional)" 
       value={lang2} 
       onChange={e => setLang2(e.currentTarget.value)}/><br/>
 
-<input type="input" 
+    <input type="input" 
       className="form-control" 
       placeholder="Enter Additional Language (Optional)" 
       value={lang3} 
       onChange={e => setLang3(e.currentTarget.value)}/><br/>
 
-<input type="input" 
+    <input type="input" 
       className="form-control" 
       placeholder="Enter Additional Language (Optional)" 
       value={lang4} 
       onChange={e => setLang4(e.currentTarget.value)}/><br/>
 
-<input type="input" 
+    <input type="input" 
       className="form-control" 
       placeholder="Enter Additional Language (Optional)" 
       value={lang5} 
       onChange={e => setLang5(e.currentTarget.value)}/><br/>
 
-<input type="input" 
+    <input type="input" 
       className="form-control" 
       placeholder="Enter Additional Language (Optional)" 
       value={lang6} 
       onChange={e => setLang6(e.currentTarget.value)}/><br/>
 
-<input type="input" 
+    <input type="input" 
       className="form-control" 
       placeholder="Enter Additional Language (Optional)" 
       value={lang7} 
       onChange={e => setLang7(e.currentTarget.value)}/><br/>
 
-<input type="input" 
+    <input type="input" 
       className="form-control" 
       placeholder="Enter Additional Language (Optional)" 
       value={lang8} 
       onChange={e => setLang8(e.currentTarget.value)}/><br/>
 
-<input type="input" 
+    <input type="input" 
       className="form-control" 
       placeholder="Enter Additional Language (Optional)" 
       value={lang9} 
       onChange={e => setLang9(e.currentTarget.value)}/><br/>
 
-<input type="input" 
+    <input type="input" 
       className="form-control" 
       placeholder="Enter Additional Language (Optional)" 
       value={lang10} 
-      onChange={e => setLang10(e.currentTarget.value)}/><br/>
-
+  onChange={e => setLang10(e.currentTarget.value)}/><br/> 
+  
+  */}
     <button type="submit" 
       className="btn btn-light" 
       onClick={handle}>Create Listing</button>

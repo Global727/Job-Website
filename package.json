@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": {
     "node": "18.7.0"
-    },
+  },
   "scripts": {
     "start": "node index.js"
   },
@@ -13,13 +13,15 @@
   "license": "",
   "dependencies": {
     "cors": "^2.8.4",
-    "docker": "^1.0.0",
+    "docker": "^0.2.14",
     "express": "^4.16.3",
-    "firebase": "^9.9.3",
+    "firebase": "^8.6.8",
     "firebase-admin": "^11.0.1",
     "lowdb": "^1.0.0",
     "mongodb": "^3.7.3",
     "mongosh": "^1.5.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "serve": "^14.0.1"
   }
 }

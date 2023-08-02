@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.use(cors());
 
 // create user account
-app.get('/account/create/:name/:desc/:lang', function (req, res) {
+app.get('/account/create/:name/:desc/:degree/:manage/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
 
     // check if account exists
     dal.find(req.params.desc).
@@ -24,7 +24,7 @@ app.get('/account/create/:name/:desc/:lang', function (req, res) {
             }
             else{
                 // else create user
-                dal.create(req.params.name,req.params.desc,req.params.lang).
+                dal.create(req.params.name,req.params.desc,req.params.degree,req.params.manage,req.params.lang1,req.params.lang2,req.params.lang3,req.params.lang4,req.params.lang5,req.params.lang6,req.params.lang7,req.params.lang8,req.params.lang9,req.params.lang10).
                     then((user) => {
                         console.log(user);
                         res.send(user);            
@@ -36,7 +36,7 @@ app.get('/account/create/:name/:desc/:lang', function (req, res) {
 
 
 // login user 
-app.get('/account/login/:desc/:lang', function (req, res) {
+app.get('/account/create/:name/:desc/:degree/:manage/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
 
     dal.find(req.params.desc).
         then((user) => {
@@ -99,6 +99,8 @@ app.get('/account/all', function (req, res) {
             res.send(docs);
     });
 });
+
+app.get('/account')
 
 //Heroku var port = app.listen(process.env.PORT || 3000);
 app.listen(port);
