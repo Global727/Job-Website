@@ -36,16 +36,16 @@ function CreateForm(props){
   const [degree, setDegree]   = React.useState('');
   const [manage, setManage]   = React.useState('');
  
-  const [lang1, setLang1]     = React.useState('');
-  const [lang2, setLang2]     = React.useState('');
-  const [lang3, setLang3]     = React.useState('');
-  const [lang4, setLang4]     = React.useState('');
-  const [lang5, setLang5]     = React.useState('');
-  const [lang6, setLang6]     = React.useState('');
-  const [lang7, setLang7]     = React.useState('');
-  const [lang8, setLang8]     = React.useState('');
-  const [lang9, setLang9]     = React.useState('');
-  const [lang10, setLang10]   = React.useState('');
+  const [lang1, setLang1]     = React.useState('none');
+  const [lang2, setLang2]     = React.useState('none');
+  const [lang3, setLang3]     = React.useState('none');
+  const [lang4, setLang4]     = React.useState('none');
+  const [lang5, setLang5]     = React.useState('none');
+  const [lang6, setLang6]     = React.useState('none');
+  const [lang7, setLang7]     = React.useState('none');
+  const [lang8, setLang8]     = React.useState('none');
+  const [lang9, setLang9]     = React.useState('none');
+  const [lang10, setLang10]   = React.useState('none');
 
   function handle(){
     console.log(name,desc,degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
@@ -63,28 +63,44 @@ function CreateForm(props){
     Business Name<br/>
     <input type="input" 
       className="form-control" 
-      placeholder="Enter name" 
+      placeholder="Enter Company Name" 
       value={name} 
       onChange={e => setName(e.currentTarget.value)} /><br/>
 
     Job Description<br/>
     <input type="input" 
       className="form-control" 
-      placeholder="Enter Description" 
+      placeholder="Enter Job/Comapny Description" 
       value={desc} 
       onChange={e => setDesc(e.currentTarget.value)}/><br/>
+
+  <input type="input" 
+      className="form-control" 
+      placeholder="Is This A Contract Job? If So How Many Months? " 
+      value={desc} 
+      onChange={e => setDesc(e.currentTarget.value)}/><br/>
+
   
-    Experience<br/>
+    Qualifications<br/>
+
+      <select
+    className="form-select"
+    placeholder="Degree Level?"
+    value={degree}
+    onChange={e => setDegree(e.currentTarget.value)}>
+
+    <option selected>Degree Level?</option>
+      <option value="AA">AA</option>
+      <option value="BS">Bachelors</option>
+      <option value="Masters">Masters</option>
+      <option value="PhD">PhD</option>
+
+    </select><br/>
+
 
     <input type="input" 
       className="form-control" 
-      placeholder="Degree Level?" 
-      value={degree} 
-      onChange={e => setDegree(e.currentTarget.value)}/><br/>
-
-    <input type="input" 
-      className="form-control" 
-      placeholder="Degree Level?" 
+      placeholder="Years of Management Experience?" 
       value={manage} 
       onChange={e => setManage(e.currentTarget.value)}/><br/>
 
@@ -94,7 +110,7 @@ function CreateForm(props){
       value={lang1} 
       onChange={e => setLang1(e.currentTarget.value)}> 
       
-      <option selected>Choose Coding Language</option>
+      <option value="Choose Coding Language" selected>Choose Coding Language</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -125,7 +141,7 @@ function CreateForm(props){
       value={lang2} 
       onChange={e => setLang2(e.currentTarget.value)}> 
       
-      <option selected>Choose Additional Coding Language (Optional)</option>
+      <option value="none" selected>Choose Additional Coding Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -158,7 +174,7 @@ function CreateForm(props){
       value={lang3} 
       onChange={e => setLang3(e.currentTarget.value)}> 
       
-      <option selected>Choose Additional Coding Language (Optional)</option>
+      <option value="none" selected>Choose Additional Coding Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -191,7 +207,7 @@ function CreateForm(props){
       value={lang4} 
       onChange={e => setLang4(e.currentTarget.value)}> 
       
-      <option selected>Choose Additional Coding Language (Optional)</option>
+      <option value="none" selected>Choose Additional Coding Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -224,7 +240,7 @@ function CreateForm(props){
       value={lang5} 
       onChange={e => setLang5(e.currentTarget.value)}> 
       
-      <option selected>Choose Additional Coding Language (Optional)</option>
+      <option value="none" selected>Choose Additional Coding Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -257,7 +273,7 @@ function CreateForm(props){
       value={lang6} 
       onChange={e => setLang6(e.currentTarget.value)}> 
       
-      <option selected>Choose Additional Coding Language (Optional)</option>
+      <option value="none" selected>Choose Additional Coding Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -290,7 +306,7 @@ function CreateForm(props){
       value={lang7} 
       onChange={e => setLang7(e.currentTarget.value)}> 
       
-      <option selected>Choose Additional Coding Language (Optional)</option>
+      <option value="none" selected>Choose Additional Coding Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -323,7 +339,7 @@ function CreateForm(props){
       value={lang8} 
       onChange={e => setLang8(e.currentTarget.value)}> 
       
-      <option selected>Choose Additional Coding Language (Optional)</option>
+      <option value="none" selected>Choose Additional Coding Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -356,7 +372,7 @@ function CreateForm(props){
       value={lang9} 
       onChange={e => setLang9(e.currentTarget.value)}> 
       
-      <option selected>Choose Additional Coding Language (Optional)</option>
+      <option value="none" selected>Choose Additional Coding Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -389,7 +405,7 @@ function CreateForm(props){
       value={lang10} 
       onChange={e => setLang10(e.currentTarget.value)}> 
       
-      <option selected>Choose Additional Coding Language (Optional)</option>
+      <option value="none" selected>Choose Additional Coding Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -425,69 +441,7 @@ function CreateForm(props){
 
 
         
- {/*
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Language" 
-      value={lang1} 
-      onChange={e => setLang1(e.currentTarget.value)}/><br/>
-  
-    
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Additional Language (Optional)" 
-      value={lang2} 
-      onChange={e => setLang2(e.currentTarget.value)}/><br/>
 
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Additional Language (Optional)" 
-      value={lang3} 
-      onChange={e => setLang3(e.currentTarget.value)}/><br/>
-
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Additional Language (Optional)" 
-      value={lang4} 
-      onChange={e => setLang4(e.currentTarget.value)}/><br/>
-
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Additional Language (Optional)" 
-      value={lang5} 
-      onChange={e => setLang5(e.currentTarget.value)}/><br/>
-
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Additional Language (Optional)" 
-      value={lang6} 
-      onChange={e => setLang6(e.currentTarget.value)}/><br/>
-
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Additional Language (Optional)" 
-      value={lang7} 
-      onChange={e => setLang7(e.currentTarget.value)}/><br/>
-
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Additional Language (Optional)" 
-      value={lang8} 
-      onChange={e => setLang8(e.currentTarget.value)}/><br/>
-
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Additional Language (Optional)" 
-      value={lang9} 
-      onChange={e => setLang9(e.currentTarget.value)}/><br/>
-
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Additional Language (Optional)" 
-      value={lang10} 
-  onChange={e => setLang10(e.currentTarget.value)}/><br/> 
-  
-  */}
     <button type="submit" 
       className="btn btn-light" 
       onClick={handle}>Create Listing</button>
