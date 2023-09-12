@@ -36,16 +36,16 @@ function CreateForm(props){
   const [degree, setDegree]   = React.useState('');
   const [manage, setManage]   = React.useState('');
  
-  const [lang1, setLang1]     = React.useState('');
-  const [lang2, setLang2]     = React.useState('');
-  const [lang3, setLang3]     = React.useState('');
-  const [lang4, setLang4]     = React.useState('');
-  const [lang5, setLang5]     = React.useState('');
-  const [lang6, setLang6]     = React.useState('');
-  const [lang7, setLang7]     = React.useState('');
-  const [lang8, setLang8]     = React.useState('');
-  const [lang9, setLang9]     = React.useState('');
-  const [lang10, setLang10]   = React.useState('');
+  const [lang1, setLang1]     = React.useState('null');
+  const [lang2, setLang2]     = React.useState('null');
+  const [lang3, setLang3]     = React.useState('null');
+  const [lang4, setLang4]     = React.useState('null');
+  const [lang5, setLang5]     = React.useState('null');
+  const [lang6, setLang6]     = React.useState('null');
+  const [lang7, setLang7]     = React.useState('null');
+  const [lang8, setLang8]     = React.useState('null');
+  const [lang9, setLang9]     = React.useState('null');
+  const [lang10, setLang10]   = React.useState('null');
 
   function handle(){
     console.log(name,desc,degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);

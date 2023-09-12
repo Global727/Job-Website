@@ -24,14 +24,13 @@ function create(name, desc, degree, manage, lang1, lang2, lang3, lang4, lang5, l
 }
 
 // find user account
-function find(degree, manage, lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10){
+function find(name, desc, degree, manage, lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10){
     return new Promise((resolve, reject) => {    
         const customers = db
             .collection('users')
-            .find({degree: degree, manage: manage, lang1: lang1, lang2: lang2, lang3: lang3, lang4: lang4, lang5: lang5, lang6: lang6, lang7: lang7, lang8: lang8, lang9: lang9, lang10: lang10})
-            .toArray(function(err, result) {
-                if (err) throw err;
-                console.log(result);
+            .find({name: name, desc: desc, degree: degree, manage: manage, lang1: lang1, lang2: lang2, lang3: lang3, lang4: lang4, lang5: lang5, lang6: lang6, lang7: lang7, lang8: lang8, lang9: lang9, lang10: lang10})
+            .toArray(function(err, docs) {
+                err ? reject(err) : resolve(docs);
         });    
     })
 }

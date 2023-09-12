@@ -13,54 +13,23 @@ app.use(cors());
 // create user account
 app.get('/account/create/:name/:desc/:degree/:manage/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
 
-    // check if account exists
-    dal.find(req.params.desc).
-        then((users) => {
-
-            // if user exists, return error message
-            if(users.length > 0){
-                console.log('User already in exists');
-                res.send('User already in exists');    
-            }
-            else{
-                // else create user
                 dal.create(req.params.name,req.params.desc,req.params.degree,req.params.manage,req.params.lang1,req.params.lang2,req.params.lang3,req.params.lang4,req.params.lang5,req.params.lang6,req.params.lang7,req.params.lang8,req.params.lang9,req.params.lang10).
                     then((user) => {
                         console.log(user);
                         res.send(user);            
                     });            
             }
-
-        });
-});
+        );
 
 
-// login user 
-app.get('/account/create/:name/:desc/:degree/:manage/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
 
-    dal.find(req.params.desc).
-        then((user) => {
 
-            // if user exists, check password
-            if(user.length > 0){
-                if (user[0].lang === req.params.lang){
-                    res.send(user[0]);
-                }
-                else{
-                    res.send('Login failed: wrong password');
-                }
-            }
-            else{
-                res.send('Login failed: user not found');
-            }
-    });
-    
-});
 
 // find user account
-app.get('/account/find/:desc', function (req, res) {
+app.get('/account/find/:degree/:manage/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
 
-    dal.find(req.params.desc).
+    dal.find(req.params.degree,req.params.manage,req.params.lang1,req.params.lang2,req.params.lang3,req.params.lang4,
+        req.params.lang5,req.params.lang6,req.params.lang7,req.params.lang8,req.params.lang9,req.params.lang10).
         then((user) => {
             console.log(user);
             res.send(user);
@@ -68,11 +37,11 @@ app.get('/account/find/:desc', function (req, res) {
 });
 
 // find one user by email - alternative to find
-app.get('/account/findOne/:desc', function (req, res) {
+app.get('/account/findOne/:degree/:manage/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
 
-    dal.findOne(req.params.desc).
+    dal.findOne(req.params.lang1).
         then((user) => {
-            console.log(user);
+            console.log(user+'index');
             res.send(user);
     });
 });
@@ -100,7 +69,7 @@ app.get('/account/all', function (req, res) {
     });
 });
 
-app.get('/account')
+
 
 //Heroku var port = app.listen(process.env.PORT || 3000);
 app.listen(port);
