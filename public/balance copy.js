@@ -1,5 +1,6 @@
 //dont know why i always have to link index.js to this one this one edits the real page 
 
+
 function Balance(){
   const [show, setShow]     = React.useState(true);
   const [status, setStatus] = React.useState('');  
@@ -7,7 +8,7 @@ function Balance(){
   return (
     <Card
       bgcolor="light"
-      header="balance"
+      header="Balance"
       status={status}
       body={show ?
         <BalanceForm setShow={setShow} setStatus={setStatus}/> :
@@ -35,45 +36,34 @@ function BalanceMsg(props){
 function BalanceForm(props){
   const [degree, setDegree]   = React.useState('');
   const [manage, setManage]   = React.useState('');
-  const [lang1, setLang1]   = React.useState('null'); 
-  const [lang2, setLang2]   = React.useState('null');
-  const [lang3, setLang3]   = React.useState('null'); 
-  const [lang4, setLang4]   = React.useState('null'); 
-  const [lang5, setLang5]   = React.useState('null'); 
-  const [lang6, setLang6]   = React.useState('null'); 
-  const [lang7, setLang7]   = React.useState('null'); 
-  const [lang8, setLang8]   = React.useState('null'); 
-  const [lang9, setLang9]   = React.useState('null'); 
-  const [lang10, setLang10]   = React.useState('null'); 
+  const [lang1, setLang1]   = React.useState(''); 
+  const [lang2, setLang2]   = React.useState('');
+  const [lang3, setLang3]   = React.useState(''); 
+  const [lang4, setLang4]   = React.useState(''); 
+  const [lang5, setLang5]   = React.useState(''); 
+  const [lang6, setLang6]   = React.useState(''); 
+  const [lang7, setLang7]   = React.useState(''); 
+  const [lang8, setLang8]   = React.useState(''); 
+  const [lang9, setLang9]   = React.useState(''); 
+  const [lang10, setLang10]   = React.useState(''); 
 
   function handle(){
-    console.log('?',degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
-    fetch(`/account/find/${degree}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
-    
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        setStatus(JSON.stringify(data));                
-    })};
-    
-    /*.then(response => response.text())
+    fetch(`/account/findOne/${lang1}`)
+    .then(response => response.text())
     .then(text => {
-      
-   
-   
         try {
             const data = JSON.parse(text);
-            props.setStatus(text);
-            props.setStatus("Your Result is " + (data.degree) +".");
+            //props.setStatus('');
+            props.setStatus("Your Result is " + (data.name) +".");
             props.setShow(false);
-            setDegree(data.degree);
+            //setBalance(user.balance);
             console.log('JSON:', data);
         } catch(err) {
             props.setStatus(text)
             console.log('err:', text);
         }
     });
-  } */
+  }
 
   return (<>
 
