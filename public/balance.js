@@ -48,23 +48,33 @@ function BalanceForm(props){
   const [lang10, setLang10]   = React.useState('null'); 
 
   function handle(){
-    console.log(degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
+    console.log('?',degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
     fetch(`/account/find/${degree}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
-    .then(response => response.text())
+    
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        setStatus(JSON.stringify(data));                
+    })};
+    
+    /*.then(response => response.text())
     .then(text => {
+      
+   
+   
         try {
             const data = JSON.parse(text);
-            //props.setStatus('');
-            props.setStatus("Your Result is " + (data.name) +".");
+            props.setStatus(text);
+            props.setStatus("Your Result is " + (data.degree) +".");
             props.setShow(false);
-            //setBalance(user.balance);
+            setDegree(data.degree);
             console.log('JSON:', data);
         } catch(err) {
             props.setStatus(text)
             console.log('err:', text);
         }
     });
-  }
+  } */
 
   return (<>
 
