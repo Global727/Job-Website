@@ -47,17 +47,17 @@ function find(degree, manage, lang1, lang2, lang3, lang4, lang5, lang6, lang7, l
 } */
 
 // find user account
-function findOne(lang){
+function findOne(lang1){
     return new Promise((resolve, reject) => {    
         const customers = db
             .collection('users')
-            .findOne({lang: lang})
+            .findOne({lang1: lang1})
             .then((doc) => resolve(doc))
             .catch((err) => reject(err));    
     })
 }
 
-// update - deposit/withdraw amount
+{/*} update - deposit/withdraw amount
 function update(desc, amount){
     return new Promise((resolve, reject) => {    
         const customers = db
@@ -73,7 +73,7 @@ function update(desc, amount){
 
 
     });    
-}
+} */}
 
 // all users
 function all(){
@@ -96,4 +96,6 @@ function all(){
 
 
 
-module.exports = {create, findOne, find, update, all};
+module.exports = {create, findOne, find, 
+    //update
+    all};

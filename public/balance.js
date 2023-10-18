@@ -1,6 +1,5 @@
 //dont know why i always have to link index.js to this one this one edits the real page 
 
-
 function Balance(){
   const [show, setShow]     = React.useState(true);
   const [status, setStatus] = React.useState('');  
@@ -8,7 +7,7 @@ function Balance(){
   return (
     <Card
       bgcolor="light"
-      header="Balance"
+      header="balance"
       status={status}
       body={show ?
         <BalanceForm setShow={setShow} setStatus={setStatus}/> :

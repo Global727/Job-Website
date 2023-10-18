@@ -18,7 +18,7 @@ function NavBar(){
             <a class="nav-link" href="#/createlisting/">Post</a>
         </li>    
         <li>
-            <a class="nav-link" href="#/search/">Search</a>
+            <a class="nav-link" href="#/balance/">Search</a>
         </li> 
         <li>
             <a class="nav-link" href="#/alldata/">All Jobs</a>
