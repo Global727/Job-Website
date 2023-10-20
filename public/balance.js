@@ -1,5 +1,3 @@
-//dont know why i always have to link index.js to this one this one edits the real page 
-
 function Balance(){
   const [show, setShow]     = React.useState(true);
   const [status, setStatus] = React.useState('');  
@@ -7,7 +5,8 @@ function Balance(){
   return (
     <Card
       bgcolor="light"
-      header="balance"
+      header="Balance"
+      txtcolor="black"
       status={status}
       body={show ?
         <BalanceForm setShow={setShow} setStatus={setStatus}/> :
@@ -33,8 +32,8 @@ function BalanceMsg(props){
 }
 
 function BalanceForm(props){
-  const [degree, setDegree]   = React.useState('');
-  const [manage, setManage]   = React.useState('');
+  const [degree, setDegree]   = React.useState('null');
+  const [manage, setManage]   = React.useState('null');
   const [lang1, setLang1]   = React.useState('null'); 
   const [lang2, setLang2]   = React.useState('null');
   const [lang3, setLang3]   = React.useState('null'); 
@@ -48,13 +47,23 @@ function BalanceForm(props){
 
   function handle(){
     console.log('?',degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
-    fetch(`/account/find/${degree}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
-    
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        setStatus(JSON.stringify(data));                
-    })};
+  fetch(`/account/find/${degree}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
+  
+    .then(response => response.text())
+    .then(text => {
+        try {
+            const data = JSON.parse(text);
+            props.setStatus(text);
+            props.setShow(false);
+            //setBalance(user.balance);
+            console.log('JSON:', data);
+        } catch(err) {
+            props.setStatus(text)
+            console.log('err:', text);
+        }
+    });
+  }
+  
     
     /*.then(response => response.text())
     .then(text => {
@@ -76,20 +85,35 @@ function BalanceForm(props){
   } */
 
   return (<>
-
+   
     Enter Skills Below<br/>
 
-    <input type="input" 
-      className="form-control" 
+    <select 
+      className="form-select" 
       placeholder="Degree Level?" 
       value={degree} 
-      onChange={e => setDegree(e.currentTarget.value)}/><br/>
+      onChange={e => setDegree(e.currentTarget.value)}><br/>
+
+<option selected>What Is Your Degree Level</option>
+        <option value="No Degree">No Degree</option>
+        <option value="a">Associate</option>
+        <option value="Bachelor">Bachelor</option>
+        <option value="Master">Master</option>
+        <option value="PhD">PhD</option>
+        </select><br/>
         
-    <input type="input" 
-      className="form-control" 
-      placeholder="Management Experience?" 
+        
+        <select 
+      className="form-select" 
+      placeholder="Management Experience?"
       value={manage} 
-      onChange={e => setManage(e.currentTarget.value)}/><br/>
+      onChange={e => setManage(e.currentTarget.value)}><br/>
+
+<option selected>Management Experience?</option>
+        <option value="a">a</option>
+        <option value="No">No</option>
+        </select><br/>
+        
     
     <select 
       className="form-select" 
@@ -433,3 +457,4 @@ function BalanceForm(props){
 
   </>);
 }
+
