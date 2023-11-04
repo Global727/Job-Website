@@ -41,7 +41,7 @@ app.get('/account/findOne/:degree/:manage/:lang1/:lang2/:lang3/:lang4/:lang5/:la
 
     dal.findOne(req.params.lang1).
         then((user) => {
-            console.log(user+'index');
+            console.log(user);
             res.send(user);
     });
 });

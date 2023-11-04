@@ -3,7 +3,7 @@ function NavBar(){
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Coding.Jobs</a>
+        <a class="navbar-brand" href="index.html">Stackjobs.us</a>
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,11 +12,7 @@ function NavBar(){
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
               
             </ul>
-           <ul class="navbar-nav me-righht mt-2 mt-lg-0"> 
-           
-            <li>
-            <a class="nav-link" href="#/createlisting/">Post</a>
-        </li>    
+           <ul class="navbar-nav me-righht mt-2 mt-lg-0">   
         <li>
             <a class="nav-link" href="index.html">Search</a>
         </li> 

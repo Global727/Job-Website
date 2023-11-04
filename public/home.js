@@ -49,7 +49,7 @@ function BalanceForm(props){
     console.log('?',degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
   fetch(`/account/find/${degree}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
   
-    .then(response => response.text())
+    /*.then(response => response.text())
     .then(text => {
         try {
             const data = JSON.parse(text);
@@ -63,9 +63,9 @@ function BalanceForm(props){
         }
     });
   }
-  
+  */
     
-    /*.then(response => response.text())
+    .then(response => response.text())
     .then(text => {
       
    
@@ -76,13 +76,13 @@ function BalanceForm(props){
             props.setStatus("Your Result is " + (data.degree) +".");
             props.setShow(false);
             setDegree(data.degree);
-            console.log('JSON:', data);
+            console.log('JSON:', data, text);
         } catch(err) {
             props.setStatus(text)
             console.log('err:', text);
         }
     });
-  } */
+  } 
 
   return (<>
    
@@ -96,8 +96,8 @@ function BalanceForm(props){
 
 <option selected>What Is Your Degree Level</option>
         <option value="No Degree">No Degree</option>
-        <option value="a">Associate</option>
-        <option value="Bachelor">Bachelor</option>
+        <option value="AA">Associate</option>
+        <option value="BS">Bachelor</option>
         <option value="Master">Master</option>
         <option value="PhD">PhD</option>
         </select><br/>
