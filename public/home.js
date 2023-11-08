@@ -73,10 +73,10 @@ function BalanceForm(props){
         try {
             const data = JSON.parse(text);
             props.setStatus(text);
-            props.setStatus("Your Result is " + (data.degree) +".");
+            props.setStatus("Your Result is " + (lang1) +".");
             props.setShow(false);
-            setDegree(data.degree);
-            console.log('JSON:', data, text);
+            //setDegree(user.name);
+            console.log('JSON:', lang1, text);
         } catch(err) {
             props.setStatus(text)
             console.log('err:', text);
