@@ -48,7 +48,7 @@ function BalanceForm(props){
   function handle(){
     console.log('?',degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
   fetch(`/account/find/${degree}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
-  
+ 
     /*.then(response => response.text())
     .then(text => {
         try {
@@ -71,15 +71,15 @@ function BalanceForm(props){
    
    
         try {
-            const data = JSON.parse(text);
-            props.setStatus(text);
-            props.setStatus("Your Result is " + (lang1) +".");
+            var obj = JSON.parse(text);
+            //props.setStatus(text);
             props.setShow(false);
-            //setDegree(user.name);
-            console.log('JSON:', lang1, text);
+            //setDegree(lang1);
+            props.setStatus("Your Result is " + (obj[0].name) +".");
+            console.log('JSON:', text, obj, obj[0].name);
         } catch(err) {
             props.setStatus(text)
-            console.log('err:', text);
+            console.log('err:', text, obj);
         }
     });
   } 
