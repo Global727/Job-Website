@@ -28,7 +28,9 @@ function find(degree, manage, lang1, lang2, lang3, lang4, lang5, lang6, lang7, l
     return new Promise((resolve, reject) => {    
         const customers = db
             .collection('users')
-            .find({degree: {$in: [degree, manage, lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10]}})
+            .find({degree: {$in: [degree, manage, lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10]},
+                   lang1: {$in: [degree, manage, lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10]}
+            })
             //.find({tags: {$in: [degree: degree, manage: manage, lang1: lang1, lang2: lang2, lang3: lang3, lang4: lang4, lang5: lang5, lang6: lang6, lang7: lang7, lang8: lang8, lang9: lang9, lang10: lang10]}})
             
     

@@ -433,18 +433,30 @@ function CreateForm(props){
 
 
 
+<p>
+<stripe-buy-button
+  buy-button-id="buy_btn_1ODLdDIzISM1ETBPPQoUGid9"
+  publishable-key="pk_test_51ODLJfIzISM1ETBPFW4gfuUjLK7EeW1nk8I9HM5orRjJ61IlaJSkOeANe86KzIUZAiUNqTYA2dCwYb4mo5FhJn7f00CQ6jMAOp"
+>
+</stripe-buy-button>
+</p>
 
 
 
 
 
 
-
-        
 
     <button type="submit" 
       className="btn btn-light" 
       onClick={handle}>Create Listing</button>
 
   </> );
+  <p>
+<stripe-buy-button
+  buy-button-id="buy_btn_1ODLdDIzISM1ETBPPQoUGid9"
+  publishable-key="pk_test_51ODLJfIzISM1ETBPFW4gfuUjLK7EeW1nk8I9HM5orRjJ61IlaJSkOeANe86KzIUZAiUNqTYA2dCwYb4mo5FhJn7f00CQ6jMAOp"
+>
+</stripe-buy-button>
+</p>
 }
