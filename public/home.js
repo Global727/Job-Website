@@ -75,7 +75,7 @@ function BalanceForm(props){
             //props.setStatus(text);
             props.setShow(false);
             //setDegree(lang1);
-            props.setStatus((obj[0].name) +' '+ (obj[0].desc));
+            props.setStatus((obj.map((obj) => obj.name)));
             console.log('JSON:', text, obj, obj[0].name);
         } catch(err) {
             props.setStatus(text)
