@@ -56,16 +56,15 @@ function BalanceForm(props){
    
    
         try {
-            var objs = JSON.parse(text);
+            var obj = JSON.parse(text);
             //props.setStatus(text);
             props.setShow(false);
             //setDegree(lang1);
-            props.setStatus((objs.map((objs) => <JobsCard title= {objs.name} body={objs.desc}/>)));
-          
-            console.log('JSON:', text, objs, objs[0].name);
+            props.setStatus((obj.map((obj) => obj.name)));
+            console.log('JSON:', text, obj, obj[0].name);
         } catch(err) {
             props.setStatus(text)
-            console.log('err:', text, objs[0].name);
+            console.log('err:', text, obj[0].name);
         }
     });
   } 
@@ -96,7 +95,7 @@ function BalanceForm(props){
       onChange={e => setManage(e.currentTarget.value)}><br/>
 
 <option selected>Management Experience?</option>
-        <option value="Yes">Yes</option>
+        <option value="a">a</option>
         <option value="No">No</option>
         </select><br/>
         
