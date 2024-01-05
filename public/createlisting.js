@@ -34,6 +34,8 @@ function CreateForm(props){
   const [name, setName]       = React.useState('');
   const [desc, setDesc]       = React.useState('');
   const [degree, setDegree]   = React.useState('');
+  const [title, setTitle]   = React.useState('null');
+  const [experience, setExperience]   = React.useState('null');
   const [manage, setManage]   = React.useState('');
  
   const [lang1, setLang1]     = React.useState('null');
@@ -48,8 +50,8 @@ function CreateForm(props){
   const [lang10, setLang10]   = React.useState('null');
 
   function handle(){
-    console.log(name,desc,degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
-    const url = `/account/create/${name}/${desc}/${degree}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
+    console.log(name,desc,degree,title,experience,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
+    const url = `/account/create/${name}/${desc}/${degree}/${title}/${experience}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
     (async () => {
         var res  = await fetch(url);
         var data = await res.json();    
@@ -74,11 +76,39 @@ function CreateForm(props){
       value={desc} 
       onChange={e => setDesc(e.currentTarget.value)}/><br/>
 
-  <input type="input" 
-      className="form-control" 
-      placeholder="Is This A Contract Job? If So How Many Months? " 
-      value={desc} 
-      onChange={e => setDesc(e.currentTarget.value)}/><br/>
+  <select  
+      className="form-select" 
+      placeholder="What is the Title for this job?" 
+      value={title} 
+      onChange={e => setTitle(e.currentTarget.value)}>
+
+<option selected>Job Title?</option>
+   <option value="Software Developer">Software Developer</option>
+     <option value="Software Engineer">Software Engineer</option>
+     <option value="Staff Engineer">Staff Engineer</option>
+     <option value="Software Engineer">Software Engineer</option>
+
+    </select><br/>
+
+<select
+      className="form-select" 
+      placeholder="How Many Years of Experience in Total Are You Looking For" 
+      value={experience} 
+      onChange={e => setExperience(e.currentTarget.value)}>
+
+    <option selected>Years Experience</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+
+    </select><br/>
 
   
     Qualifications<br/>
@@ -90,6 +120,7 @@ function CreateForm(props){
     onChange={e => setDegree(e.currentTarget.value)}>
 
     <option selected>Degree Level?</option>
+    <option value="No Degree">No Degree</option>
       <option value="AA">AA</option>
       <option value="BS">Bachelors</option>
       <option value="Masters">Masters</option>
@@ -98,11 +129,20 @@ function CreateForm(props){
     </select><br/>
 
 
-    <input type="input" 
-      className="form-control" 
-      placeholder="Years of Management Experience?" 
+    <select
+      className="form-select" 
+      placeholder="Management Experience?" 
       value={manage} 
-      onChange={e => setManage(e.currentTarget.value)}/><br/>
+      onChange={e => setManage(e.currentTarget.value)}>
+
+<option selected>Management Experience</option>
+    <option value="a">a</option>
+      <option value="AA">AA</option>
+      <option value="BS">Bachelors</option>
+      <option value="Masters">Masters</option>
+      <option value="PhD">PhD</option>
+
+    </select><br/>
 
         <select 
       className="form-select" 

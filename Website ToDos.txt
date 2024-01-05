@@ -1,0 +1,30 @@
+						Website ToDos
+search results pages
+search results Card
+
+posting add years experience
+	individual keys for language experience
+	add ranges of years of experience for posting
+
+
+	
+Find all neccessary languages
+layout design
+add payment function
+
+How to add a way to change posting
+	after?
+
+SEO
+
+button on job posting results page that opens job ad in new window
+exploded view which allows you to see more of an ad
+
+
+
+						Business ToDos
+set business up
+name
+different languages
+international taxes
+

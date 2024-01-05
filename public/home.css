@@ -19,3 +19,27 @@
     
 
 }
+
+.JobsCard {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 0px; /* Added */
+    margin-top: 0px;
+    display:flex;
+    text-align: center;
+    color: black;
+
+
+
+
+
+}
+
+.card-{
+ 
+}
+
+.card-body{
+
+    width:"50%";
+}

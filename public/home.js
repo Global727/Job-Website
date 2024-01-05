@@ -1,10 +1,10 @@
 function Home(){
   const [show, setShow]     = React.useState(true);
   const [status, setStatus] = React.useState('');  
-
+  
   return (
     <Card
-      bgcolor="light"
+      bgcolor="white"
       header="Balance"
       txtcolor="black"
       status={status}
@@ -18,21 +18,14 @@ function Home(){
 
 
 function BalanceMsg(props){
-  return(<>
-    <h5>Success</h5>
-    <button type="submit" 
-      className="btn btn-dark" 
-      onClick={() => {
-        props.setShow(true);
-        props.setStatus('');
-      }}>
-        Search Again
-    </button>
-  </>);
+
+  ;
 }
 
 function BalanceForm(props){
   const [degree, setDegree]   = React.useState('null');
+  const [title, setTitle]   = React.useState('null');
+  const [experience, setExperience]   = React.useState('null');
   const [manage, setManage]   = React.useState('null');
   const [lang1, setLang1]   = React.useState('null'); 
   const [lang2, setLang2]   = React.useState('null');
@@ -46,8 +39,8 @@ function BalanceForm(props){
   const [lang10, setLang10]   = React.useState('null'); 
 
   function handle(){
-    console.log('?',degree,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
-  fetch(`/account/find/${degree}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
+    console.log('?',degree,title,experience,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
+  fetch(`/account/find/${degree}/${title}/${experience}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
  
     
     .then(response => response.text())
@@ -57,10 +50,19 @@ function BalanceForm(props){
    
         try {
             var objs = JSON.parse(text);
+            var space = <br/>;
             //props.setStatus(text);
             props.setShow(false);
             //setDegree(lang1);
-            props.setStatus((objs.map((objs) => <JobsCard title= {objs.name} body={objs.desc}/>)));
+            props.setStatus((objs.map((objs) => 
+            <JobsCard 
+              title= {objs.title}
+              subtitle= {objs.name}  
+              body={objs.desc}
+                  />
+                )
+              )
+            );
           
             console.log('JSON:', text, objs, objs[0].name);
         } catch(err) {
@@ -72,7 +74,7 @@ function BalanceForm(props){
 
   return (<>
    
-    Enter Skills Below<br/>
+    Enter Skills Below<br/><br/>
 
     <select 
       className="form-select" 
@@ -99,7 +101,43 @@ function BalanceForm(props){
         <option value="Yes">Yes</option>
         <option value="No">No</option>
         </select><br/>
+
+        <select 
+      className="form-select" 
+      placeholder="Job Title"
+      value={title} 
+      onChange={e => setTitle(e.currentTarget.value)}><br/>
+
+<option selected>Job Title</option>
+        <option value="Software Developer">Software Developer</option>
+        <option value="Software Engineer">Software Engineer</option>
+        <option value="Staff Engineer">Staff Engineer</option>
+        <option value="Software Engineer">Software Engineer</option>
+        </select><br/>
+
         
+        <select 
+      className="form-select" 
+      placeholder="Years of Experience?"
+      value={experience} 
+      onChange={e => setExperience(e.currentTarget.value)}><br/>
+
+<option selected>Years Experience</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        </select><br/>
+
+      
+    
+
     
     <select 
       className="form-select" 
@@ -443,4 +481,3 @@ function BalanceForm(props){
 
   </>);
 }
-
