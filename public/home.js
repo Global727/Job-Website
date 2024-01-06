@@ -471,9 +471,9 @@ function BalanceForm(props){
    
    
     <button type="submit" 
-      className="btn btn-dark" 
+      className="btn btn-primary btn-lg btn2" 
       onClick={handle}>
-        Search Jobs
+        Search
     </button>
 
   </>);
