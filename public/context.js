@@ -7,7 +7,7 @@ function Card(props){
   function classes(){
     const bg  = props.bgcolor  ? ' bg-' + props.bgcolor : ' ';
     const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-blue';
-    return 'card mb-3 border-light' + bg + txt;
+    return 'card mx-3 border-light' + bg + txt;
   }
 
   return (
@@ -28,7 +28,7 @@ function Card(props){
 function JobsCard(props){
   function classes(){
     const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
-    const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-green';
+    const txt = props.txtcolor ? ' text-' + props.txtcolor: ' ';
     return 'card mb-3 ' + bg + txt;
   }
 

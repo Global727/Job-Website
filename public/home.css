@@ -3,9 +3,13 @@
     float: none; /* Added */
     margin-bottom: 0px; /* Added */
     margin-top: 0px;
-    display:flex;
+    /*display:flex;*/
     text-align: center;
     color: black;
+    background-color:  white;
+    header: balance;
+    
+    
     
     
 }
@@ -27,17 +31,25 @@
     margin-top: 0px;
     display:flex;
     text-align: center;
+    color: green;
+    border-style: none;
+
+}
+
+.JobCard {
+
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 0px; /* Added */
+    margin-top: 0px;
+    /*display:flex;*/
+    text-align: right;
     color: black;
-
-
-
-
+    background-color: black;
+    header: balance;
 
 }
 
-.card-{
- 
-}
 
 .card-body{
 

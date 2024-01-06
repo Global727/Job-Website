@@ -4,9 +4,7 @@ function Home(){
   
   return (
     <Card
-      bgcolor="white"
-      header="Balance"
-      txtcolor="black"
+     /* header="Balance"*/
       status={status}
       body={show ?
         <BalanceForm setShow={setShow} setStatus={setStatus}/> :
@@ -50,7 +48,6 @@ function BalanceForm(props){
    
         try {
             var objs = JSON.parse(text);
-            var space = <br/>;
             //props.setStatus(text);
             props.setShow(false);
             //setDegree(lang1);
@@ -58,7 +55,7 @@ function BalanceForm(props){
             <JobsCard 
               title= {objs.title}
               subtitle= {objs.name}  
-              body={objs.desc}
+              body={objs.desc + objs.map}
                   />
                 )
               )
@@ -74,7 +71,7 @@ function BalanceForm(props){
 
   return (<>
    
-    Enter Skills Below<br/><br/>
+    
 
     <select 
       className="form-select" 
