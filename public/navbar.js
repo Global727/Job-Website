@@ -3,7 +3,7 @@ function NavBar(){
 
     <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom border-dark">
        
-      <div class="container-fluid">
+      <div class="container">
         <a class="navbar-brand" href="index.html">
         <img src="stackhirelogoBRAND2.png" width="55" height="55"  alt=""/>   
         ＳｔａｃｋＨｉｒｅ</a>
