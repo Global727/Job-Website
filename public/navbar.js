@@ -4,7 +4,7 @@ function NavBar(){
     <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom border-dark">
        
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/">
         <img src="stackhirelogoBRAND2.png" width="55" height="55"  alt=""/>   
         ＳｔａｃｋＨｉｒｅ</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,7 @@ function NavBar(){
            <ul class="navbar-nav me-righht mt-2 mt-lg-0">
   
         <li class="nav-item">
-            <a class="nav-link" href="index.html">Search</a>
+            <a class="nav-link" href="/">Search</a>
         </li> 
         <li class="nav-item">
             <a class="nav-link" href="#/demo/">Demo Results</a>
