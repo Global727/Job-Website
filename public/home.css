@@ -3,12 +3,13 @@
     /* Added */
     margin-bottom: 0px; /* Added */
     margin-top: 0px;
-    /*display:flex;*/
+    display:flex;
     text-align: center;
     color: black;
     background-color:  white;
     header: balance;
     float: left;
+    
     
     
     

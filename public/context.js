@@ -34,7 +34,8 @@ function JobsCard(props){
   }
 
   return (
-    <div className={classes()} style={{width: "35%", marginLeft: '1%'}}>
+    <div className={classes()}  style={{width: "30%"}}>
+      
       
       <div className="card-body">
         {props.title && (<h5 className="jobscard-title job-title-text">{props.title}</h5>)}
@@ -44,7 +45,8 @@ function JobsCard(props){
         {props.body2  && (<h4 className="jobscard-text">{props.body2} </h4>)}
         {props.status && (<div id='jobscreateStatus'>{props.status}</div>)}
       </div>
-    </div>      
+    </div> 
+         
   );    
 }
 
