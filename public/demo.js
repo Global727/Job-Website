@@ -77,8 +77,8 @@ function BalanceForm(props){
         var results = 
             
             
-            <div class="row row-cols-1 row-cols-md-2 g-4"> 
-          
+            <div class="row row-cols-1 row-cols-md-3 g-4"> 
+              
             {
            
               objs.map((objs) => 
@@ -97,8 +97,8 @@ function BalanceForm(props){
               
             }
         
-            </div>
             
+            </div>
               ;
         
         props.setStatus(text);

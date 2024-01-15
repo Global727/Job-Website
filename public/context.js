@@ -7,11 +7,11 @@ function Card(props){
   function classes(){
     const bg  = props.bgcolor  ? ' bg-' + props.bgcolor : ' ';
     const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-blue';
-    return 'card mx-3 border-light' + bg + txt;
+    return 'card border-light' + bg + txt;
   }
 
   return (
-    <div className={classes()} class="text-center" style={{maxWidth: "100%"} }>
+    <div className={classes()} class="text-center" style={{} }>
       
       <div className="card-body text-center ">
         {props.title && (<h5 className="card-title">{props.title}</h5>)}
@@ -30,11 +30,11 @@ function JobsCard(props){
   function classes(){
     const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
     const txt = props.txtcolor ? ' text-' + props.txtcolor: ' ';
-    return 'card mb-3 ' + bg + txt;
+    return 'card h-10 ' + bg + txt;
   }
 
   return (
-    <div className={classes()}  style={{width: "30%"}}>
+    <div className={classes()}  style={{}}>
       
       
       <div className="card-body">
@@ -46,27 +46,7 @@ function JobsCard(props){
         {props.status && (<div id='jobscreateStatus'>{props.status}</div>)}
       </div>
     </div> 
+    
          
-  );    
-}
-
-
-function JobCard(props){
-  function classes(){
-    const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
-    const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-green';
-    return 'card mb-3 ' + bg + txt;
-  }
-
-  return (
-    <div className={classes()} style={{maxWidth: "49%", marginLeft: '1%'}}>
-      
-      <div className="card-body">
-        {props.title && (<h5 className="jobscard-title">{props.title}</h5>)}
-        {props.text && (<p className="jobscard-text">{props.text}</p>)}
-        {props.body}
-        {props.status && (<div id='jobscreateStatus'>{props.status}</div>)}
-      </div>
-    </div>      
   );    
 }
