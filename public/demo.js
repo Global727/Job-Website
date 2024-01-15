@@ -90,7 +90,7 @@ function BalanceForm(props){
               //body={objs.name}
               //body2={pop}
               body2={objs.desc}
-              body={objs.lang1.concat(" ",objs.lang2) + space}
+              body={objs.lang1.concat(" ",objs.lang2)}
               />
                  
               )
