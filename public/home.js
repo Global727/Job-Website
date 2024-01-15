@@ -3,15 +3,15 @@ function Home(){
   const [status, setStatus] = React.useState('');  
   
   return (
+  
     <Card
      /* header="Balance"*/
       status={status}
       body={show ?
         <BalanceForm setShow={setShow} setStatus={setStatus}/> :
         <BalanceMsg setShow={setShow} setStatus={setStatus}/>}
-    />
-  )
-
+    />)
+      
 }
 
 
@@ -52,11 +52,15 @@ function BalanceForm(props){
             props.setShow(false);
             //setDegree(lang1);
             props.setStatus((objs.map((objs) => 
+           
             <JobsCard 
+              
               title= {objs.title}
               subtitle= {objs.name}  
-              body={objs.desc + objs.map}
-                  />
+              body={objs.desc}
+
+              
+                  /> 
                 )
               )
             );

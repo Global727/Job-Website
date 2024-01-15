@@ -11,12 +11,13 @@ function Card(props){
   }
 
   return (
-    <div className={classes()} style={{maxWidth: "100%",} }>
+    <div className={classes()} class="text-center" style={{maxWidth: "100%"} }>
       
-      <div className="card-body">
+      <div className="card-body text-center">
         {props.title && (<h5 className="card-title">{props.title}</h5>)}
         {props.text && (<p className="card-text">{props.text}</p>)}
-        {props.body}
+        {props.body && (<p className="card-text" style= {{maxWidth: "25%"}}> {props.body}</p>)}
+        
         {props.status && (<div id='createStatus'>{props.status}</div>)}
       </div>
     </div>      
@@ -33,13 +34,14 @@ function JobsCard(props){
   }
 
   return (
-    <div className={classes()} style={{width: "49%", marginLeft: '1%'}}>
+    <div className={classes()} style={{width: "35%", marginLeft: '1%'}}>
       
       <div className="card-body">
-        {props.title && (<h5 className="jobscard-title">{props.title}</h5>)}
+        {props.title && (<h5 className="jobscard-title job-title-text">{props.title}</h5>)}
         {props.text && (<p className="jobscard-text">{props.text}</p>)}
         {props.subtitle && (<h6 className="card-subtitle mb-2 text-muted">{props.subtitle}</h6>)}
-        {props.body}
+        {props.body  && (<h4 className="jobscard-text">{props.body} </h4>)}
+        {props.body2  && (<h4 className="jobscard-text">{props.body2} </h4>)}
         {props.status && (<div id='jobscreateStatus'>{props.status}</div>)}
       </div>
     </div>      
