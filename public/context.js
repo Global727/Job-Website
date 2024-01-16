@@ -42,6 +42,7 @@ function JobsCard(props){
         {props.text && (<p className="jobscard-text">{props.text}</p>)}
         {props.subtitle && (<h6 className="card-subtitle mb-2 text-muted">{props.subtitle}</h6>)}
         {props.body  && (<h4 className="jobscard-text language">{props.body} </h4>)}
+        {props.body3  && (<h4 className="experience-required">{props.body3} </h4>)}
         {props.body2  && (<h4 className="jobscard-text">{props.body2} </h4>)}
         {props.status && (<div id='jobscreateStatus'>{props.status}</div>)}
       </div>

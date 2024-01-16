@@ -90,6 +90,7 @@ function BalanceForm(props){
               //body={objs.name}
               //body2={pop}
               body2={objs.desc}
+              body3={objs.experience.concat(" ","Years of Experience Required")}
               body={objs.lang1.concat(" ",objs.lang2)}
               />
                  
