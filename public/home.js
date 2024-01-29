@@ -3,22 +3,24 @@ function Home(){
   const [status, setStatus] = React.useState('');  
   
   return (
-  
+  <div>
     <Card
      /* header="Balance"*/
       status={status}
       body={show ?
         <BalanceForm setShow={setShow} setStatus={setStatus}/> :
-        <BalanceMsg setShow={setShow} setStatus={setStatus}/>}
-    />)
+        <BalanceMsg setShow={setShow}/>}
+    />
+    </div>)
       
 }
 
 
 function BalanceMsg(props){
 
-  ;
-}
+};
+
+
 
 function BalanceForm(props){
   const [degree, setDegree]   = React.useState('null');
@@ -47,32 +49,41 @@ function BalanceForm(props){
    
    
         try {
-            var objs = JSON.parse(text);
-            //props.setStatus(text);
-            props.setShow(false);
-            //setDegree(lang1);
-            props.setStatus((objs.map((objs) => 
-           
-            <JobsCard 
+          var objs = JSON.parse(text);
+          var results =
               
-              title= {objs.title}
-              subtitle= {objs.name}  
-              body={objs.desc}
-
               
-                  /> 
-                )
-              )
-            );
+              <div class="row row-cols-1 row-cols-md-3 g-4"> 
+                
+              {
+             
+                objs.map((objs) => 
+                
+                
+                <JobsCard
+                title={objs.name}
+                subtitle={objs.title}
+                body2={objs.desc}
+                body3={objs.experience.concat(" ","Years of Experience")}
+                body={
+                    [objs.lang1, objs.lang2, objs.lang3, objs.lang4, objs.lang5, objs.lang6, objs.lang7, objs.lang8, objs.lang9, objs.lang10].filter((e) => e !== "null" ).join(' ')
+                }/>)}</div>
+                ;
           
-            console.log('JSON:', text, objs, objs[0].name);
-        } catch(err) {
-            props.setStatus(text)
-            console.log('err:', text, objs[0].name);
-        }
-    });
+         // props.setStatus(text);
+          props.setShow(false);
+          //setDegree(lang1);
+          props.setStatus(results);
+        
+        
+          console.log('Success',objs[1]);
+      } catch(err) {
+          props.setStatus(text)
+          console.log('err:', text);
+      }
+  });
   } 
-
+  
   return (<>
    
     

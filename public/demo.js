@@ -1,3 +1,6 @@
+//click on ad and the description starts to show expanding the card
+
+
 function Demo(){
   const [show, setShow]     = React.useState(true);
   const [status, setStatus] = React.useState('');
@@ -12,16 +15,13 @@ function Demo(){
       body={show ?
         <BalanceForm setShow={setShow} setStatus={setStatus}/> : 
         <Jobs setShow={setShow}/>}
-    /> ,  
-    <Card
-          title={"hi"}
-   /> 
+    /> 
 </div>
   )
 
 }
 
-
+/*
 function hideDesc() {
   var x = document.getElementById("myDIV");
   if (x.style.display === "none") {
@@ -36,7 +36,7 @@ function hideDesc() {
 var popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
 var popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
 
-
+ */
 
 function BalanceForm(props){
   const [degree, setDegree]   = React.useState('No Degree');
@@ -67,14 +67,14 @@ function BalanceForm(props){
       try {
         var objs = JSON.parse(text);
         
-        //var languages = objs.lang1 + objs.lang2 + objs.desc;
-        var space = objs.desc ;
-      
-      // var languages = objs.lang1.concat(objs.lang2, objs.lang3);
+
+
        
-       //objs[0].lang1.concat(objs[1].lang2, objs[1].lang3);
         
-        var results = 
+       
+       
+        
+        var results =
             
             
             <div class="row row-cols-1 row-cols-md-3 g-4"> 
@@ -87,11 +87,21 @@ function BalanceForm(props){
               <JobsCard
               title={objs.name}
               subtitle={objs.title}
-              //body={objs.name}
-              //body2={pop}
               body2={objs.desc}
-              body3={objs.experience.concat(" ","Years of Experience Required")}
-              body={objs.lang1.concat(" ",objs.lang2)}
+              body3={objs.experience.concat(" ","Years of Experience")}
+              body={
+                
+                
+              
+                
+               
+                 [objs.lang1, objs.lang2, objs.lang3, objs.lang4, objs.lang5, objs.lang6, objs.lang7, objs.lang8, objs.lang9, objs.lang10].filter((e) => e !== "null" ).join(' ')
+              
+              
+              
+              
+              
+              }
               />
                  
               )
@@ -102,19 +112,21 @@ function BalanceForm(props){
             </div>
               ;
         
-        props.setStatus(text);
+       // props.setStatus(text);
         props.setShow(false);
         //setDegree(lang1);
         props.setStatus(results);
       
       
-        console.log('Success',space );
+        console.log('Success');
     } catch(err) {
         props.setStatus(text)
-        console.log('err:', text, objs[0].name);
+        console.log('err:', text);
     }
 });
-} return(
-  setTimeout(handle(), 2000));
+} 
+
+return(
+  setTimeout(handle(), 1));
 };
  
