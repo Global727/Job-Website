@@ -27,6 +27,8 @@ function BalanceForm(props){
   const [title, setTitle]   = React.useState('null');
   const [experience, setExperience]   = React.useState('null');
   const [manage, setManage]   = React.useState('null');
+  const [location, setLocation]   = React.useState('Any');
+  const [contract, setContract]   = React.useState('null');
   const [lang1, setLang1]   = React.useState('null'); 
   const [lang2, setLang2]   = React.useState('null');
   const [lang3, setLang3]   = React.useState('null'); 
@@ -40,7 +42,7 @@ function BalanceForm(props){
 
   function handle(){
     console.log('?',degree,title,experience,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
-  fetch(`/account/find/${degree}/${title}/${experience}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
+  fetch(`/account/find/${degree}/${title}/${experience}/${manage}/${location}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
  
     
     .then(response => response.text())
@@ -63,6 +65,7 @@ function BalanceForm(props){
                 <JobsCard
                 title={objs.name}
                 subtitle={objs.title}
+                body1={objs.location}
                 body2={objs.desc}
                 body3={objs.experience.concat(" ","Years of Experience")}
                 body={
@@ -76,7 +79,7 @@ function BalanceForm(props){
           props.setStatus(results);
         
         
-          console.log('Success',objs[1]);
+          console.log('Success');
       } catch(err) {
           props.setStatus(text)
           console.log('err:', text);
@@ -92,6 +95,7 @@ function BalanceForm(props){
       className="form-select" 
       placeholder="Degree Level?" 
       value={degree} 
+      id="degree"
       onChange={e => setDegree(e.currentTarget.value)}><br/>
 
 <option selected>What Is Your Degree Level</option>
@@ -106,6 +110,7 @@ function BalanceForm(props){
         <select 
       className="form-select" 
       placeholder="Management Experience?"
+      id="manage"
       value={manage} 
       onChange={e => setManage(e.currentTarget.value)}><br/>
 
@@ -117,20 +122,25 @@ function BalanceForm(props){
         <select 
       className="form-select" 
       placeholder="Job Title"
+      id='title'
       value={title} 
       onChange={e => setTitle(e.currentTarget.value)}><br/>
 
 <option selected>Job Title</option>
-        <option value="Software Developer">Software Developer</option>
-        <option value="Software Engineer">Software Engineer</option>
-        <option value="Staff Engineer">Staff Engineer</option>
-        <option value="Software Engineer">Software Engineer</option>
+     <option value="Entry Level">Entry Level</option>
+     <option value="Software Developer">Software Developer</option>
+     <option value="Software Engineer">Software Engineer</option>
+     <option value="Staff Engineer">Staff Engineer</option>
+     <option value="Software Engineer">Software Engineer</option>
+     <option value="Senior Software Developer">Senior Software Developer</option>
+     <option value="Senior Software Engineer">Senior Software Engineer</option>
         </select><br/>
 
         
         <select 
       className="form-select" 
       placeholder="Years of Experience?"
+      id='experience'
       value={experience} 
       onChange={e => setExperience(e.currentTarget.value)}><br/>
 
@@ -148,6 +158,84 @@ function BalanceForm(props){
         </select><br/>
 
       
+    <select
+      className="form-select" 
+      placeholder="Job Location" 
+      value={location} 
+      onChange={e => setLocation(e.currentTarget.value)}>
+
+<option selected>Choose Job Location</option>
+
+  <option value="Any">Remote</option>
+  <option value="AL">Alabama</option>
+	<option value="AK">Alaska</option>
+	<option value="AZ">Arizona</option>
+	<option value="AR">Arkansas</option>
+	<option value="CA">California</option>
+	<option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DE">Delaware</option>
+	<option value="DC">District Of Columbia</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IN">Indiana</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+	<option value="OK">Oklahoma</option>
+	<option value="OR">Oregon</option>
+	<option value="PA">Pennsylvania</option>
+	<option value="RI">Rhode Island</option>
+	<option value="SC">South Carolina</option>
+	<option value="SD">South Dakota</option>
+	<option value="TN">Tennessee</option>
+	<option value="TX">Texas</option>
+	<option value="UT">Utah</option>
+	<option value="VT">Vermont</option>
+	<option value="VA">Virginia</option>
+	<option value="WA">Washington</option>
+	<option value="WV">West Virginia</option>
+	<option value="WI">Wisconsin</option>
+	<option value="WY">Wyoming</option>
+
+    
+
+    </select><br/>
+
+    
+    <select
+      className="form-select" 
+      placeholder="Contract Job?" 
+      value={contract} 
+      onChange={e => setContract(e.currentTarget.value)}>
+
+<option selected>Is This a Contract Job?</option>
+    <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    
+
+    </select><br/>
     
 
     

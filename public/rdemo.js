@@ -43,6 +43,7 @@ function BalanceForm(props){
   const [title, setTitle]   = React.useState('Software Developer');
   const [experience, setExperience]   = React.useState('1');
   const [manage, setManage]   = React.useState('Yes');
+  const [location, setLocation]   = React.useState('FL');
   const [lang1, setLang1]   = React.useState('HTML'); 
   const [lang2, setLang2]   = React.useState('Javascript');
   const [lang3, setLang3]   = React.useState('null'); 
@@ -55,8 +56,8 @@ function BalanceForm(props){
   const [lang10, setLang10]   = React.useState('null'); 
 
   function handle(){
-    console.log('?',degree,title,experience,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
-  fetch(`/account/find/${degree}/${title}/${experience}/${manage}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
+    console.log('?',degree,title,experience,manage,location,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
+  fetch(`/account/find/${degree}/${title}/${experience}/${manage}/${location}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
  
     
     .then(response => response.text())
@@ -87,6 +88,7 @@ function BalanceForm(props){
               <JobsCard
               title={objs.name}
               subtitle={objs.title}
+              body1={objs.city}
               body2={objs.desc}
               body3={objs.experience.concat(" ","Years of Experience")}
               body={

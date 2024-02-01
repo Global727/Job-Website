@@ -11,9 +11,9 @@ app.use(express.static('public'));
 app.use(cors());
 
 // create user account
-app.get('/account/create/:name/:desc/:degree/:manage/:title/:experience/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
+app.get('/account/create/:name/:desc/:degree/:title/:experience/:manage/:location/:contract/:link/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
 
-                dal.create(req.params.name,req.params.desc,req.params.degree,req.params.title,req.params.experience,req.params.manage,req.params.lang1,req.params.lang2,req.params.lang3,req.params.lang4,req.params.lang5,req.params.lang6,req.params.lang7,req.params.lang8,req.params.lang9,req.params.lang10).
+                dal.create(req.params.name,req.params.desc,req.params.degree,req.params.title,req.params.experience,req.params.manage,req.params.location,req.params.contract,req.params.link,req.params.lang1,req.params.lang2,req.params.lang3,req.params.lang4,req.params.lang5,req.params.lang6,req.params.lang7,req.params.lang8,req.params.lang9,req.params.lang10).
                     then((user) => {
                         console.log(user);
                         res.send(user);            
@@ -26,9 +26,9 @@ app.get('/account/create/:name/:desc/:degree/:manage/:title/:experience/:lang1/:
 
 
 // find user account
-app.get('/account/find/:degree/:title/:experience/:manage/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
+app.get('/account/find/:degree/:title/:experience/:manage/:location/:lang1/:lang2/:lang3/:lang4/:lang5/:lang6/:lang7/:lang8/:lang9/:lang10', function (req, res) {
 
-    dal.find(req.params.name,req.params.desc,req.params.degree,req.params.title,req.params.experience,req.params.manage,req.params.lang1,req.params.lang2,req.params.lang3,req.params.lang4,
+    dal.find(req.params.degree,req.params.title,req.params.experience,req.params.manage,req.params.location,req.params.lang1,req.params.lang2,req.params.lang3,req.params.lang4,
         req.params.lang5,req.params.lang6,req.params.lang7,req.params.lang8,req.params.lang9,req.params.lang10).
         then((user) => {
             console.log("index", user);
