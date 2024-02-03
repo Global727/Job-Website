@@ -144,3 +144,7 @@ justify-content: center;
 
 
   }
+
+  .JobsCard:hover {
+    transform:scale(1.1);
+  }

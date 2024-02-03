@@ -41,7 +41,7 @@ function BalanceForm(props){
   const [lang10, setLang10]   = React.useState('null'); 
 
   function handle(){
-    console.log('?',degree,title,experience,manage,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
+    console.log('?',degree,title,experience,manage,location,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
   fetch(`/account/find/${degree}/${title}/${experience}/${manage}/${location}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
  
     
