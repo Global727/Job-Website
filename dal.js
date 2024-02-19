@@ -52,7 +52,7 @@ function find(degree, title, experience, experiencemin, manage, location, lang1,
     
             .toArray(function(err, docs) {
                 err ? reject(err) : resolve(docs);
-                console.log('dal = manage =',manage, 'experience=',experience,toString.experiencemin)
+                console.log('dal = manage =',manage, 'experience=',experience,experiencemin)
         });    
     })
 }

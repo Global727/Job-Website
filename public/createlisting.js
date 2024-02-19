@@ -119,7 +119,7 @@ function CreateForm(props){
       onChange={e => setTitle(e.currentTarget.value)}>
 
 <option selected>Job Title?</option>
-<option value="Entry Level">Entry Level</option>
+     <option value="Entry Level">Entry Level</option>
      <option value="Software Developer">Software Developer</option>
      <option value="Software Engineer">Software Engineer</option>
      <option value="Staff Engineer">Staff Engineer</option>
@@ -175,7 +175,7 @@ function CreateForm(props){
       value={manage} 
       onChange={e => setManage(e.currentTarget.value)}>
 
-<option selected>Management Experience</option>
+    <option selected>Management Experience</option>
     <option value="Yes">Yes</option>
       <option value="No">No</option>
     
@@ -274,7 +274,7 @@ function CreateForm(props){
       value={lang1} 
       onChange={e => setLang1(e.currentTarget.value)}> 
       
-      <option value="Choose Coding Language" selected>Add Coding Language</option>
+      <option value="none" selected>Add Coding Language</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
