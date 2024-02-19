@@ -26,17 +26,17 @@ function BalanceMsg(props){
 
 
 function BalanceForm(props){
-  const [degree, setDegree]   = React.useState('No Degree');
+  const [degree, setDegree]   = React.useState('');
   const [title, setTitle]   = React.useState('null');
-  const [experience, setExperience]   = React.useState(10);
-  const [experiencemin, setExperiencemin]   = React.useState('1');
+  const [experience, setExperience]   = React.useState();
+  const [experiencemin, setExperiencemin]   = React.useState();
   const [manage, setManage]   = React.useState('null');
-  const [location, setLocation]   = React.useState('Remote');
+  const [location, setLocation]   = React.useState('');
   const [contract, setContract]   = React.useState('null');
-  const [lang1, setLang1]   = React.useState('HTML'); 
-  const [lang2, setLang2]   = React.useState('Javascript');
-  const [lang3, setLang3]   = React.useState('Java'); 
-  const [lang4, setLang4]   = React.useState('React.js'); 
+  const [lang1, setLang1]   = React.useState('null'); 
+  const [lang2, setLang2]   = React.useState('null');
+  const [lang3, setLang3]   = React.useState('null'); 
+  const [lang4, setLang4]   = React.useState('null'); 
   const [lang5, setLang5]   = React.useState('null'); 
   const [lang6, setLang6]   = React.useState('null'); 
   const [lang7, setLang7]   = React.useState('null'); 
@@ -112,11 +112,12 @@ function BalanceForm(props){
       }
   });
   } 
-  
+
+
   return (<>
    
     
-
+      <br/>
     <select 
       className="form-select" 
       placeholder="Degree Level?" 
@@ -132,35 +133,7 @@ function BalanceForm(props){
         <option value="PhD">PhD</option>
         </select><br/>
         
-        
-        <select 
-      className="form-select" 
-      placeholder="Management Experience?"
-      id="manage"
-      value={manage} 
-      onChange={e => setManage(e.currentTarget.value)}><br/>
-
-<option selected>Management Experience?</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        </select><br/>
-
-        <select 
-      className="form-select" 
-      placeholder="Job Title"
-      id='title'
-      value={title} 
-      onChange={e => setTitle(e.currentTarget.value)}><br/>
-
-<option selected>Job Title</option>
-     <option value="Entry Level">Entry Level</option>
-     <option value="Software Developer">Software Developer</option>
-     <option value="Software Engineer">Software Engineer</option>
-     <option value="Staff Engineer">Staff Engineer</option>
-     <option value="Software Engineer">Software Engineer</option>
-     <option value="Senior Software Developer">Senior Software Developer</option>
-     <option value="Senior Software Engineer">Senior Software Engineer</option>
-        </select><br/>
+ 
 
         
         <select 
@@ -272,18 +245,7 @@ function BalanceForm(props){
     </select><br/>
 
     
-    <select
-      className="form-select" 
-      placeholder="Contract Job?" 
-      value={contract} 
-      onChange={e => setContract(e.currentTarget.value)}>
-
-<option selected>Is This a Contract Job?</option>
-    <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    
-
-    </select><br/>
+  
     
 
     

@@ -34,8 +34,7 @@ function find(degree, title, experience, experiencemin, manage, location, lang1,
                    
                    degree: degree,
                    location: location,
-                   //might need to be cconverted to string
-                   experience: {$lte: +experience},
+                   experience: {$lte: +experience, $gte: +experiencemin},
                    lang1: {$in: [lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10]},
                    lang2: {$in: [lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10]},
                    lang3: {$in: [lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10]},

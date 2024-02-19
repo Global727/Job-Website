@@ -1,0 +1,43 @@
+     
+        <select 
+      className="form-select" 
+      placeholder="Management Experience?"
+      id="manage"
+      value={manage} 
+      onChange={e => setManage(e.currentTarget.value)}><br/>
+
+<option selected>Management Experience?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        </select><br/>
+
+        <select 
+      className="form-select" 
+      placeholder="Job Title"
+      id='title'
+      value={title} 
+      onChange={e => setTitle(e.currentTarget.value)}><br/>
+
+<option selected>Job Title</option>
+     <option value="Entry Level">Entry Level</option>
+     <option value="Software Developer">Software Developer</option>
+     <option value="Software Engineer">Software Engineer</option>
+     <option value="Staff Engineer">Staff Engineer</option>
+     <option value="Software Engineer">Software Engineer</option>
+     <option value="Senior Software Developer">Senior Software Developer</option>
+     <option value="Senior Software Engineer">Senior Software Engineer</option>
+        </select><br/>
+
+
+          <select
+      className="form-select" 
+      placeholder="Contract Job?" 
+      value={contract} 
+      onChange={e => setContract(e.currentTarget.value)}>
+
+<option selected>Is This a Contract Job?</option>
+    <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    
+
+    </select><br/>
