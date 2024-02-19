@@ -21,9 +21,6 @@ function NavBar(){
             <a class="nav-link" href="/">Search</a>
         </li> 
         <li class="nav-item">
-            <a class="nav-link" href="#/demo/">Demo Results</a>
-        </li> 
-        <li class="nav-item">
             <a class="nav-link" href="#/alldata/">All Jobs</a>
         </li> 
         <li class="nav-item">

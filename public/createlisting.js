@@ -33,16 +33,19 @@ function CreateMsg(props){
 function CreateForm(props){
   const [name, setName]       = React.useState('');
   const [desc, setDesc]       = React.useState('');
-  const [degree, setDegree]   = React.useState('');
-  const [title, setTitle]   = React.useState('null');
-  const [experience, setExperience]   = React.useState('null');
-  const [manage, setManage]   = React.useState('null');
-  const [location, setLocation]   = React.useState('null');
-  const [city, setCity]   = React.useState('null');
-  const [contract, setContract]   = React.useState('null');
+  const [degree, setDegree]   = React.useState('No Degree');
+  const [title, setTitle]   = React.useState('Software Developer');
+  const [experience, setExperience]   = React.useState('5');
+  const [manage, setManage]   = React.useState('Yes');
+  const [location, setLocation]   = React.useState('Remote');
+  const [city, setCity]   = React.useState('Tampa');
+  const [contract, setContract]   = React.useState('No');
+  const [respo, setRespo]   = React.useState('');
+  const [qual, setQual]   = React.useState('');
+  const [rqual, setRqual]   = React.useState('');
   const [link, setLink]   = React.useState('');
-  const [lang1, setLang1]     = React.useState('null');
-  const [lang2, setLang2]     = React.useState('null');
+  const [lang1, setLang1]     = React.useState('HTML');
+  const [lang2, setLang2]     = React.useState('Javascript');
   const [lang3, setLang3]     = React.useState('null');
   const [lang4, setLang4]     = React.useState('null');
   const [lang5, setLang5]     = React.useState('null');
@@ -53,8 +56,8 @@ function CreateForm(props){
   const [lang10, setLang10]   = React.useState('null');
 
   function handle(){
-    console.log("name=",name,"=","desc=",desc,"degree=",degree,"title=",title,"experience=",experience,"manage=",manage,"location=",location,"city=",city,"contract=",contract,"lang1=",lang1,"lang2=",lang2,"lang3=",lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
-    const url = `/account/create/${name}/${desc}/${degree}/${title}/${experience}/${manage}/${location}/${city}/${contract}/${link}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
+    console.log( "create success", name);
+    const url = `/account/create/${name}/${desc}/${degree}/${title}/${experience}/${manage}/${location}/${city}/${contract}/${respo}/${qual}/${rqual}/${link}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
     (async () => {
         var res  = await fetch(url);
         var data = await res.json();    
@@ -70,7 +73,7 @@ function CreateForm(props){
       className="form-control" 
       placeholder="Enter Company Name" 
       value={name} 
-      onChange={e => setName(e.currentTarget.value)} /><br/>
+      onChange={e => setName(e.currentTarget.value)} /> <br/>
 
     Job Description<br/>
     <input type="input" 
@@ -78,6 +81,28 @@ function CreateForm(props){
       placeholder="Enter Job/Comapny Description" 
       value={desc} 
       onChange={e => setDesc(e.currentTarget.value)}/><br/>
+
+    Job Description<br/>
+    <input type="input" 
+      className="form-control" 
+      placeholder="Enter Job Responsibilies/Duties" 
+      value={respo} 
+      onChange={e => setRespo(e.currentTarget.value)}/><br/>
+
+     Job Description<br/>
+    <input type="input" 
+      className="form-control" 
+      placeholder="Enter Qualifications" 
+      value={qual} 
+      onChange={e => setQual(e.currentTarget.value)}/><br/>
+
+     Job Description<br/>
+    <input type="input" 
+      className="form-control" 
+      placeholder="Enter Required Qualifications" 
+      value={rqual} 
+      onChange={e => setRqual(e.currentTarget.value)}/><br/>
+
 
     Job URL<br/>
     <input type="input" 
@@ -147,7 +172,7 @@ function CreateForm(props){
     <select
       className="form-select" 
       placeholder="Management Experience?" 
-      value={title} 
+      value={manage} 
       onChange={e => setManage(e.currentTarget.value)}>
 
 <option selected>Management Experience</option>
@@ -165,7 +190,7 @@ function CreateForm(props){
 
 <option selected>Choose Job Location</option>
 
-	<option value="Any">Remote</option>
+	<option value="Remote">Remote</option>
   <option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>

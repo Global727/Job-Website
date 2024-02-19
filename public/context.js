@@ -30,7 +30,7 @@ function JobsCard(props){
   function classes(){
     const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
     const txt = props.txtcolor ? ' text-' + props.txtcolor: ' ';
-    return 'card h-10 ' + bg + txt;
+    return 'card' + bg + txt;
   }
 
   return (
