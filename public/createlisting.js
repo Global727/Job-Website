@@ -33,19 +33,19 @@ function CreateMsg(props){
 function CreateForm(props){
   const [name, setName]       = React.useState('');
   const [desc, setDesc]       = React.useState('');
-  const [degree, setDegree]   = React.useState('No Degree');
-  const [title, setTitle]   = React.useState('Software Developer');
-  const [experience, setExperience]   = React.useState('5');
-  const [manage, setManage]   = React.useState('Yes');
-  const [location, setLocation]   = React.useState('Remote');
-  const [city, setCity]   = React.useState('Tampa');
-  const [contract, setContract]   = React.useState('No');
+  const [degree, setDegree]   = React.useState('');
+  const [title, setTitle]   = React.useState('');
+  const [experience, setExperience]   = React.useState();
+  const [manage, setManage]   = React.useState('');
+  const [location, setLocation]   = React.useState('');
+  const [city, setCity]   = React.useState('');
+  const [contract, setContract]   = React.useState('');
   const [respo, setRespo]   = React.useState('');
   const [qual, setQual]   = React.useState('');
   const [rqual, setRqual]   = React.useState('');
   const [link, setLink]   = React.useState('');
-  const [lang1, setLang1]     = React.useState('HTML');
-  const [lang2, setLang2]     = React.useState('Javascript');
+  const [lang1, setLang1]     = React.useState('null');
+  const [lang2, setLang2]     = React.useState('null');
   const [lang3, setLang3]     = React.useState('null');
   const [lang4, setLang4]     = React.useState('null');
   const [lang5, setLang5]     = React.useState('null');
@@ -160,13 +160,12 @@ function CreateForm(props){
     onChange={e => setDegree(e.currentTarget.value)}>
 
     <option selected>Degree Level?</option>
-    <option value="No Degree">No Degree</option>
-      <option value="AA">AA</option>
-      <option value="BS">Bachelors</option>
-      <option value="Masters">Masters</option>
-      <option value="PhD">PhD</option>
-
-    </select><br/>
+     <option value="No Degree">No Degree</option>
+        <option value="AA">Associate</option>
+        <option value="BS">Bachelor</option>
+        <option value="Master">Master</option>
+        <option value="PhD">PhD</option>
+        </select><br/>
 
 
     <select
