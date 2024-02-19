@@ -109,3 +109,13 @@ justify-content: center;
   width: 0;
   }
 
+
+  .create {
+    align-content: center;
+    font-size: 15px;
+    max-width: 440px;
+    margin: auto;
+    width: 50%;
+  
+
+}

@@ -3,6 +3,7 @@ function CreateAccount(){
   const [status, setStatus] = React.useState('');
 
   return (
+    <div class="create">
     <Card
       bgcolor="light"
       header="Create Account"
@@ -10,7 +11,7 @@ function CreateAccount(){
       body={show ? 
         <CreateForm setShow={setShow}/> : 
         <CreateMsg setShow={setShow}/>}
-    />
+    /></div>
   )
 }
 
@@ -67,7 +68,7 @@ function CreateForm(props){
   }    
 
   return (<>
-
+  
     Business Name<br/>
     <input type="input" 
       className="form-control" 
@@ -76,28 +77,28 @@ function CreateForm(props){
       onChange={e => setName(e.currentTarget.value)} /> <br/>
 
     Job Description<br/>
-    <input type="input" 
+    <textarea
       className="form-control" 
       placeholder="Enter Job/Comapny Description" 
       value={desc} 
       onChange={e => setDesc(e.currentTarget.value)}/><br/>
 
     Job Description<br/>
-    <input type="input" 
+    <textarea  
       className="form-control" 
       placeholder="Enter Job Responsibilies/Duties" 
       value={respo} 
       onChange={e => setRespo(e.currentTarget.value)}/><br/>
 
      Job Description<br/>
-    <input type="input" 
+    <textarea 
       className="form-control" 
       placeholder="Enter Qualifications" 
       value={qual} 
       onChange={e => setQual(e.currentTarget.value)}/><br/>
 
      Job Description<br/>
-    <input type="input" 
+    <textarea
       className="form-control" 
       placeholder="Enter Required Qualifications" 
       value={rqual} 
