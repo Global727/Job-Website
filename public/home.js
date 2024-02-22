@@ -46,7 +46,7 @@ function BalanceForm(props){
 
   function handle(){
     console.log('?',degree,title,experience,experiencemin, manage,location,lang1,lang2,lang3,lang4,lang5,lang6,lang7,lang8,lang9,lang10);
-  fetch(`/account/find/${degree}/${title}/${experience}/${experiencemin}/${manage}/${location}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
+  fetch(`/account/find/${degree}/${title}/${+experience}/${experiencemin}/${manage}/${location}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`)
  
     
     .then(response => response.text())
@@ -80,20 +80,21 @@ function BalanceForm(props){
                  
                 </button><div class="collapse" id={objs._id}>
                     <div class="jobscard-text">
-                      Job Description<br/>
-                      {objs.desc}<br/>
-                      Job Reponsibilities<br/>
-                      {objs.respo}<br/>
-                      Preferred Qualifications<br/>
-                      {objs.qual}<br/>
-                      Requiured Qualifications<br/>
-                      {objs.rqual}
+                      <h1>Job Description</h1>
+                      <p>{decodeURIComponent(objs.desc)}</p><br/>
+                      <h1>Job Responsibilities</h1>
+                      <p>{objs.respo}</p><br/>
+                      <h1>Requiured Qualifications</h1>
+                      <p>{objs.rqual}</p><br/>
+                      <h1>Preferred Qualifications</h1>
+                      <p>{objs.qual}</p>
                     </div>
                   </div></> }
                 
                 //.concat(" ","Years of Experience")
                 body3={objs.experience+' Years of Experience'}
                 body={
+                  
                   
                     [objs.lang1, objs.lang2, objs.lang3, objs.lang4, objs.lang5, objs.lang6, objs.lang7, objs.lang8, objs.lang9, objs.lang10].filter((e) => e !== "null" ).join(' ')
                 }/>)}</div></div>
@@ -143,7 +144,7 @@ function BalanceForm(props){
       value={experience} 
       onChange={e => setExperience(e.currentTarget.value)}><br/>
 
-<option selected>Years Coding Experience</option>
+<option selected="5">Years Coding Experience</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -163,9 +164,9 @@ function BalanceForm(props){
       value={experiencemin} 
       onChange={e => setExperiencemin(e.currentTarget.value)}
       data-bs-toggle="tooltip"  data-bs-placement="right"
-      title="There may be suitable job options that require less years than the parameter above will show you. Set the minimum amount of years of experience you would want like to search for."><br/>
+      title="Allows you to search for jobs that dont exactly meet your years of experience"><br/>
 
-<option selected>Minimum Experience Required </option>
+<option selected="1">Minimum Experience Required (Currently 1) </option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -575,7 +576,7 @@ function BalanceForm(props){
 
       </select><br/>
    
-
+   
 
 
    

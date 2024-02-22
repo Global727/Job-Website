@@ -57,8 +57,8 @@ function CreateForm(props){
   const [lang10, setLang10]   = React.useState('null');
 
   function handle(){
-    console.log( "create success", name);
-    const url = `/account/create/${name}/${desc}/${degree}/${title}/${experience}/${manage}/${location}/${city}/${contract}/${respo}/${qual}/${rqual}/${link}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
+    console.log( "create success", name, desc);
+    const url = `/account/create/${encodeURIComponent(name)}/${encodeURIComponent(desc)}/${degree}/${title}/${experience}/${manage}/${location}/${encodeURIComponent(city)}/${contract}/${encodeURIComponent(respo)}/${encodeURIComponent(qual)}/${encodeURIComponent(rqual)}/${encodeURIComponent(link)}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
     (async () => {
         var res  = await fetch(url);
         var data = await res.json();    
@@ -141,7 +141,7 @@ function CreateForm(props){
       onChange={e => setExperience(e.currentTarget.value)}>
 
     <option selected>Years Experience</option>
-      <option value="1">1</option>
+      <option value="1" >1</option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
