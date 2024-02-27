@@ -1,626 +1,875 @@
-function CreateAccount(){
-  const [show, setShow]     = React.useState(true);
-  const [status, setStatus] = React.useState('');
-
-  return (
-    <div class="create">
-    <Card
-      bgcolor="light"
-      header="Create Account"
-      status={status}
-      body={show ? 
-        <CreateForm setShow={setShow}/> : 
-        <CreateMsg setShow={setShow}/>}
-    /></div>
-  )
-}
-
-function CreateMsg(props){
-  return(<>
-   <div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">Listing Created</h4>
-  <p>Thanks For Using Coding.Jobs</p>
-  
-  <p class="mb-10"> </p>
-  <button type="submit" 
-      className="btn btn-light" 
-      onClick={() => props.setShow(true)}>
-        View Listing
-    </button>
-</div>
-  </>);
-}
-
-function CreateForm(props){
-  const [name, setName]       = React.useState('');
-  const [desc, setDesc]       = React.useState('');
-  const [degree, setDegree]   = React.useState('');
-  const [title, setTitle]   = React.useState('');
-  const [experience, setExperience]   = React.useState();
-  const [manage, setManage]   = React.useState('');
-  const [location, setLocation]   = React.useState('');
-  const [city, setCity]   = React.useState('');
-  const [contract, setContract]   = React.useState('');
-  const [respo, setRespo]   = React.useState('');
-  const [qual, setQual]   = React.useState('');
-  const [rqual, setRqual]   = React.useState('');
-  const [link, setLink]   = React.useState('');
-  const [lang1, setLang1]     = React.useState('null');
-  const [lang2, setLang2]     = React.useState('null');
-  const [lang3, setLang3]     = React.useState('null');
-  const [lang4, setLang4]     = React.useState('null');
-  const [lang5, setLang5]     = React.useState('null');
-  const [lang6, setLang6]     = React.useState('null');
-  const [lang7, setLang7]     = React.useState('null');
-  const [lang8, setLang8]     = React.useState('null');
-  const [lang9, setLang9]     = React.useState('null');
-  const [lang10, setLang10]   = React.useState('null');
-
-  function handle(){
-    console.log( "create success", name, desc);
-    const url = `/account/create/${encodeURIComponent(name)}/${encodeURIComponent(desc)}/${degree}/${title}/${experience}/${manage}/${location}/${encodeURIComponent(city)}/${contract}/${encodeURIComponent(respo)}/${encodeURIComponent(qual)}/${encodeURIComponent(rqual)}/${encodeURIComponent(link)}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
-    (async () => {
-        var res  = await fetch(url);
-        var data = await res.json();    
-        console.log(data);        
-    })();
-    props.setShow(false);
-  }    
-
-  return (<>
-  
-    Business Name<br/>
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Company Name" 
-      value={name} 
-      onChange={e => setName(e.currentTarget.value)} /> <br/>
-
-    Job Description<br/>
-    <textarea
-      className="form-control" 
-      placeholder="Enter Job/Comapny Description" 
-      value={desc} 
-      onChange={e => setDesc(e.currentTarget.value)}/><br/>
-
-    Job Description<br/>
-    <textarea  
-      className="form-control" 
-      placeholder="Enter Job Responsibilies/Duties" 
-      value={respo} 
-      onChange={e => setRespo(e.currentTarget.value)}/><br/>
-
-     Job Description<br/>
-    <textarea 
-      className="form-control" 
-      placeholder="Enter Qualifications" 
-      value={qual} 
-      onChange={e => setQual(e.currentTarget.value)}/><br/>
-
-     Job Description<br/>
-    <textarea
-      className="form-control" 
-      placeholder="Enter Required Qualifications" 
-      value={rqual} 
-      onChange={e => setRqual(e.currentTarget.value)}/><br/>
-
-
-    Job URL<br/>
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter Job URL for your website" 
-      value={link} 
-      onChange={e => setLink(e.currentTarget.value)} /><br/>
-
-  <select  
-      className="form-select" 
-      placeholder="What is the Title for this job?" 
-      value={title} 
-      onChange={e => setTitle(e.currentTarget.value)}>
-
-<option selected>Job Title?</option>
-     <option value="Entry Level">Entry Level</option>
-     <option value="Software Developer">Software Developer</option>
-     <option value="Software Engineer">Software Engineer</option>
-     <option value="Staff Engineer">Staff Engineer</option>
-     <option value="Software Engineer">Software Engineer</option>
-     <option value="Senior Software Developer">Senior Software Developer</option>
-     <option value="Senior Software Engineer">Senior Software Engineer</option>
-
-    </select><br/>
-
-
-
-  
-    Qualifications<br/>
-
-    <select
-      className="form-select" 
-      placeholder="How Many Years of Experience in Total Are You Looking For" 
-      value={experience} 
-      onChange={e => setExperience(e.currentTarget.value)}>
-
-    <option selected>Years Experience</option>
-      <option value="1" >1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-
-    </select><br/>
-
-      <select
-    className="form-select"
-    placeholder="Degree Level?"
-    value={degree}
-    onChange={e => setDegree(e.currentTarget.value)}>
-
-    <option selected>Degree Level?</option>
-     <option value="No Degree">No Degree</option>
-        <option value="AA">Associate</option>
-        <option value="BS">Bachelor</option>
-        <option value="Master">Master</option>
-        <option value="PhD">PhD</option>
-        </select><br/>
-
-
-    <select
-      className="form-select" 
-      placeholder="Management Experience?" 
-      value={manage} 
-      onChange={e => setManage(e.currentTarget.value)}>
-
-    <option selected>Management Experience</option>
-    <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    
-
-    </select><br/>
-
-    <select
-      className="form-select" 
-      placeholder="Job Location" 
-      value={location} 
-      onChange={e => setLocation(e.currentTarget.value)}>
-
-<option selected>Choose Job Location</option>
-
-	<option value="Remote">Remote</option>
-  <option value="AL">Alabama</option>
-	<option value="AK">Alaska</option>
-	<option value="AZ">Arizona</option>
-	<option value="AR">Arkansas</option>
-	<option value="CA">California</option>
-	<option value="CO">Colorado</option>
-	<option value="CT">Connecticut</option>
-	<option value="DE">Delaware</option>
-	<option value="DC">District Of Columbia</option>
-	<option value="FL">Florida</option>
-	<option value="GA">Georgia</option>
-	<option value="HI">Hawaii</option>
-	<option value="ID">Idaho</option>
-	<option value="IL">Illinois</option>
-	<option value="IN">Indiana</option>
-	<option value="IA">Iowa</option>
-	<option value="KS">Kansas</option>
-	<option value="KY">Kentucky</option>
-	<option value="LA">Louisiana</option>
-	<option value="ME">Maine</option>
-	<option value="MD">Maryland</option>
-	<option value="MA">Massachusetts</option>
-	<option value="MI">Michigan</option>
-	<option value="MN">Minnesota</option>
-	<option value="MS">Mississippi</option>
-	<option value="MO">Missouri</option>
-	<option value="MT">Montana</option>
-	<option value="NE">Nebraska</option>
-	<option value="NV">Nevada</option>
-	<option value="NH">New Hampshire</option>
-	<option value="NJ">New Jersey</option>
-	<option value="NM">New Mexico</option>
-	<option value="NY">New York</option>
-	<option value="NC">North Carolina</option>
-	<option value="ND">North Dakota</option>
-	<option value="OH">Ohio</option>
-	<option value="OK">Oklahoma</option>
-	<option value="OR">Oregon</option>
-	<option value="PA">Pennsylvania</option>
-	<option value="RI">Rhode Island</option>
-	<option value="SC">South Carolina</option>
-	<option value="SD">South Dakota</option>
-	<option value="TN">Tennessee</option>
-	<option value="TX">Texas</option>
-	<option value="UT">Utah</option>
-	<option value="VT">Vermont</option>
-	<option value="VA">Virginia</option>
-	<option value="WA">Washington</option>
-	<option value="WV">West Virginia</option>
-	<option value="WI">Wisconsin</option>
-	<option value="WY">Wyoming</option>
-
-    
-
-    </select><br/>
-
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter City Name" 
-      value={city} 
-      onChange={e => setCity(e.currentTarget.value)} /><br/>
-
-    
-    <select
-      className="form-select" 
-      placeholder="Contract Job?" 
-      value={contract} 
-      onChange={e => setContract(e.currentTarget.value)}>
-
-<option selected>Is This a Contract Job?</option>
-    <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    
-
-    </select><br/>
-      
-      Languages <br/>
-        <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang1} 
-      onChange={e => setLang1(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Coding Language</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-
-         <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang2} 
-      onChange={e => setLang2(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Language (Optional)</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-   
-
-
-      <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang3} 
-      onChange={e => setLang3(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Language (Optional)</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-   
-
-
-      <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang4} 
-      onChange={e => setLang4(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Language (Optional)</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-   
-
-
-      <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang5} 
-      onChange={e => setLang5(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Language (Optional)</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-   
-
-
-      <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang6} 
-      onChange={e => setLang6(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Language (Optional)</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-   
-
-
-      <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang7} 
-      onChange={e => setLang7(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Language (Optional)</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-   
-
-
-      <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang8} 
-      onChange={e => setLang8(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Language (Optional)</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-   
-
-
-      <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang9} 
-      onChange={e => setLang9(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Language (Optional)</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-   
-
-
-      <select 
-      className="form-select" 
-      placeholder="Enter Job Here"
-      value={lang10} 
-      onChange={e => setLang10(e.currentTarget.value)}> 
-      
-      <option value="none" selected>Add Language (Optional)</option>
-        <option value="HTML">HMTL</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Java">Java</option>
-        <option value="CSS">CSS</option>
-        <option value="SASS">SASS</option>
-        <option value="SCSS">SCSS</option>
-        <option value="React.js">React.js</option>
-        <option value="React Native">React Native</option>
-        <option value="AngularJS">AngularJS</option>
-        <option value="Vue">Vue</option>
-        <option value="TypeScript">TypeScript</option>
-        <option value="PHP">PHP</option>
-        <option value="Python">Python</option>
-        <option value="Django">Django</option>
-        <option value="Flask">Flask</option>
-        <option value="Ruby">Ruby</option>
-        <option value="Jekyll">Jekyll</option>
-        <option value="Swift">Swift</option>
-        <option value="Objective C">Objective C</option>
-        <option value="Scala">Scala</option>
-        <option value='a'>a</option>
-
-      </select><br/>
-
-
-
-
-<p>
-<stripe-buy-button
-  buy-button-id="buy_btn_1ODLdDIzISM1ETBPPQoUGid9"
-  publishable-key="pk_test_51ODLJfIzISM1ETBPFW4gfuUjLK7EeW1nk8I9HM5orRjJ61IlaJSkOeANe86KzIUZAiUNqTYA2dCwYb4mo5FhJn7f00CQ6jMAOp"
->
-</stripe-buy-button>
-</p>
-
-
-
-
-
-
-
-    <button type="submit" 
-      className="btn btn-light" 
-      onClick={handle}>Create Listing</button>
-
-  </> );
-  <p>
-<stripe-buy-button
-  buy-button-id="buy_btn_1ODLdDIzISM1ETBPPQoUGid9"
-  publishable-key="pk_test_51ODLJfIzISM1ETBPFW4gfuUjLK7EeW1nk8I9HM5orRjJ61IlaJSkOeANe86KzIUZAiUNqTYA2dCwYb4mo5FhJn7f00CQ6jMAOp"
->
-</stripe-buy-button>
-</p>
-}
+function CreateAccount() {
+    const [show, setShow] = React.useState(true);
+    const [status, setStatus] = React.useState('');
+    return /*#__PURE__*/React.createElement("div", {
+      class: "create"
+    }, /*#__PURE__*/React.createElement(Card, {
+      bgcolor: "light",
+      header: "Create Account",
+      status: status,
+      body: show ? /*#__PURE__*/React.createElement(CreateForm, {
+        setShow: setShow
+      }) : /*#__PURE__*/React.createElement(CreateMsg, {
+        setShow: setShow
+      })
+    }));
+  }
+  function CreateMsg(props) {
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+      class: "alert alert-success",
+      role: "alert"
+    }, /*#__PURE__*/React.createElement("h4", {
+      class: "alert-heading"
+    }, "Listing Created"), /*#__PURE__*/React.createElement("p", null, "Thanks For Using StackHire.US"), /*#__PURE__*/React.createElement("p", {
+      class: "mb-10"
+    }, " "), /*#__PURE__*/React.createElement("button", {
+      type: "submit",
+      className: "btn btn-light",
+      onClick: () => props.setShow(true)
+    }, "View Listing")));
+  }
+  function CreateForm(props) {
+    const [name, setName] = React.useState('');
+    const [desc, setDesc] = React.useState('');
+    const [degree, setDegree] = React.useState('');
+    const [title, setTitle] = React.useState('');
+    const [experience, setExperience] = React.useState();
+    const [ndxp, setNdxp] = React.useState();
+    const [bsxp, setBsxp] = React.useState();
+    const [manage, setManage] = React.useState('');
+    const [location, setLocation] = React.useState('');
+    const [city, setCity] = React.useState('');
+    const [contract, setContract] = React.useState('');
+    const [respo, setRespo] = React.useState('');
+    const [qual, setQual] = React.useState('');
+    const [rqual, setRqual] = React.useState('');
+    const [link, setLink] = React.useState('');
+    const [lang1, setLang1] = React.useState('null');
+    const [lang2, setLang2] = React.useState('null');
+    const [lang3, setLang3] = React.useState('null');
+    const [lang4, setLang4] = React.useState('null');
+    const [lang5, setLang5] = React.useState('null');
+    const [lang6, setLang6] = React.useState('null');
+    const [lang7, setLang7] = React.useState('null');
+    const [lang8, setLang8] = React.useState('null');
+    const [lang9, setLang9] = React.useState('null');
+    const [lang10, setLang10] = React.useState('null');
+    function handle() {
+      console.log("create success", name, desc);
+      const url = `/account/create/${encodeURIComponent(name)}/${encodeURIComponent(desc)}/${degree}/${title}/${experience}/${ndxp}/${bsxp}/${manage}/${location}/${encodeURIComponent(city)}/${contract}/${encodeURIComponent(respo)}/${encodeURIComponent(qual)}/${encodeURIComponent(rqual)}/${encodeURIComponent(link)}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
+      (async () => {
+        var res = await fetch(url);
+        var data = await res.json();
+        console.log(data);
+      })();
+      props.setShow(false);
+    }
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("b", null, "Business Name"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+      type: "input",
+      className: "form-control",
+      placeholder: "Enter Company Name",
+      value: name,
+      onChange: e => setName(e.currentTarget.value)
+    }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "Job Description"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("textarea", {
+      className: "form-control",
+      placeholder: "Enter Job/Company Description",
+      value: desc,
+      onChange: e => setDesc(e.currentTarget.value)
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "Responsibilities"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("textarea", {
+      className: "form-control",
+      placeholder: "Enter Job Responsibilies/Duties",
+      value: respo,
+      onChange: e => setRespo(e.currentTarget.value)
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "Required Qualifications"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("textarea", {
+      className: "form-control",
+      placeholder: "Enter Required Qualifications",
+      value: rqual,
+      onChange: e => setRqual(e.currentTarget.value)
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "Preferred Qualifications"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("textarea", {
+      className: "form-control",
+      placeholder: "Enter Qualifications",
+      value: qual,
+      onChange: e => setQual(e.currentTarget.value)
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "Job URL"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+      type: "input",
+      className: "form-control",
+      placeholder: "Enter Job URL for your website",
+      value: link,
+      onChange: e => setLink(e.currentTarget.value)
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, " Job Title"), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "What is the Title for this job?",
+      value: title,
+      onChange: e => setTitle(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      selected: true
+    }, "Job Title?"), /*#__PURE__*/React.createElement("option", {
+      value: "Entry Level"
+    }, "Entry Level"), /*#__PURE__*/React.createElement("option", {
+      value: "Software Developer"
+    }, "Software Developer"), /*#__PURE__*/React.createElement("option", {
+      value: "Software Engineer"
+    }, "Software Engineer"), /*#__PURE__*/React.createElement("option", {
+      value: "Staff Engineer"
+    }, "Staff Engineer"), /*#__PURE__*/React.createElement("option", {
+      value: "Software Engineer"
+    }, "Software Engineer"), /*#__PURE__*/React.createElement("option", {
+      value: "Senior Software Developer"
+    }, "Senior Software Developer"), /*#__PURE__*/React.createElement("option", {
+      value: "Senior Software Engineer"
+    }, "Senior Software Engineer"), /*#__PURE__*/React.createElement("option", {
+      value: "Full Stack Engineer"
+    }, "Full Stack Engineer")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "How Many Years of Coding Experience Required"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "How Many Years of Experience in Total Are You Looking For",
+      value: experience,
+      onChange: e => setExperience(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      selected: true
+    }, "Years Experience"), /*#__PURE__*/React.createElement("option", {
+      value: "1"
+    }, "1"), /*#__PURE__*/React.createElement("option", {
+      value: "2"
+    }, "2"), /*#__PURE__*/React.createElement("option", {
+      value: "3"
+    }, "3"), /*#__PURE__*/React.createElement("option", {
+      value: "4"
+    }, "4"), /*#__PURE__*/React.createElement("option", {
+      value: "5"
+    }, "5"), /*#__PURE__*/React.createElement("option", {
+      value: "6"
+    }, "6"), /*#__PURE__*/React.createElement("option", {
+      value: "7"
+    }, "7"), /*#__PURE__*/React.createElement("option", {
+      value: "8"
+    }, "8"), /*#__PURE__*/React.createElement("option", {
+      value: "9"
+    }, "9"), /*#__PURE__*/React.createElement("option", {
+      value: "10"
+    }, "10")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, " Minimum Level Of Degree Required"), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Degree Level?",
+      value: degree,
+      onChange: e => setDegree(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      selected: true
+    }, "Degree Level?"), /*#__PURE__*/React.createElement("option", {
+      value: "No Degree"
+    }, "No Degree"), /*#__PURE__*/React.createElement("option", {
+      value: "AA"
+    }, "Associate"), /*#__PURE__*/React.createElement("option", {
+      value: "BS"
+    }, "Bachelor"), /*#__PURE__*/React.createElement("option", {
+      value: "Master"
+    }, "Master"), /*#__PURE__*/React.createElement("option", {
+      value: "PhD"
+    }, "PhD")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, " If No Degree Necessary How Much Experience Is Needed?"), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "No Degree Required If You Have Experience?",
+      value: ndxp,
+      onChange: e => setNdxp(e.currentTarget.value),
+      title: "Only Necessary If Applicants with No Degree or Bootcamp Require Extra Years of Experience to Equate Higher Degree"
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "1",
+      selected: true
+    }, "Years Experience"), /*#__PURE__*/React.createElement("option", {
+      value: "1"
+    }, "1"), /*#__PURE__*/React.createElement("option", {
+      value: "2"
+    }, "2"), /*#__PURE__*/React.createElement("option", {
+      value: "3"
+    }, "3"), /*#__PURE__*/React.createElement("option", {
+      value: "4"
+    }, "4"), /*#__PURE__*/React.createElement("option", {
+      value: "5"
+    }, "5"), /*#__PURE__*/React.createElement("option", {
+      value: "6"
+    }, "6"), /*#__PURE__*/React.createElement("option", {
+      value: "7"
+    }, "7"), /*#__PURE__*/React.createElement("option", {
+      value: "8"
+    }, "8"), /*#__PURE__*/React.createElement("option", {
+      value: "9"
+    }, "9"), /*#__PURE__*/React.createElement("option", {
+      value: "10"
+    }, "10")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, " If BS Degree Necessary How Much Experience Is Needed?"), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "No Degree Required If You Have Experience?",
+      value: bsxp,
+      onChange: e => setBsxp(e.currentTarget.value),
+      title: "Only Necessary If Applicants with Bachelors Degree Require Extra Years of Experience To Equate Masters or PHD"
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "1",
+      selected: true
+    }, "Years Experience"), /*#__PURE__*/React.createElement("option", {
+      value: "1"
+    }, "1"), /*#__PURE__*/React.createElement("option", {
+      value: "2"
+    }, "2"), /*#__PURE__*/React.createElement("option", {
+      value: "3"
+    }, "3"), /*#__PURE__*/React.createElement("option", {
+      value: "4"
+    }, "4"), /*#__PURE__*/React.createElement("option", {
+      value: "5"
+    }, "5"), /*#__PURE__*/React.createElement("option", {
+      value: "6"
+    }, "6"), /*#__PURE__*/React.createElement("option", {
+      value: "7"
+    }, "7"), /*#__PURE__*/React.createElement("option", {
+      value: "8"
+    }, "8"), /*#__PURE__*/React.createElement("option", {
+      value: "9"
+    }, "9"), /*#__PURE__*/React.createElement("option", {
+      value: "10"
+    }, "10")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, " Is Management Experience Required?"), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Management Experience?",
+      value: manage,
+      onChange: e => setManage(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      selected: true
+    }, "Management Experience"), /*#__PURE__*/React.createElement("option", {
+      value: "Yes"
+    }, "Yes"), /*#__PURE__*/React.createElement("option", {
+      value: "No"
+    }, "No")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "Enter Job Location"), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Job Location",
+      value: location,
+      onChange: e => setLocation(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      selected: true
+    }, "Choose Job Location"), /*#__PURE__*/React.createElement("option", {
+      value: "Remote"
+    }, "Remote"), /*#__PURE__*/React.createElement("option", {
+      value: "AL"
+    }, "Alabama"), /*#__PURE__*/React.createElement("option", {
+      value: "AK"
+    }, "Alaska"), /*#__PURE__*/React.createElement("option", {
+      value: "AZ"
+    }, "Arizona"), /*#__PURE__*/React.createElement("option", {
+      value: "AR"
+    }, "Arkansas"), /*#__PURE__*/React.createElement("option", {
+      value: "CA"
+    }, "California"), /*#__PURE__*/React.createElement("option", {
+      value: "CO"
+    }, "Colorado"), /*#__PURE__*/React.createElement("option", {
+      value: "CT"
+    }, "Connecticut"), /*#__PURE__*/React.createElement("option", {
+      value: "DE"
+    }, "Delaware"), /*#__PURE__*/React.createElement("option", {
+      value: "DC"
+    }, "District Of Columbia"), /*#__PURE__*/React.createElement("option", {
+      value: "FL"
+    }, "Florida"), /*#__PURE__*/React.createElement("option", {
+      value: "GA"
+    }, "Georgia"), /*#__PURE__*/React.createElement("option", {
+      value: "HI"
+    }, "Hawaii"), /*#__PURE__*/React.createElement("option", {
+      value: "ID"
+    }, "Idaho"), /*#__PURE__*/React.createElement("option", {
+      value: "IL"
+    }, "Illinois"), /*#__PURE__*/React.createElement("option", {
+      value: "IN"
+    }, "Indiana"), /*#__PURE__*/React.createElement("option", {
+      value: "IA"
+    }, "Iowa"), /*#__PURE__*/React.createElement("option", {
+      value: "KS"
+    }, "Kansas"), /*#__PURE__*/React.createElement("option", {
+      value: "KY"
+    }, "Kentucky"), /*#__PURE__*/React.createElement("option", {
+      value: "LA"
+    }, "Louisiana"), /*#__PURE__*/React.createElement("option", {
+      value: "ME"
+    }, "Maine"), /*#__PURE__*/React.createElement("option", {
+      value: "MD"
+    }, "Maryland"), /*#__PURE__*/React.createElement("option", {
+      value: "MA"
+    }, "Massachusetts"), /*#__PURE__*/React.createElement("option", {
+      value: "MI"
+    }, "Michigan"), /*#__PURE__*/React.createElement("option", {
+      value: "MN"
+    }, "Minnesota"), /*#__PURE__*/React.createElement("option", {
+      value: "MS"
+    }, "Mississippi"), /*#__PURE__*/React.createElement("option", {
+      value: "MO"
+    }, "Missouri"), /*#__PURE__*/React.createElement("option", {
+      value: "MT"
+    }, "Montana"), /*#__PURE__*/React.createElement("option", {
+      value: "NE"
+    }, "Nebraska"), /*#__PURE__*/React.createElement("option", {
+      value: "NV"
+    }, "Nevada"), /*#__PURE__*/React.createElement("option", {
+      value: "NH"
+    }, "New Hampshire"), /*#__PURE__*/React.createElement("option", {
+      value: "NJ"
+    }, "New Jersey"), /*#__PURE__*/React.createElement("option", {
+      value: "NM"
+    }, "New Mexico"), /*#__PURE__*/React.createElement("option", {
+      value: "NY"
+    }, "New York"), /*#__PURE__*/React.createElement("option", {
+      value: "NC"
+    }, "North Carolina"), /*#__PURE__*/React.createElement("option", {
+      value: "ND"
+    }, "North Dakota"), /*#__PURE__*/React.createElement("option", {
+      value: "OH"
+    }, "Ohio"), /*#__PURE__*/React.createElement("option", {
+      value: "OK"
+    }, "Oklahoma"), /*#__PURE__*/React.createElement("option", {
+      value: "OR"
+    }, "Oregon"), /*#__PURE__*/React.createElement("option", {
+      value: "PA"
+    }, "Pennsylvania"), /*#__PURE__*/React.createElement("option", {
+      value: "RI"
+    }, "Rhode Island"), /*#__PURE__*/React.createElement("option", {
+      value: "SC"
+    }, "South Carolina"), /*#__PURE__*/React.createElement("option", {
+      value: "SD"
+    }, "South Dakota"), /*#__PURE__*/React.createElement("option", {
+      value: "TN"
+    }, "Tennessee"), /*#__PURE__*/React.createElement("option", {
+      value: "TX"
+    }, "Texas"), /*#__PURE__*/React.createElement("option", {
+      value: "UT"
+    }, "Utah"), /*#__PURE__*/React.createElement("option", {
+      value: "VT"
+    }, "Vermont"), /*#__PURE__*/React.createElement("option", {
+      value: "VA"
+    }, "Virginia"), /*#__PURE__*/React.createElement("option", {
+      value: "WA"
+    }, "Washington"), /*#__PURE__*/React.createElement("option", {
+      value: "WV"
+    }, "West Virginia"), /*#__PURE__*/React.createElement("option", {
+      value: "WI"
+    }, "Wisconsin"), /*#__PURE__*/React.createElement("option", {
+      value: "WY"
+    }, "Wyoming")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+      type: "input",
+      className: "form-control",
+      placeholder: "Enter City Name",
+      value: city,
+      onChange: e => setCity(e.currentTarget.value)
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "Is This A Contract Job?"), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Contract Job?",
+      value: contract,
+      onChange: e => setContract(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      selected: true
+    }, "Is This a Contract Job?"), /*#__PURE__*/React.createElement("option", {
+      value: "Yes"
+    }, "Yes"), /*#__PURE__*/React.createElement("option", {
+      value: "No"
+    }, "No")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "Languages"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang1,
+      onChange: e => setLang1(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Coding Language"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang2,
+      onChange: e => setLang2(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang3,
+      onChange: e => setLang3(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang4,
+      onChange: e => setLang4(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang5,
+      onChange: e => setLang5(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang6,
+      onChange: e => setLang6(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang7,
+      onChange: e => setLang7(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang8,
+      onChange: e => setLang8(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang9,
+      onChange: e => setLang9(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+      className: "form-select",
+      placeholder: "Enter Job Here",
+      value: lang10,
+      onChange: e => setLang10(e.currentTarget.value)
+    }, /*#__PURE__*/React.createElement("option", {
+      value: "none",
+      selected: true
+    }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
+      value: "HTML"
+    }, "HMTL"), /*#__PURE__*/React.createElement("option", {
+      value: "Javascript"
+    }, "Javascript"), /*#__PURE__*/React.createElement("option", {
+      value: "Java"
+    }, "Java"), /*#__PURE__*/React.createElement("option", {
+      value: "CSS"
+    }, "CSS"), /*#__PURE__*/React.createElement("option", {
+      value: "SASS"
+    }, "SASS"), /*#__PURE__*/React.createElement("option", {
+      value: "SCSS"
+    }, "SCSS"), /*#__PURE__*/React.createElement("option", {
+      value: "React.js"
+    }, "React.js"), /*#__PURE__*/React.createElement("option", {
+      value: "React Native"
+    }, "React Native"), /*#__PURE__*/React.createElement("option", {
+      value: "AngularJS"
+    }, "AngularJS"), /*#__PURE__*/React.createElement("option", {
+      value: "Vue"
+    }, "Vue"), /*#__PURE__*/React.createElement("option", {
+      value: "TypeScript"
+    }, "TypeScript"), /*#__PURE__*/React.createElement("option", {
+      value: "PHP"
+    }, "PHP"), /*#__PURE__*/React.createElement("option", {
+      value: "Python"
+    }, "Python"), /*#__PURE__*/React.createElement("option", {
+      value: "Django"
+    }, "Django"), /*#__PURE__*/React.createElement("option", {
+      value: "Flask"
+    }, "Flask"), /*#__PURE__*/React.createElement("option", {
+      value: "Ruby"
+    }, "Ruby"), /*#__PURE__*/React.createElement("option", {
+      value: "Jekyll"
+    }, "Jekyll"), /*#__PURE__*/React.createElement("option", {
+      value: "Swift"
+    }, "Swift"), /*#__PURE__*/React.createElement("option", {
+      value: "Objective C"
+    }, "Objective C"), /*#__PURE__*/React.createElement("option", {
+      value: "Scala"
+    }, "Scala"), /*#__PURE__*/React.createElement("option", {
+      value: "a"
+    }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("stripe-buy-button", {
+      "buy-button-id": "buy_btn_1ODLdDIzISM1ETBPPQoUGid9",
+      "publishable-key": "pk_test_51ODLJfIzISM1ETBPFW4gfuUjLK7EeW1nk8I9HM5orRjJ61IlaJSkOeANe86KzIUZAiUNqTYA2dCwYb4mo5FhJn7f00CQ6jMAOp"
+    })), /*#__PURE__*/React.createElement("button", {
+      type: "submit",
+      className: "btn btn-light",
+      onClick: handle
+    }, "Create Listing"));
+    /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("stripe-buy-button", {
+      "buy-button-id": "buy_btn_1ODLdDIzISM1ETBPPQoUGid9",
+      "publishable-key": "pk_test_51ODLJfIzISM1ETBPFW4gfuUjLK7EeW1nk8I9HM5orRjJ61IlaJSkOeANe86KzIUZAiUNqTYA2dCwYb4mo5FhJn7f00CQ6jMAOp"
+    }));
+  }

@@ -12,10 +12,10 @@ MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
 });
 
 // create user account
-function create(name, desc, degree, title, experience, manage, location, city, contract, respo, rqual, qual, link, lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10){
+function create(name, desc, degree, title, experience, ndxp, bsxp, manage, location, city, contract, respo, rqual, qual, link, lang1, lang2, lang3, lang4, lang5, lang6, lang7, lang8, lang9, lang10){
     return new Promise((resolve, reject) => {    
         const collection = db.collection('users');
-        const doc = {name: name, desc: desc, degree: degree, title: title, experience: +experience, manage: manage, location: location, city: city, contract: contract, respo: respo, rqual: rqual, qual: qual, link: link, lang1: lang1, lang2: lang2, lang3: lang3, lang4: lang4, lang5: lang5, lang6: lang6, lang7: lang7, lang8: lang8, lang9: lang9, lang10: lang10};
+        const doc = {name: name, desc: desc, degree: degree, title: title, experience: +experience, ndxp: +ndxp,bsxp: +bsxp, manage: manage, location: location, city: city, contract: contract, respo: respo, rqual: rqual, qual: qual, link: link, lang1: lang1, lang2: lang2, lang3: lang3, lang4: lang4, lang5: lang5, lang6: lang6, lang7: lang7, lang8: lang8, lang9: lang9, lang10: lang10};
         collection.insertOne(doc, {w:1}, function(err, result) {
             err ? reject(err) : resolve(doc);
             console.log("dal success")

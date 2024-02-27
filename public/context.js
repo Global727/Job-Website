@@ -1,54 +1,55 @@
-const Route       = ReactRouterDOM.Route;
-const Link        = ReactRouterDOM.Link;
-const HashRouter  = ReactRouterDOM.HashRouter;
+const Route = ReactRouterDOM.Route;
+const Link = ReactRouterDOM.Link;
+const HashRouter = ReactRouterDOM.HashRouter;
 const UserContext = React.createContext(null);
-
-function Card(props){
-  function classes(){
-    const bg  = props.bgcolor  ? ' bg-' + props.bgcolor : ' ';
-    const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-blue';
+function Card(props) {
+  function classes() {
+    const bg = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
+    const txt = props.txtcolor ? ' text-' + props.txtcolor : ' text-blue';
     return 'card border-light' + bg + txt;
   }
-
-  return (
-    <div className={classes()} class="text-center" style={{} }>
-      
-      <div className="card-body text-center ">
-        {props.title && (<h5 className="card-title">{props.title}</h5>)}
-        {props.text && (<p className="card-text">{props.text}</p>)}
-        {props.body && (<p className="card-text" > {props.body}</p>)}
-        
-        {props.status && (<div id='createStatus'>{props.status}</div>)}
-      </div>
-    </div>      
-  );    
+  return /*#__PURE__*/React.createElement("div", {
+    className: classes(),
+    class: "text-center",
+    style: {}
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card-body text-center "
+  }, props.title && /*#__PURE__*/React.createElement("h5", {
+    className: "card-title"
+  }, props.title), props.text && /*#__PURE__*/React.createElement("p", {
+    className: "card-text"
+  }, props.text), props.body && /*#__PURE__*/React.createElement("p", {
+    className: "card-text"
+  }, " ", props.body), props.status && /*#__PURE__*/React.createElement("div", {
+    id: "createStatus"
+  }, props.status)));
 }
-
-
-
-function JobsCard(props){
-  function classes(){
-    const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
-    const txt = props.txtcolor ? ' text-' + props.txtcolor: ' ';
+function JobsCard(props) {
+  function classes() {
+    const bg = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
+    const txt = props.txtcolor ? ' text-' + props.txtcolor : ' ';
     return 'card' + bg + txt;
   }
-
-  return (
-    <div className={classes()}  style={{}}>
-      
-      
-      <div className="card-body">
-        {props.title && (<h5 className="jobscard-title job-title-text">{props.title}</h5>)}
-        {props.text && (<p className="jobscard-text">{props.text}</p>)}
-        {props.subtitle && (<h6 className="card-subtitle mb-2 text-muted">{props.subtitle}</h6>)}
-        {props.body1  && (<h4 className="experience-required">{props.body1} </h4>)}
-        {props.body  && (<h4 className="jobscard-text language">{props.body} </h4>)}
-        {props.body3  && (<h4 className="experience-required">{props.body3} </h4>)}
-        {props.body2  && (<h4 className="jobscard-text">{props.body2} </h4>)}
-        {props.status && (<div id='jobscreateStatus'>{props.status}</div>)}
-      </div>
-    </div> 
-    
-         
-  );    
+  return /*#__PURE__*/React.createElement("div", {
+    className: classes(),
+    style: {}
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card-body"
+  }, props.title && /*#__PURE__*/React.createElement("h5", {
+    className: "jobscard-title job-title-text"
+  }, props.title), props.text && /*#__PURE__*/React.createElement("p", {
+    className: "jobscard-text"
+  }, props.text), props.subtitle && /*#__PURE__*/React.createElement("h6", {
+    className: "card-subtitle mb-2 text-muted"
+  }, props.subtitle), props.body1 && /*#__PURE__*/React.createElement("h4", {
+    className: "experience-required"
+  }, props.body1, " "), props.body && /*#__PURE__*/React.createElement("h4", {
+    className: "jobscard-text language"
+  }, props.body, " "), props.body3 && /*#__PURE__*/React.createElement("h4", {
+    className: "experience-required"
+  }, props.body3, " "), props.body2 && /*#__PURE__*/React.createElement("h4", {
+    className: "jobscard-text"
+  }, props.body2, " "), props.status && /*#__PURE__*/React.createElement("div", {
+    id: "jobscreateStatus"
+  }, props.status)));
 }
