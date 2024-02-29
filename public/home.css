@@ -1,139 +1,161 @@
 .card {
-    margin-top: 0px; 
-    display:flex;
-    text-align: center;
-    color: black;
-    background-color:  white;
-    header: balance;
-    align-self: center;
-    flex: 1 1 auto;
-    
-    
-    
+  margin-top: 0px; 
+  display:flex;
+  text-align: center;
+  color: black;
+  background-color:  white;
+  header: balance;
+  align-self: center;
+  flex: 1 1 auto;
+  
+  
+  
 
-    
-    
+  
+  
 
 }
 .visible-lg{
-    margin-left: auto;
-  margin-right: auto;
-  max-width: 1400px;
-  width: 1400px;
+  margin-left: auto;
+margin-right: auto;
+max-width: 1400px;
+width: 1400px;
 }
 
 
 .card-body{
-   
-    
+ 
+  
 }
 
 .navbar-brand{
-    font-size: 22px;
+  font-size: 22px;
 
 }
 
 .btn2{
-    background-color: #3e66c0;
-    color: white;
-    width: 25%;
+  background-color: #3e66c0;
+  color: white;
+  width: 100%;
+  
 }
 
 .navbar{
- border-radius: 1px;
+border-radius: 1px;
 }
 
 
 .stretched-link {
-    color:black;
-    text-decoration: none; 
-   background-color: none;
+  color:black;
+  text-decoration: none; 
+ background-color: none;
 }
 
 .job-title-text{
-    font-size: 22px;
-    font-weight: 500;
-    color:black;
+  font-size: 22px;
+  font-weight: 500;
+  color:black;
 
 }
 
 .jobscard-text{
-    align-content: center;
-    font-size: 15px;
-    max-width: 440px;
-    margin: auto;
-  
+  align-content: center;
+  font-size: 15px;
+  max-width: 440px;
+  margin: auto;
+
 
 }
 
 .card-subtitle{
 
-    font-size: 17px;
+  font-size: 17px;
 }
 
 .brand-text{
 
-    font-size: 30px;
+  font-size: 30px;
 
 }
 .border-secondary{
-    background-color: brown;
+  background-color: brown;
 }
 .language {
-    font-weight: 800;
-    color: #0d6efd;
+  font-weight: 800;
+  color: #0d6efd;
 
 }
 
 .container { 
-    display: flex;
-    
+  display: flex;
+  
 flex-direction: row;
 flex-wrap: wrap;
 align-content: flex-start;
 justify-content: center;
 
 
-  }
+}
 
 .experience-required{
-    font-size: 18px;
-    font-weight: 400;
-    
-
-  }
-
-
-  .stretched-link{
-    opacity: 0;
-    height: 0;
-  width: 0;
-  }
-
-
-  .create {
-    align-content: center;
-    font-size: 15px;
-    max-width: 440px;
-    margin: auto;
-    width: 50%;
+  font-size: 18px;
+  font-weight: 400;
   
 
 }
 
+
+.stretched-link{
+  opacity: 0;
+  height: 0;
+width: 0;
+}
+
+
+.create {
+  align-content: center;
+  font-size: 15px;
+  max-width: 440px;
+  margin: auto;
+  width: 50%;
+
+
+}
+
 textarea {
-    width: 300px;
-    height: 300px;
-  }
+  width: 300px;
+  height: 300px;
+}
 
-  h1{
-    font-size: 15px;
-    font-weight: bold;
-    margin-bottom: 1px;
+h1{
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 1px;
 
-  }
+}
 
-  p{
-    white-space: pre-line;
-    text-align: left;
-  }
+p{
+  white-space: pre-line;
+  text-align: left;
+}
+
+.red{
+  color: red;
+}
+
+.center{
+  width: 100%;
+  margin-bottom: 0px;
+  text-align: center;
+}
+.relative{
+  position: relative;
+}
+
+#createStatus {
+  margin-bottom: 50%;
+}
+
+.dark{
+  color: blue;
+}
