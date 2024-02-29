@@ -35,8 +35,8 @@ function CreateForm(props) {
   const [degree, setDegree] = React.useState('');
   const [title, setTitle] = React.useState('');
   const [experience, setExperience] = React.useState();
-  const [ndxp, setNdxp] = React.useState();
-  const [bsxp, setBsxp] = React.useState();
+  const [ndxp, setNdxp] = React.useState(0);
+  const [bsxp, setBsxp] = React.useState(0);
   const [manage, setManage] = React.useState('');
   const [location, setLocation] = React.useState('');
   const [city, setCity] = React.useState('');
@@ -56,25 +56,21 @@ function CreateForm(props) {
   const [lang9, setLang9] = React.useState('null');
   const [lang10, setLang10] = React.useState('null');
   function handle() {
-    try {
-      console.log("create success", data);
-      var url = `/account/create/${encodeURIComponent(name)}/${encodeURIComponent(desc)}/${degree}/${title}/${experience}/${ndxp}/${bsxp}/${manage}/${location}/${encodeURIComponent(city)}/${contract}/${encodeURIComponent(respo)}/${encodeURIComponent(qual)}/${encodeURIComponent(rqual)}/${encodeURIComponent(link)}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
-      (async () => {
-        var res = await fetch(url);
-        var data = await res.json();
-        console.log(data, url);
-      })();
-      props.setShow(false);
-    } catch (err) {}
+    console.log("create success");
+    var url = `/account/create/${encodeURIComponent(name)}/${encodeURIComponent(desc)}/${degree}/${title}/${experience}/${ndxp}/${bsxp}/${manage}/${location}/${encodeURIComponent(city)}/${contract}/${encodeURIComponent(respo)}/${encodeURIComponent(qual)}/${encodeURIComponent(rqual)}/${encodeURIComponent(link)}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
+    (async () => {
+      var res = await fetch(url);
+      var data = await res.json();
+      console.log();
+    })();
 
-    //document.querySelector(".btn2").style.backgroundColor= "red";
-    //document.querySelector(".btn2").innerHTML = "Missing Fields";
+    //put if statement here if all is good then setshow else 
+    props.setShow(false);
   }
   ;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("b", null, "Business Name"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
     type: "input",
-    required: true,
-    className: "form-control required",
+    className: "form-control",
     placeholder: "Enter Company Name",
     value: name,
     onChange: e => setName(e.currentTarget.value)
@@ -171,7 +167,7 @@ function CreateForm(props) {
     value: "Master"
   }, "Master"), /*#__PURE__*/React.createElement("option", {
     value: "PhD"
-  }, "PhD")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "PhD")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "How Many Additional Years to Equate No Degree/Certificate With Higher Degree"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "No Degree Required If You Have Experience?",
     value: ndxp,
@@ -180,7 +176,7 @@ function CreateForm(props) {
   }, /*#__PURE__*/React.createElement("option", {
     selected: true,
     value: "0"
-  }, "Optional"), /*#__PURE__*/React.createElement("option", {
+  }, "0"), /*#__PURE__*/React.createElement("option", {
     value: "1"
   }, "1"), /*#__PURE__*/React.createElement("option", {
     value: "2"
@@ -200,7 +196,7 @@ function CreateForm(props) {
     value: "9"
   }, "9"), /*#__PURE__*/React.createElement("option", {
     value: "10"
-  }, "10")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "10")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "How Many Additional Years to Equate Bachelors With Higher Degree"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "No Degree Required If You Have Experience?",
     value: bsxp,
@@ -209,7 +205,7 @@ function CreateForm(props) {
   }, /*#__PURE__*/React.createElement("option", {
     selected: true,
     value: "0"
-  }, "Optional"), /*#__PURE__*/React.createElement("option", {
+  }, "0"), /*#__PURE__*/React.createElement("option", {
     value: "1"
   }, "1"), /*#__PURE__*/React.createElement("option", {
     value: "2"
