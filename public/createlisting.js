@@ -2,7 +2,7 @@ function CreateAccount() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState('');
   return /*#__PURE__*/React.createElement("div", {
-    class: "create"
+    className: "create"
   }, /*#__PURE__*/React.createElement(Card, {
     bgcolor: "light",
     header: "Create Account",
@@ -17,12 +17,12 @@ function CreateAccount() {
 }
 function CreateMsg(props) {
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    class: "alert alert-success",
+    className: "alert alert-success",
     role: "alert"
   }, /*#__PURE__*/React.createElement("h4", {
-    class: "alert-heading"
+    className: "alert-heading"
   }, "Listing Created"), /*#__PURE__*/React.createElement("p", null, "Thanks For Using StackHire.US"), /*#__PURE__*/React.createElement("p", {
-    class: "mb-10"
+    className: "mb-10"
   }, " "), /*#__PURE__*/React.createElement("button", {
     type: "submit",
     className: "btn btn-light",
@@ -61,52 +61,49 @@ function CreateForm(props) {
     (async () => {
       var res = await fetch(url);
       var data = await res.json();
-      console.log();
+      console.log(data);
     })();
-
-    //put if statement here if all is good then setshow else 
     props.setShow(false);
   }
-  ;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("b", null, "Business Name"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Business Name"), /*#__PURE__*/React.createElement("input", {
     type: "input",
     className: "form-control",
     placeholder: "Enter Company Name",
     value: name,
     onChange: e => setName(e.currentTarget.value)
-  }), /*#__PURE__*/React.createElement("b", null, "Job Description"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("textarea", {
+  }), /*#__PURE__*/React.createElement("p", null, "Job Description"), /*#__PURE__*/React.createElement("textarea", {
     className: "form-control",
     placeholder: "Enter Job/Company Description",
     value: desc,
     onChange: e => setDesc(e.currentTarget.value)
-  }), /*#__PURE__*/React.createElement("b", null, "Responsibilities"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("textarea", {
+  }), /*#__PURE__*/React.createElement("p", null, "Responsibilities"), /*#__PURE__*/React.createElement("textarea", {
     className: "form-control",
     placeholder: "Enter Job Responsibilies/Duties",
     value: respo,
     onChange: e => setRespo(e.currentTarget.value)
-  }), /*#__PURE__*/React.createElement("b", null, "Required Qualifications"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("textarea", {
+  }), /*#__PURE__*/React.createElement("p", null, "Required Qualifications"), /*#__PURE__*/React.createElement("textarea", {
     className: "form-control",
     placeholder: "Enter Required Qualifications",
     value: rqual,
     onChange: e => setRqual(e.currentTarget.value)
-  }), /*#__PURE__*/React.createElement("b", null, "Preferred Qualifications"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("textarea", {
+  }), /*#__PURE__*/React.createElement("p", null, "Preferred Qualifications"), /*#__PURE__*/React.createElement("textarea", {
     className: "form-control",
     placeholder: "Enter Qualifications",
     value: qual,
     onChange: e => setQual(e.currentTarget.value)
-  }), /*#__PURE__*/React.createElement("b", null, "Job URL"), /*#__PURE__*/React.createElement("input", {
+  }), /*#__PURE__*/React.createElement("p", null, "Job URL"), /*#__PURE__*/React.createElement("input", {
     type: "input",
     className: "form-control",
     placeholder: "''https://'' required",
     value: link,
     onChange: e => setLink(e.currentTarget.value)
-  }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "What is the Title for this job?",
     value: title,
     onChange: e => setTitle(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Job Title?"), /*#__PURE__*/React.createElement("option", {
     value: "Entry Level"
   }, "Entry Level"), /*#__PURE__*/React.createElement("option", {
@@ -123,13 +120,13 @@ function CreateForm(props) {
     value: "Senior Software Engineer"
   }, "Senior Software Engineer"), /*#__PURE__*/React.createElement("option", {
     value: "Full Stack Engineer"
-  }, "Full Stack Engineer")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Full Stack Engineer")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "How Many Years of Experience in Total Are You Looking For",
     value: experience,
     onChange: e => setExperience(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Years Experience"), /*#__PURE__*/React.createElement("option", {
     value: "1"
   }, "1"), /*#__PURE__*/React.createElement("option", {
@@ -150,13 +147,13 @@ function CreateForm(props) {
     value: "9"
   }, "9"), /*#__PURE__*/React.createElement("option", {
     value: "10"
-  }, "10")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "10")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Degree Level?",
     value: degree,
     onChange: e => setDegree(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Degree Level?"), /*#__PURE__*/React.createElement("option", {
     value: "No Degree"
   }, "No Degree"), /*#__PURE__*/React.createElement("option", {
@@ -167,14 +164,14 @@ function CreateForm(props) {
     value: "Master"
   }, "Master"), /*#__PURE__*/React.createElement("option", {
     value: "PhD"
-  }, "PhD")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "How Many Additional Years to Equate No Degree/Certificate With Higher Degree"), /*#__PURE__*/React.createElement("select", {
+  }, "PhD")), /*#__PURE__*/React.createElement("p", null, "How Many Additional Years to Equate No Degree/Certificate With Higher Degree"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "No Degree Required If You Have Experience?",
     value: ndxp,
     onChange: e => setNdxp(e.currentTarget.value),
     title: "Only Necessary If Applicants with No Degree or Bootcamp Require Extra Years of Experience to Equate Higher Degree"
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true,
+    defaultValue: true,
     value: "0"
   }, "0"), /*#__PURE__*/React.createElement("option", {
     value: "1"
@@ -196,15 +193,14 @@ function CreateForm(props) {
     value: "9"
   }, "9"), /*#__PURE__*/React.createElement("option", {
     value: "10"
-  }, "10")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "How Many Additional Years to Equate Bachelors With Higher Degree"), /*#__PURE__*/React.createElement("select", {
+  }, "10")), /*#__PURE__*/React.createElement("p", null, "How Many Additional Years to Equate Bachelors With Higher Degree"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "No Degree Required If You Have Experience?",
     value: bsxp,
     onChange: e => setBsxp(e.currentTarget.value),
     title: "Only Necessary If Applicants with Bachelors Degree Require Extra Years of Experience To Equate Masters or PHD"
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true,
-    value: "0"
+    defaultValue: "0"
   }, "0"), /*#__PURE__*/React.createElement("option", {
     value: "1"
   }, "1"), /*#__PURE__*/React.createElement("option", {
@@ -225,24 +221,24 @@ function CreateForm(props) {
     value: "9"
   }, "9"), /*#__PURE__*/React.createElement("option", {
     value: "10"
-  }, "10")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "10")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Management Experience?",
     value: manage,
     onChange: e => setManage(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Management Experience"), /*#__PURE__*/React.createElement("option", {
     value: "Yes"
   }, "Yes"), /*#__PURE__*/React.createElement("option", {
     value: "No"
-  }, "No")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "No")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Job Location",
     value: location,
     onChange: e => setLocation(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Choose Job Location"), /*#__PURE__*/React.createElement("option", {
     value: "Remote"
   }, "Remote"), /*#__PURE__*/React.createElement("option", {
@@ -347,33 +343,32 @@ function CreateForm(props) {
     value: "WI"
   }, "Wisconsin"), /*#__PURE__*/React.createElement("option", {
     value: "WY"
-  }, "Wyoming")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+  }, "Wyoming")), /*#__PURE__*/React.createElement("input", {
     type: "input",
     className: "form-control",
     placeholder: "Enter City Name",
     value: city,
     onChange: e => setCity(e.currentTarget.value)
-  }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Contract Job?",
     value: contract,
     onChange: e => setContract(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Is This a Contract Job?"), /*#__PURE__*/React.createElement("option", {
     value: "Yes"
   }, "Yes"), /*#__PURE__*/React.createElement("option", {
     value: "No"
-  }, "No")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, /*#__PURE__*/React.createElement("div", {
-    class: "red"
-  }, "Applicants will only be shown your listing if they match all parameters below.")), /*#__PURE__*/React.createElement("b", null, "Languages"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "No")), "        ", /*#__PURE__*/React.createElement("p", {
+    className: "red"
+  }, "Applicants will only be shown your listing if they match all parameters below."), /*#__PURE__*/React.createElement("p", null, "Languages"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang1,
     onChange: e => setLang1(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Coding Language"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -416,14 +411,13 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "a")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang2,
     onChange: e => setLang2(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -466,14 +460,13 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "a")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang3,
     onChange: e => setLang3(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -516,14 +509,13 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "a")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang4,
     onChange: e => setLang4(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -566,14 +558,13 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "a")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang5,
     onChange: e => setLang5(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -616,14 +607,13 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "a")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang6,
     onChange: e => setLang6(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -666,14 +656,13 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "a")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang7,
     onChange: e => setLang7(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -716,14 +705,13 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "a")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang8,
     onChange: e => setLang8(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -766,14 +754,13 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "a")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang9,
     onChange: e => setLang9(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -816,14 +803,13 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "a")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang10,
     onChange: e => setLang10(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    value: "none",
-    selected: true
+    defaultValue: "none"
   }, "Add Language (Optional)"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -866,7 +852,7 @@ function CreateForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "a"
-  }, "a")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("button", {
+  }, "a")), /*#__PURE__*/React.createElement("button", {
     type: "submit",
     className: "btn btn2 btn-primary btn-lg",
     onClick: handle

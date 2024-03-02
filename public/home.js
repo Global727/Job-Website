@@ -38,31 +38,39 @@ function BalanceForm(props) {
       try {
         var objs = JSON.parse(text);
         var results = /*#__PURE__*/React.createElement("div", {
-          class: "visible-lg"
+          className: "visible-lg"
         }, /*#__PURE__*/React.createElement("div", {
-          class: "row row-cols-lg-3 row-cols-md-3 g-3 justify-content-lg-center"
+          className: "row row-cols-lg-3 row-cols-md-3 g-3 justify-content-lg-center"
         }, objs.map(objs => /*#__PURE__*/React.createElement(JobsCard, {
           title: objs.name,
           subtitle: objs.title,
           body1: objs.city,
           body2: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
-            class: "stretched-link",
+            className: "stretched-link",
             type: "button",
             "data-bs-toggle": "collapse",
             href: "#" + objs._id,
             "aria-expanded": "false",
             "aria-controls": objs._id
           }), /*#__PURE__*/React.createElement("div", {
-            class: "collapse",
+            className: "collapse",
             id: objs._id
           }, /*#__PURE__*/React.createElement("div", {
-            class: "jobscard-text"
-          }, /*#__PURE__*/React.createElement("h1", null, "Job Description"), /*#__PURE__*/React.createElement("p", null, decodeURIComponent(objs.desc)), /*#__PURE__*/React.createElement("p", {
-            class: "relative"
+            className: "jobscard-text"
+          }, /*#__PURE__*/React.createElement("h1", {
+            className: "bold"
+          }, "Job Description"), /*#__PURE__*/React.createElement("p", null, decodeURIComponent(objs.desc)), /*#__PURE__*/React.createElement("p", {
+            className: "relative"
           }, /*#__PURE__*/React.createElement("a", {
             href: decodeURIComponent(objs.link),
             target: "_blank"
-          }, decodeURIComponent(objs.link), " ")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("h1", null, "Job Responsibilities"), /*#__PURE__*/React.createElement("p", null, objs.respo), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("h1", null, "Requiured Qualifications"), /*#__PURE__*/React.createElement("p", null, objs.rqual), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("h1", null, "Preferred Qualifications"), /*#__PURE__*/React.createElement("p", null, objs.qual))))
+          }, decodeURIComponent(objs.link), " ")), /*#__PURE__*/React.createElement("h1", {
+            className: "bold"
+          }, "Job Responsibilities"), /*#__PURE__*/React.createElement("p", null, objs.respo), /*#__PURE__*/React.createElement("h1", {
+            className: "bold"
+          }, "Requiured Qualifications"), /*#__PURE__*/React.createElement("p", null, objs.rqual), /*#__PURE__*/React.createElement("h1", {
+            className: "bold"
+          }, "Preferred Qualifications"), /*#__PURE__*/React.createElement("p", null, objs.qual))))
 
           //.concat(" ","Years of Experience")
           ,
@@ -81,18 +89,17 @@ function BalanceForm(props) {
       }
     });
   }
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
-    class: "needs-validation",
-    novalidate: true
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    className: "needs-validation"
   }, /*#__PURE__*/React.createElement("select", {
-    class: "form-select",
-    placeholder: "Degree Level?asdasd",
+    className: "form-select",
+    placeholder: "Degree Level?",
     value: degree,
     id: "degree",
     required: true,
     onChange: e => setDegree(e.currentTarget.value)
-  }, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("option", {
-    selected: "asda"
+  }, /*#__PURE__*/React.createElement("option", {
+    defaultValue: true
   }, "Choose Degree"), /*#__PURE__*/React.createElement("option", {
     value: "No Degree"
   }, "No Degree"), /*#__PURE__*/React.createElement("option", {
@@ -103,14 +110,13 @@ function BalanceForm(props) {
     value: "Master"
   }, "Master"), /*#__PURE__*/React.createElement("option", {
     value: "PhD"
-  }, "PhD")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "PhD")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Years of Experience?",
     id: "experience",
     value: experience,
     onChange: e => setExperience(e.currentTarget.value)
-  }, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("option", {
-    selected: true,
+  }, /*#__PURE__*/React.createElement("option", {
     value: "5"
   }, "Years Coding Experience (5)"), /*#__PURE__*/React.createElement("option", {
     value: "1"
@@ -132,7 +138,7 @@ function BalanceForm(props) {
     value: "9"
   }, "9"), /*#__PURE__*/React.createElement("option", {
     value: "10"
-  }, "10")), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("select", {
+  }, "10"))), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Years of Experience?",
     id: "experiencemin",
@@ -141,7 +147,7 @@ function BalanceForm(props) {
     "data-bs-toggle": "tooltip",
     "data-bs-placement": "right",
     title: "Allows you to search for jobs that dont exactly meet your years of experience"
-  }, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("option", {
+  }, /*#__PURE__*/React.createElement("option", {
     value: "1"
   }, "Minimum XP Years to Include (1)"), /*#__PURE__*/React.createElement("option", {
     value: "1"
@@ -163,13 +169,13 @@ function BalanceForm(props) {
     value: "9"
   }, "9"), /*#__PURE__*/React.createElement("option", {
     value: "10"
-  }, "10")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "10")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Job Location",
     value: location,
     onChange: e => setLocation(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Choose Job Location"), /*#__PURE__*/React.createElement("option", {
     value: "Remote"
   }, "Remote"), /*#__PURE__*/React.createElement("option", {
@@ -275,7 +281,7 @@ function BalanceForm(props) {
   }, "Wisconsin"), /*#__PURE__*/React.createElement("option", {
     value: "WY"
   }, "Wyoming")), /*#__PURE__*/React.createElement("p", {
-    class: "center"
+    className: "center"
   }, /*#__PURE__*/React.createElement("b", null, "You Must Meet All Requirements Of A Potential Job")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
@@ -325,7 +331,7 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang2,
@@ -374,7 +380,7 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang3,
@@ -423,13 +429,13 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang4,
     onChange: e => setLang4(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Optional Additional Coding Language"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -472,13 +478,13 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang5,
     onChange: e => setLang5(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Optional Additional Coding Language"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -521,13 +527,13 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang6,
     onChange: e => setLang6(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Optional Additional Coding Language"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -570,13 +576,13 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang7,
     onChange: e => setLang7(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Optional Additional Coding Language"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -619,13 +625,13 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang8,
     onChange: e => setLang8(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Optional Additional Coding Language"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -668,13 +674,13 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang9,
     onChange: e => setLang9(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Optional Additional Coding Language"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -717,13 +723,13 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     placeholder: "Enter Job Here",
     value: lang10,
     onChange: e => setLang10(e.currentTarget.value)
   }, /*#__PURE__*/React.createElement("option", {
-    selected: true
+    defaultValue: true
   }, "Optional Additional Coding Language"), /*#__PURE__*/React.createElement("option", {
     value: "HTML"
   }, "HMTL"), /*#__PURE__*/React.createElement("option", {
@@ -766,7 +772,7 @@ function BalanceForm(props) {
     value: "Scala"
   }, "Scala"), /*#__PURE__*/React.createElement("option", {
     value: "Node.js"
-  }, "Node.js")), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("button", {
+  }, "Node.js")), /*#__PURE__*/React.createElement("button", {
     type: "submit",
     className: "btn btn-primary btn-lg btn2",
     onClick: handle

@@ -5,10 +5,9 @@
   color: black;
   background-color:  white;
   header: balance;
-  align-self: center;
-  flex: 1 1 auto;
+  /*align-self: center; makes it so all in row dont open
+  flex: 1 1 auto;*/
 }
-
 .visible-lg{
   margin-left: auto;
 margin-right: auto;
@@ -16,19 +15,27 @@ max-width: 1400px;
 width: 1400px;
 }
 
+
+.card-body{
+background: white;
+}
+
 .navbar-brand{
   font-size: 22px;
+
 }
 
 .btn2{
   background-color: #3e66c0;
   color: white;
   width: 100%;
+  
 }
 
 .navbar{
 border-radius: 1px;
 }
+
 
 .stretched-link {
   color:black;
@@ -40,6 +47,7 @@ border-radius: 1px;
   font-size: 22px;
   font-weight: 500;
   color:black;
+
 }
 
 .jobscard-text{
@@ -47,23 +55,27 @@ border-radius: 1px;
   font-size: 15px;
   max-width: 440px;
   margin: auto;
+
+
 }
 
 .card-subtitle{
+
   font-size: 17px;
 }
 
 .brand-text{
-  font-size: 30px;
-}
 
+  font-size: 30px;
+
+}
 .border-secondary{
   background-color: brown;
 }
-
 .language {
   font-weight: 800;
   color: #0d6efd;
+
 }
 
 .container { 
@@ -103,13 +115,22 @@ textarea {
 
 h1{
   font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 1px;
+  font-weight: 600;
+  margin: 1px;
+  text-align: center;
 }
 
+h2{
+  font-size: 15px;
+  font-weight: 600;
+  margin: 1px;
+  text-align: left;
+}
 p{
   white-space: pre-line;
   text-align: left;
+  margin-bottom: 0px;
+  font-weight: 600;
 }
 
 .red{
@@ -121,6 +142,7 @@ p{
   margin-bottom: 0px;
   text-align: center;
 }
+
 .relative{
   position: relative;
 }
@@ -131,4 +153,24 @@ p{
 
 .dark{
   color: blue;
+}
+.margin-bottom{
+  margin-bottom: 30px;
+}
+
+.red{
+  color: red;
+  font-weight: 600;
+}
+
+.form-select{
+  margin-bottom: 10px;
+}
+
+.form-control{
+  margin-bottom: 10px;
+}
+
+.bold{
+  font-weight: 700;
 }

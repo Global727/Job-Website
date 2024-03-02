@@ -8,21 +8,24 @@ function Card(props) {
     const txt = props.txtcolor ? ' text-' + props.txtcolor : ' text-blue';
     return 'card border-light' + bg + txt;
   }
-  return /*#__PURE__*/React.createElement("div", {
-    className: classes(),
-    class: "text-center",
-    style: {}
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-body text-center "
-  }, props.title && /*#__PURE__*/React.createElement("h5", {
-    className: "card-title"
-  }, props.title), props.text && /*#__PURE__*/React.createElement("p", {
-    className: "card-text"
-  }, props.text), props.body && /*#__PURE__*/React.createElement("p", {
-    className: "card-text"
-  }, " ", props.body), props.status && /*#__PURE__*/React.createElement("div", {
-    id: "createStatus"
-  }, props.status)));
+  return (
+    /*#__PURE__*/
+    //className="text-center"
+    React.createElement("div", {
+      className: classes(),
+      style: {}
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "card-body text-center "
+    }, props.title && /*#__PURE__*/React.createElement("h1", {
+      className: "card-title"
+    }, props.title), props.text && /*#__PURE__*/React.createElement("h1", {
+      className: "card-text"
+    }, props.text), props.body && /*#__PURE__*/React.createElement("h1", {
+      className: "card-text"
+    }, " ", props.body), props.status && /*#__PURE__*/React.createElement("h1", {
+      id: "createStatus"
+    }, props.status)))
+  );
 }
 function JobsCard(props) {
   function classes() {
@@ -35,21 +38,21 @@ function JobsCard(props) {
     style: {}
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-body"
-  }, props.title && /*#__PURE__*/React.createElement("h5", {
+  }, props.title && /*#__PURE__*/React.createElement("h1", {
     className: "jobscard-title job-title-text"
-  }, props.title), props.text && /*#__PURE__*/React.createElement("p", {
+  }, props.title), props.text && /*#__PURE__*/React.createElement("h1", {
     className: "jobscard-text"
-  }, props.text), props.subtitle && /*#__PURE__*/React.createElement("h6", {
+  }, props.text), props.subtitle && /*#__PURE__*/React.createElement("h1", {
     className: "card-subtitle mb-2 text-muted"
-  }, props.subtitle), props.body1 && /*#__PURE__*/React.createElement("h4", {
+  }, props.subtitle), props.body1 && /*#__PURE__*/React.createElement("h1", {
     className: "experience-required"
-  }, props.body1, " "), props.body && /*#__PURE__*/React.createElement("h4", {
+  }, props.body1, " "), props.body && /*#__PURE__*/React.createElement("h1", {
     className: "jobscard-text language"
-  }, props.body, " "), props.body3 && /*#__PURE__*/React.createElement("h4", {
+  }, props.body, " "), props.body3 && /*#__PURE__*/React.createElement("h1", {
     className: "experience-required"
-  }, props.body3, " "), props.body2 && /*#__PURE__*/React.createElement("h4", {
+  }, props.body3, " "), props.body2 && /*#__PURE__*/React.createElement("h1", {
     className: "jobscard-text"
-  }, props.body2, " "), props.status && /*#__PURE__*/React.createElement("div", {
+  }, props.body2, " "), props.status && /*#__PURE__*/React.createElement("h1", {
     id: "jobscreateStatus"
   }, props.status)));
 }
