@@ -774,7 +774,8 @@ function BalanceForm(props) {
     value: "Node.js"
   }, "Node.js")), /*#__PURE__*/React.createElement("button", {
     type: "submit",
-    className: "btn btn-primary btn-lg btn2",
+    className: "btn btn-primary btn-lg btn2 hide",
+    id: "captcha",
     onClick: handle
   }, "Search"));
 }

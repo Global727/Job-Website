@@ -174,3 +174,17 @@ p{
 .bold{
   font-weight: 700;
 }
+
+.e{
+  display: grid;
+justify-content: space-evenly;
+}
+
+.center2{
+  margin:auto;
+  display: block;
+}
+
+.hide{
+  display:none;
+}
