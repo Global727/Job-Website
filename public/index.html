@@ -1,66 +1,110 @@
 <!DOCTYPE html>
 <html>
+  <title>StackHire</title>
   <head id="header">
     <meta charset="UTF-8"/>
     <meta property="og:image" content="stackhirelogo2.jpg" /> 
     <meta name="description" content="Stackhire is a job website only for software developers with unique features that makes finding the job that fits you easier.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+    
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <!-- Load React -->
+     <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+     <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+     <script src="https://unpkg.com/react-router@5.2.1/umd/react-router.min.js" crossorigin></script>
+     <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js" crossorigin></script>
     <!--Favicons-->
     <link rel="icon" href="tabLogo.png" type="image/png">
-
-    <title>StackHire</title>
-
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" type="text/css" href="home.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+    <script type="text/javascript" src="https://8daee0766eae.us-east-2.captcha-sdk.awswaf.com/8daee0766eae/jsapi.js" defer></script>
+    
+    <!-- don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
 
     
   </head>
-  <body style="background: white">
-    <!-- Root -->
+    <body style="background: white">
+    
+      <!-- Root -->
     <div id="root" style="margin: 0px; align-items: center;"></div>
-      
-    <!--Ko-Fi Button -->
-      <script  class="hide-full"src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-      <script>
-        kofiWidgetOverlay.draw('stackhireus', {
-          'type': 'floating-chat',
-          'floating-chat.donateButton.text': 'Support me',
-          'floating-chat.donateButton.background-color': '#00b9fe',
-          'floating-chat.donateButton.text-color': '#fff'
-        });
-      </script>    <div class="center margin-bottom"></br>
-      It's free to post jobs on this website so donations help cover costs, thanks. </br>
-      <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-      <script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'U6U4V23R3');kofiwidget2.draw();</script> 
-      </div>
-  </body>
     
-     <!-- Load React -->
-    <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-router@5.2.1/umd/react-router.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js" crossorigin></script>
     
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <!--Captcha-->
+    <button id="render-captcha-btn" class="btn bt2 btn-primary center2"onClick="onClickRenderCaptcha()" style="margin:auto">Render Captcha</button>
+    <div id="captcha-container"></div>
+    <button id="fetch-data-btn" style="display: none" onClick="fetchProtectedData()">Fetch data</button>
+   
+    <script>
+      function setError(error) {
+          document.getElementById("error-container").innerHTML = error.message;
+      }
+
+      function onClickRenderCaptcha() {
+          const container = document.getElementById('captcha-container');
+          AwsWafCaptcha.renderCaptcha(container, {
+              apiKey: "U7OUFm55NxfvSq7qo64KylW/WPD5a+5+VId8eekZ2HjYB/9mkzDfFxOTgKngqj80UWduk7E/JMHfGQeonZyj0I7EmYlogHTJmiMf82r0MRyAX7v9Dab7J+mkyVhDK0foXY0MX/kZ7EwM6XGdSv4QCBTftyHjvOwh/4Zz36MhQl3mdPvp4DgUpHgVxNWWHkyU85x2SdTfL2kq+7bsaszM2gJnXi82fGrWvDpHH4wBvjQsnxy/9pJsauda9xD42XmMRtGmVFc+/A6Zqz58AD9woHhZJlnkTpQh03pnt99v1kOXj9eJQ1iT6KR0flV3wW6Y6pDOduMMoa+MufXcbSYA+492/xD6uGhudGdQ5KrDzlzdXBgFjF0NT9ipP6Z+MW1Jv1v8bmgRIKc2qKYBbMvUA8SxfvPGfXlE63VDwM1X6rLqFiTyc08nRGr8Ho+C914ILzJMUONw2Z5u0J8sOABf+M+qO/vbZj8QTDRnQlMuhiRm0T8Z36Yg5T9cBttYVoApl5K9AdGF37O51X3Ye8WN+KY2vQ8eAVFa9fkQBf0TmgJCclhEm5sMm/BmSB1rEB6MlrAQ8DdKwyPmrFOJHqk/CiESV2U5RIQCw7TqLUcDoTYylJhXn4cUEXxe8WNK0Q7nRzwp71OEaTF+DXa7T3edohA6xOpIt+vzap+NHC9bpHg=_0_1 API KEY",
+              onSuccess: () => {
+                  document.getElementById("fetch-data-btn").style.display = 'block';
+                  document.getElementById('captcha').style.display = "block";
+              },
+              onError: setError,
+          });
+      }
+
+  
+  </script>
+    
+    
+
+  
   
 
-    <!-- Load React Components. -->
-    <script src="context.js" defer type="application/javascript"></script>
-    <script src="navbar.js" defer type="application/javascript"></script>
-    <script src="createlisting.js" defer type="application/javascript"></script>
+
+    <!--Ko-Fi Button -->
+    <script  class="hide-full"src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('stackhireus', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#00b9fe',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>    <div class="center margin-bottom"></br>
+    It's free to post jobs on this website so donations help cover costs, thanks. </br>
+    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+    <script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'U6U4V23R3');kofiwidget2.draw();</script> 
+    </div>
+
+
+
     
-    <script src="home.js" defer type="application/javascript"></script>
-    <script src="index.js" defer type="application/javascript"></script>
+   </body>
+   
+  
+   
+
+   
+  
+
+  
+   
+   
+    <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load React Components. -->
+    <script src="context.js" defer type="text/babel"></script>
+    <script src="navbar.js" defer type="text/babel"></script>
+    <script src="createlisting.js" defer type="text/babel"></script>
+    <script src="alldata.js" defer type="text/babel"></script>
+    <script src="home.js" defer type="text/babel"></script>
+    <script src="index.js" defer type="text/babel"></script>
    
 
 
@@ -69,8 +113,7 @@
 
     
 
-    <!--Load Stripe Payments-->
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+    
     
     
 
