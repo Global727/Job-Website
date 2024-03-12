@@ -35,30 +35,7 @@
     
     
     <!--Captcha-->
-    <button id="render-captcha-btn" class="btn bt2 btn-primary center2"onClick="onClickRenderCaptcha()" style="margin:auto">Render Captcha</button>
-    <div id="captcha-container"></div>
-    <button id="fetch-data-btn" style="display: none" onClick="fetchProtectedData()">Fetch data</button>
-   
-    <script>
-      function setError(error) {
-          document.getElementById("error-container").innerHTML = error.message;
-      }
-
-      function onClickRenderCaptcha() {
-          const container = document.getElementById('captcha-container');
-          AwsWafCaptcha.renderCaptcha(container, {
-              apiKey: "U7OUFm55NxfvSq7qo64KylW/WPD5a+5+VId8eekZ2HjYB/9mkzDfFxOTgKngqj80UWduk7E/JMHfGQeonZyj0I7EmYlogHTJmiMf82r0MRyAX7v9Dab7J+mkyVhDK0foXY0MX/kZ7EwM6XGdSv4QCBTftyHjvOwh/4Zz36MhQl3mdPvp4DgUpHgVxNWWHkyU85x2SdTfL2kq+7bsaszM2gJnXi82fGrWvDpHH4wBvjQsnxy/9pJsauda9xD42XmMRtGmVFc+/A6Zqz58AD9woHhZJlnkTpQh03pnt99v1kOXj9eJQ1iT6KR0flV3wW6Y6pDOduMMoa+MufXcbSYA+492/xD6uGhudGdQ5KrDzlzdXBgFjF0NT9ipP6Z+MW1Jv1v8bmgRIKc2qKYBbMvUA8SxfvPGfXlE63VDwM1X6rLqFiTyc08nRGr8Ho+C914ILzJMUONw2Z5u0J8sOABf+M+qO/vbZj8QTDRnQlMuhiRm0T8Z36Yg5T9cBttYVoApl5K9AdGF37O51X3Ye8WN+KY2vQ8eAVFa9fkQBf0TmgJCclhEm5sMm/BmSB1rEB6MlrAQ8DdKwyPmrFOJHqk/CiESV2U5RIQCw7TqLUcDoTYylJhXn4cUEXxe8WNK0Q7nRzwp71OEaTF+DXa7T3edohA6xOpIt+vzap+NHC9bpHg=_0_1 API KEY",
-              onSuccess: () => {
-                  document.getElementById("fetch-data-btn").style.display = 'block';
-                  document.getElementById('captcha').style.display = "block";
-              },
-              onError: setError,
-          });
-      }
-
-  
-  </script>
-    
+ 
     
 
   
