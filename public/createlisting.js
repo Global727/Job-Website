@@ -3,29 +3,35 @@ function CreateAccount(){
   const [status, setStatus] = React.useState('');
 
   return (
-    <div class="create">
+    <div className="create">
     <Card
       bgcolor="light"
       header="Create Account"
       status={status}
       body={show ? 
-        <CreateForm setShow={setShow}/> : 
+        <CreateForm setShow={setShow} setStatus={setStatus}/> : 
         <CreateMsg setShow={setShow}/>}
     /></div>
   )
 }
 
+
+
+
+
+
+
 function CreateMsg(props){
   return(<>
-   <div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">Listing Created</h4>
-  <p>Thanks For Using Coding.Jobs</p>
+   <div className="alert alert-success" role="alert">
+  <h4 className="alert-heading">Listing Created</h4>
+  <p>Thanks For Using StackHire.US</p>
   
-  <p class="mb-10"> </p>
+  <p className="mb-10"> </p>
   <button type="submit" 
       className="btn btn-light" 
       onClick={() => props.setShow(true)}>
-        View Listing
+        Make Another Listing
     </button>
 </div>
   </>);
@@ -35,16 +41,18 @@ function CreateForm(props){
   const [name, setName]       = React.useState('');
   const [desc, setDesc]       = React.useState('');
   const [degree, setDegree]   = React.useState('');
-  const [title, setTitle]   = React.useState('');
+  const [title, setTitle]     = React.useState('');
   const [experience, setExperience]   = React.useState();
+  const [ndxp, setNdxp]       = React.useState(0);
+  const [bsxp, setBsxp]       = React.useState(0);
   const [manage, setManage]   = React.useState('');
-  const [location, setLocation]   = React.useState('');
-  const [city, setCity]   = React.useState('');
+  const [location, setLocation]= React.useState('');
+  const [city, setCity]       = React.useState('');
   const [contract, setContract]   = React.useState('');
-  const [respo, setRespo]   = React.useState('');
-  const [qual, setQual]   = React.useState('');
-  const [rqual, setRqual]   = React.useState('');
-  const [link, setLink]   = React.useState('');
+  const [respo, setRespo]     = React.useState('');
+  const [qual, setQual]       = React.useState('');
+  const [rqual, setRqual]     = React.useState('');
+  const [link, setLink]       = React.useState('');
   const [lang1, setLang1]     = React.useState('null');
   const [lang2, setLang2]     = React.useState('null');
   const [lang3, setLang3]     = React.useState('null');
@@ -56,69 +64,78 @@ function CreateForm(props){
   const [lang9, setLang9]     = React.useState('null');
   const [lang10, setLang10]   = React.useState('null');
 
+
+
+
   function handle(){
-    console.log( "create success", name, desc);
-    const url = `/account/create/${encodeURIComponent(name)}/${encodeURIComponent(desc)}/${degree}/${title}/${experience}/${manage}/${location}/${encodeURIComponent(city)}/${contract}/${encodeURIComponent(respo)}/${encodeURIComponent(qual)}/${encodeURIComponent(rqual)}/${encodeURIComponent(link)}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
+    
+
+    
+
+    console.log( "create success");
+
+    
+    var url = `/account/create/${encodeURIComponent(name)}/${encodeURIComponent(desc)}/${degree}/${title}/${experience}/${ndxp}/${bsxp}/${manage}/${location}/${encodeURIComponent(city)}/${contract}/${encodeURIComponent(respo)}/${encodeURIComponent(qual)}/${encodeURIComponent(rqual)}/${encodeURIComponent(link)}/${lang1}/${lang2}/${lang3}/${lang4}/${lang5}/${lang6}/${lang7}/${lang8}/${lang9}/${lang10}`;
     (async () => {
         var res  = await fetch(url);
         var data = await res.json();    
         console.log(data);        
     })();
-    props.setShow(false);
-  }    
+      props.setShow(false);
 
+  }
   return (<>
   
-    Business Name<br/>
+    <p>Business Name</p>
     <input type="input" 
       className="form-control" 
       placeholder="Enter Company Name" 
-      value={name} 
-      onChange={e => setName(e.currentTarget.value)} /> <br/>
+      value={name}
+      onChange={e => setName(e.currentTarget.value)} /> 
 
-    Job Description<br/>
+    <p>Job Description</p> 
     <textarea
       className="form-control" 
-      placeholder="Enter Job/Comapny Description" 
+      placeholder="Enter Job/Company Description" 
       value={desc} 
-      onChange={e => setDesc(e.currentTarget.value)}/><br/>
+      onChange={e => setDesc(e.currentTarget.value)}/>
 
-    Job Description<br/>
+    <p>Responsibilities</p>
     <textarea  
       className="form-control" 
       placeholder="Enter Job Responsibilies/Duties" 
       value={respo} 
-      onChange={e => setRespo(e.currentTarget.value)}/><br/>
+      onChange={e => setRespo(e.currentTarget.value)}/>
 
-     Job Description<br/>
-    <textarea 
-      className="form-control" 
-      placeholder="Enter Qualifications" 
-      value={qual} 
-      onChange={e => setQual(e.currentTarget.value)}/><br/>
-
-     Job Description<br/>
+    <p>Required Qualifications</p>
     <textarea
       className="form-control" 
       placeholder="Enter Required Qualifications" 
       value={rqual} 
-      onChange={e => setRqual(e.currentTarget.value)}/><br/>
+      onChange={e => setRqual(e.currentTarget.value)}/>
+
+     <p>Preferred Qualifications</p>
+    <textarea 
+      className="form-control" 
+      placeholder="Enter Qualifications" 
+      value={qual} 
+      onChange={e => setQual(e.currentTarget.value)}/>
 
 
-    Job URL<br/>
+<p>Job URL</p>
     <input type="input" 
       className="form-control" 
-      placeholder="Enter Job URL for your website" 
+      placeholder="''https://'' required" 
       value={link} 
-      onChange={e => setLink(e.currentTarget.value)} /><br/>
-
+      onChange={e => setLink(e.currentTarget.value)} />
+   
   <select  
       className="form-select" 
       placeholder="What is the Title for this job?" 
-      value={title} 
+      value={title}
       onChange={e => setTitle(e.currentTarget.value)}>
 
-<option selected>Job Title?</option>
+<option defaultValue>Job Title?</option>
      <option value="Entry Level">Entry Level</option>
      <option value="Software Developer">Software Developer</option>
      <option value="Software Engineer">Software Engineer</option>
@@ -126,13 +143,13 @@ function CreateForm(props){
      <option value="Software Engineer">Software Engineer</option>
      <option value="Senior Software Developer">Senior Software Developer</option>
      <option value="Senior Software Engineer">Senior Software Engineer</option>
+     <option value="Full Stack Engineer">Full Stack Engineer</option>
 
-    </select><br/>
-
+    </select>
 
 
   
-    Qualifications<br/>
+
 
     <select
       className="form-select" 
@@ -140,7 +157,7 @@ function CreateForm(props){
       value={experience} 
       onChange={e => setExperience(e.currentTarget.value)}>
 
-    <option selected>Years Experience</option>
+    <option defaultValue>Years Experience</option>
       <option value="1" >1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -152,43 +169,80 @@ function CreateForm(props){
       <option value="9">9</option>
       <option value="10">10</option>
 
-    </select><br/>
-
+    </select>   
+   
       <select
     className="form-select"
     placeholder="Degree Level?"
     value={degree}
     onChange={e => setDegree(e.currentTarget.value)}>
 
-    <option selected>Degree Level?</option>
+    <option defaultValue>Degree Level?</option>
      <option value="No Degree">No Degree</option>
         <option value="AA">Associate</option>
         <option value="BS">Bachelor</option>
         <option value="Master">Master</option>
         <option value="PhD">PhD</option>
-        </select><br/>
+        </select>
+    <p>How Many Additional Years to Equate No Degree/Certificate With Higher Degree</p>
+    <select
+      className="form-select" 
+      placeholder="No Degree Required If You Have Experience?" 
+      value={ndxp} 
+      onChange={e => setNdxp(e.currentTarget.value)}
+      title={"Only Necessary If Applicants with No Degree or Bootcamp Require Extra Years of Experience to Equate Higher Degree"}>
+      <option value="0">0</option>
+      <option value="1" >1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
 
+    </select>
+    <p>How Many Additional Years to Equate Bachelors With Higher Degree</p>
+    <select
+      className="form-select" 
+      placeholder="No Degree Required If You Have Experience?" 
+      value={bsxp} 
+      onChange={e => setBsxp(e.currentTarget.value)}
+      title={"Only Necessary If Applicants with Bachelors Degree Require Extra Years of Experience To Equate Masters or PHD"}>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
 
+    </select>    
     <select
       className="form-select" 
       placeholder="Management Experience?" 
       value={manage} 
       onChange={e => setManage(e.currentTarget.value)}>
 
-    <option selected>Management Experience</option>
+    <option defaultValue>Management Experience</option>
     <option value="Yes">Yes</option>
       <option value="No">No</option>
     
 
-    </select><br/>
-
+    </select>    
     <select
       className="form-select" 
       placeholder="Job Location" 
       value={location} 
       onChange={e => setLocation(e.currentTarget.value)}>
 
-<option selected>Choose Job Location</option>
+<option defaultValue>Choose Job Location</option>
 
 	<option value="Remote">Remote</option>
   <option value="AL">Alabama</option>
@@ -245,36 +299,33 @@ function CreateForm(props){
 
     
 
-    </select><br/>
-
+    </select>
     <input type="input" 
       className="form-control" 
       placeholder="Enter City Name" 
       value={city} 
-      onChange={e => setCity(e.currentTarget.value)} /><br/>
-
-    
+      onChange={e => setCity(e.currentTarget.value)} />
+      
     <select
       className="form-select" 
       placeholder="Contract Job?" 
       value={contract} 
       onChange={e => setContract(e.currentTarget.value)}>
 
-<option selected>Is This a Contract Job?</option>
+<option defaultValue>Is This a Contract Job?</option>
     <option value="Yes">Yes</option>
       <option value="No">No</option>
     
 
-    </select><br/>
-      
-      Languages <br/>
+    </select>        <p className="red">Applicants will only be shown your listing if they match all parameters below.</p>
+      <p>Languages</p> 
         <select 
       className="form-select" 
       placeholder="Enter Job Here"
       value={lang1} 
       onChange={e => setLang1(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Coding Language</option>
+      <option defaultValue="none">Add Coding Language</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -297,15 +348,14 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
-
+      </select>
          <select 
       className="form-select" 
       placeholder="Enter Job Here"
       value={lang2} 
       onChange={e => setLang2(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Language (Optional)</option>
+      <option defaultValue="none">Add Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -328,8 +378,7 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
-   
+      </select>   
 
 
       <select 
@@ -338,7 +387,7 @@ function CreateForm(props){
       value={lang3} 
       onChange={e => setLang3(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Language (Optional)</option>
+      <option defaultValue="none">Add Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -361,8 +410,7 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
-   
+      </select>   
 
 
       <select 
@@ -371,7 +419,7 @@ function CreateForm(props){
       value={lang4} 
       onChange={e => setLang4(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Language (Optional)</option>
+      <option defaultValue="none">Add Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -394,8 +442,7 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
-   
+      </select>   
 
 
       <select 
@@ -404,7 +451,7 @@ function CreateForm(props){
       value={lang5} 
       onChange={e => setLang5(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Language (Optional)</option>
+      <option defaultValue="none">Add Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -427,8 +474,7 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
-   
+      </select>   
 
 
       <select 
@@ -437,7 +483,7 @@ function CreateForm(props){
       value={lang6} 
       onChange={e => setLang6(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Language (Optional)</option>
+      <option defaultValue="none">Add Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -460,8 +506,7 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
-   
+      </select>   
 
 
       <select 
@@ -470,7 +515,7 @@ function CreateForm(props){
       value={lang7} 
       onChange={e => setLang7(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Language (Optional)</option>
+      <option defaultValue="none">Add Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -493,8 +538,7 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
-   
+      </select>   
 
 
       <select 
@@ -503,7 +547,7 @@ function CreateForm(props){
       value={lang8} 
       onChange={e => setLang8(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Language (Optional)</option>
+      <option defaultValue="none">Add Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -526,8 +570,7 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
-   
+      </select>   
 
 
       <select 
@@ -536,7 +579,7 @@ function CreateForm(props){
       value={lang9} 
       onChange={e => setLang9(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Language (Optional)</option>
+      <option defaultValue="none">Add Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -559,8 +602,7 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
-   
+      </select>   
 
 
       <select 
@@ -569,7 +611,7 @@ function CreateForm(props){
       value={lang10} 
       onChange={e => setLang10(e.currentTarget.value)}> 
       
-      <option value="none" selected>Add Language (Optional)</option>
+      <option defaultValue="none">Add Language (Optional)</option>
         <option value="HTML">HMTL</option>
         <option value="Javascript">Javascript</option>
         <option value="Java">Java</option>
@@ -592,35 +634,38 @@ function CreateForm(props){
         <option value="Scala">Scala</option>
         <option value='a'>a</option>
 
-      </select><br/>
+      </select>
 
 
+    
+    
 
+    
+    
+    
 
-<p>
-<stripe-buy-button
-  buy-button-id="buy_btn_1ODLdDIzISM1ETBPPQoUGid9"
-  publishable-key="pk_test_51ODLJfIzISM1ETBPFW4gfuUjLK7EeW1nk8I9HM5orRjJ61IlaJSkOeANe86KzIUZAiUNqTYA2dCwYb4mo5FhJn7f00CQ6jMAOp"
->
-</stripe-buy-button>
-</p>
-
-
-
+    
+ 
+  
+   
 
 
 
 
     <button type="submit" 
-      className="btn btn-light" 
+      className="btn btn2 btn-primary btn-lg hide" 
+      id="captcha"
       onClick={handle}>Create Listing</button>
+    
+    
+ 
 
-  </> );
-  <p>
-<stripe-buy-button
-  buy-button-id="buy_btn_1ODLdDIzISM1ETBPPQoUGid9"
-  publishable-key="pk_test_51ODLJfIzISM1ETBPFW4gfuUjLK7EeW1nk8I9HM5orRjJ61IlaJSkOeANe86KzIUZAiUNqTYA2dCwYb4mo5FhJn7f00CQ6jMAOp"
->
-</stripe-buy-button>
-</p>
+
+  </> )
+  
+
+  
+  
+  ;
+
 }

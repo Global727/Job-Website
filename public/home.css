@@ -5,15 +5,8 @@
     color: black;
     background-color:  white;
     header: balance;
-    align-self: center;
-    flex: 1 1 auto;
-    
-    
-    
-
-    
-    
-
+    /*align-self: center; makes it so all in row dont open
+    flex: 1 1 auto;*/
 }
 .visible-lg{
     margin-left: auto;
@@ -24,8 +17,7 @@
 
 
 .card-body{
-   
-    
+  background: white;
 }
 
 .navbar-brand{
@@ -36,7 +28,8 @@
 .btn2{
     background-color: #3e66c0;
     color: white;
-    width: 25%;
+    width: 100%;
+    
 }
 
 .navbar{
@@ -92,15 +85,11 @@ flex-direction: row;
 flex-wrap: wrap;
 align-content: flex-start;
 justify-content: center;
-
-
   }
 
 .experience-required{
     font-size: 18px;
     font-weight: 400;
-    
-
   }
 
 
@@ -117,8 +106,6 @@ justify-content: center;
     max-width: 440px;
     margin: auto;
     width: 50%;
-  
-
 }
 
 textarea {
@@ -128,12 +115,76 @@ textarea {
 
   h1{
     font-size: 15px;
-    font-weight: bold;
-    margin-bottom: 1px;
-
+    font-weight: 600;
+    margin: 1px;
+    text-align: center;
   }
 
+  h2{
+    font-size: 15px;
+    font-weight: 600;
+    margin: 1px;
+    text-align: left;
+  }
   p{
     white-space: pre-line;
     text-align: left;
+    margin-bottom: 0px;
+    font-weight: 600;
+  }
+
+  .red{
+    color: red;
+  }
+
+  .center{
+    width: 100%;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
+  .relative{
+    position: relative;
+  }
+
+  #createStatus {
+    margin-bottom: 50%;
+  }
+  
+  .dark{
+    color: blue;
+  }
+  .margin-bottom{
+    margin-bottom: 30px;
+  }
+
+  .red{
+    color: red;
+    font-weight: 600;
+  }
+
+  .form-select{
+    margin-bottom: 10px;
+  }
+
+  .form-control{
+    margin-bottom: 10px;
+  }
+
+  .bold{
+    font-weight: 700;
+  }
+
+  .e{
+    display: grid;
+  justify-content: space-evenly;
+  }
+
+  .center2{
+    margin:auto;
+    display: block;
+  }
+
+  .hide{
+    display:block;
   }

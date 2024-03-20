@@ -1,3 +1,10 @@
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Spa/>);
+
+
+
+
 function Spa() {
   return (
     <HashRouter>
@@ -7,7 +14,7 @@ function Spa() {
           <div className="container" style={{ margin: "0%", maxWidth: "100%"}}>
             <Route path="/" exact component={Home} />
             <Route path="/createlisting/" component={CreateAccount} />
-            <Route path="/alldata/" component={AllData} />
+
           </div>
         </UserContext.Provider>
       </div>
@@ -16,9 +23,15 @@ function Spa() {
 }
 
 
-ReactDOM.render(
-  <Spa/>,
-  document.getElementById('root')
-);
+
+
+
+
+
+
+//ReactDOM.render(
+//  <Spa/>,
+//  document.getElementById('root')
+//);
  
 

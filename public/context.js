@@ -3,6 +3,7 @@ const Link        = ReactRouterDOM.Link;
 const HashRouter  = ReactRouterDOM.HashRouter;
 const UserContext = React.createContext(null);
 
+
 function Card(props){
   function classes(){
     const bg  = props.bgcolor  ? ' bg-' + props.bgcolor : ' ';
@@ -11,14 +12,15 @@ function Card(props){
   }
 
   return (
-    <div className={classes()} class="text-center" style={{} }>
+    //className="text-center"
+    <div className={classes()}  style={{} }>
       
       <div className="card-body text-center ">
-        {props.title && (<h5 className="card-title">{props.title}</h5>)}
-        {props.text && (<p className="card-text">{props.text}</p>)}
-        {props.body && (<p className="card-text" > {props.body}</p>)}
+        {props.title && (<h1 className="card-title">{props.title}</h1>)}
+        {props.text && (<h1 className="card-text">{props.text}</h1>)}
+        {props.body && (<h1 className="card-text"> {props.body}</h1>)}
         
-        {props.status && (<div id='createStatus'>{props.status}</div>)}
+        {props.status && (<h1 id='createStatus'>{props.status}</h1>)}
       </div>
     </div>      
   );    
@@ -38,17 +40,19 @@ function JobsCard(props){
       
       
       <div className="card-body">
-        {props.title && (<h5 className="jobscard-title job-title-text">{props.title}</h5>)}
-        {props.text && (<p className="jobscard-text">{props.text}</p>)}
-        {props.subtitle && (<h6 className="card-subtitle mb-2 text-muted">{props.subtitle}</h6>)}
-        {props.body1  && (<h4 className="experience-required">{props.body1} </h4>)}
-        {props.body  && (<h4 className="jobscard-text language">{props.body} </h4>)}
-        {props.body3  && (<h4 className="experience-required">{props.body3} </h4>)}
-        {props.body2  && (<h4 className="jobscard-text">{props.body2} </h4>)}
-        {props.status && (<div id='jobscreateStatus'>{props.status}</div>)}
+        {props.title && (<h1 className="jobscard-title job-title-text">{props.title}</h1>)}
+        {props.text && (<h1 className="jobscard-text">{props.text}</h1>)}
+        {props.subtitle && (<h1 className="card-subtitle mb-2 text-muted">{props.subtitle}</h1>)}
+        {props.body1  && (<h1 className="experience-required">{props.body1} </h1>)}
+        {props.body  && (<h1 className="jobscard-text language">{props.body} </h1>)}
+        {props.body3  && (<h1 className="experience-required">{props.body3} </h1>)}
+        {props.body2  && (<h1 className="jobscard-text">{props.body2} </h1>)}
+        {props.status && (<h1 id='jobscreateStatus'>{props.status}</h1>)}
       </div>
     </div> 
     
          
   );    
+
+
 }

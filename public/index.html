@@ -1,45 +1,84 @@
 <!DOCTYPE html>
 <html>
+  <title>StackHire</title>
   <head id="header">
     <meta charset="UTF-8"/>
     <meta property="og:image" content="stackhirelogo2.jpg" /> 
     <meta name="description" content="Stackhire is a job website only for software developers with unique features that makes finding the job that fits you easier.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>StackHire</title>
-
-    <!-- bootstrap css -->
     
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <!-- Load React -->
+     <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+     <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+     <script src="https://unpkg.com/react-router@5.2.1/umd/react-router.min.js" crossorigin></script>
+     <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js" crossorigin></script>
+    <!--Favicons-->
+    <link rel="icon" href="tabLogo.png" type="image/png">
+    <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" type="text/css" href="home.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    
     <!-- don't use this in production: -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
 
     
   </head>
     <body style="background: white">
-    <!-- Root -->
+    
+      <!-- Root -->
     <div id="root" style="margin: 0px; align-items: center;"></div>
+    
+    
+
+
+
+
+  
+  
+
+
+    <!--Ko-Fi Button -->
+    <script  class="hide-full"src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('stackhireus', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#00b9fe',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>    <div class="center margin-bottom"></br>
+    It's free to post jobs on this website so donations help cover costs, thanks. </br>
+    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+    <script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'U6U4V23R3');kofiwidget2.draw();</script> 
+    </div>
+
+
+
+    
    </body>
-    <!-- Load React -->
-    <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-router@5.2.1/umd/react-router.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js" crossorigin></script>
-      <!-- Load React. -->
+   
+  
+   
+
+   
+  
+
+  
+   
+   
+    <!-- Load React. -->
   <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <!-- Load our React component. -->
-
 
     <!-- Load React Components. -->
     <script src="context.js" defer type="text/babel"></script>
     <script src="navbar.js" defer type="text/babel"></script>
     <script src="createlisting.js" defer type="text/babel"></script>
-    <script src="alldata.js" defer type="text/babel"></script>
     <script src="home.js" defer type="text/babel"></script>
     <script src="index.js" defer type="text/babel"></script>
    
@@ -50,8 +89,7 @@
 
     
 
-    <!--Load Stripe Payments-->
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+    
     
     
 
