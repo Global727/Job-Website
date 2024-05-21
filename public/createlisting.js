@@ -38,21 +38,22 @@ function CreateMsg(props){
 }
 
 function CreateForm(props){
-  const [name, setName]       = React.useState('');
-  const [desc, setDesc]       = React.useState('');
-  const [degree, setDegree]   = React.useState('');
-  const [title, setTitle]     = React.useState('');
+  const [name, setName]       = React.useState(' ');
+  const [desc, setDesc]       = React.useState(' ');
+  const [degree, setDegree]   = React.useState(' ');
+  const [title, setTitle]     = React.useState(' ');
   const [experience, setExperience]   = React.useState();
   const [ndxp, setNdxp]       = React.useState(0);
   const [bsxp, setBsxp]       = React.useState(0);
-  const [manage, setManage]   = React.useState('');
-  const [location, setLocation]= React.useState('');
-  const [city, setCity]       = React.useState('');
-  const [contract, setContract]   = React.useState('');
-  const [respo, setRespo]     = React.useState('');
-  const [qual, setQual]       = React.useState('');
-  const [rqual, setRqual]     = React.useState('');
-  const [link, setLink]       = React.useState('');
+  const [manage, setManage]   = React.useState(' ');
+  const [location, setLocation]= React.useState('Choose Job Location');
+  
+  const [city, setCity]       = React.useState(' ');
+  const [contract, setContract]   = React.useState(' ');
+  const [respo, setRespo]     = React.useState(' ');
+  const [qual, setQual]       = React.useState(' ');
+  const [rqual, setRqual]     = React.useState(' ');
+  const [link, setLink]       = React.useState(' ');
   const [lang1, setLang1]     = React.useState('null');
   const [lang2, setLang2]     = React.useState('null');
   const [lang3, setLang3]     = React.useState('null');
@@ -79,7 +80,8 @@ function CreateForm(props){
     (async () => {
         var res  = await fetch(url);
         var data = await res.json();    
-        console.log(data);        
+        console.log(data); 
+      
     })();
       props.setShow(false);
 
@@ -122,7 +124,7 @@ function CreateForm(props){
       onChange={e => setQual(e.currentTarget.value)}/>
 
 
-<p>Job URL</p>
+<p>Job URL (https:// required)</p>
     <input type="input" 
       className="form-control" 
       placeholder="''https://'' required" 
@@ -170,7 +172,7 @@ function CreateForm(props){
       <option value="10">10</option>
 
     </select>   
-   
+   <p>Degree Level</p>
       <select
     className="form-select"
     placeholder="Degree Level?"
@@ -236,6 +238,19 @@ function CreateForm(props){
     
 
     </select>    
+
+    <select
+      className="form-select" 
+      placeholder="Contract Job?" 
+      value={contract} 
+      onChange={e => setContract(e.currentTarget.value)}>
+
+<option defaultValue>Is This a Contract Job?</option>
+    <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    
+
+    </select>  
     <select
       className="form-select" 
       placeholder="Job Location" 
@@ -300,24 +315,16 @@ function CreateForm(props){
     
 
     </select>
+    <p>Enter City Name</p>
     <input type="input" 
       className="form-control" 
       placeholder="Enter City Name" 
       value={city} 
       onChange={e => setCity(e.currentTarget.value)} />
       
-    <select
-      className="form-select" 
-      placeholder="Contract Job?" 
-      value={contract} 
-      onChange={e => setContract(e.currentTarget.value)}>
-
-<option defaultValue>Is This a Contract Job?</option>
-    <option value="Yes">Yes</option>
-      <option value="No">No</option>
+         
     
-
-    </select>        <p className="red">Applicants will only be shown your listing if they match all parameters below.</p>
+      <p className="red">Applicants will only be shown your listing if they the parameters you set below.</p>
       <p>Languages</p> 
         <select 
       className="form-select" 
