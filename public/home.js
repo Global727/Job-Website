@@ -163,7 +163,7 @@ function BalanceForm(props) {
       value={experiencemin}
       onChange={e => setExperiencemin(e.currentTarget.value)}
       data-bs-toggle="tooltip" data-bs-placement="right"
-      title="Allows you to search for jobs that dont exactly meet your years of experience">
+      title="Allows you to search for jobs that dont exactly meet your years of experience. ie: you have 5 years of experience but you want to search for jobs that require 0-2 years of experience.">
 
 
       <option value="1">Minimum XP Years to Include (1)</option>

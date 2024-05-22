@@ -21,8 +21,8 @@
     "lowdb": "^1.0.0",
     "mongodb": "^3.7.3",
     "mongosh": "^1.5.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-google-recaptcha": "^3.1.0",
     "serve": "^14.0.1"
   },
