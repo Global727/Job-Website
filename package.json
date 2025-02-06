@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.23.9"
+    "@babel/core": "^7.23.9",
+    "react-router-dom": "^7.1.5"
   }
 }
